@@ -1,0 +1,749 @@
+[
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the purpose of 'Annotations' in Grafana?",
+        "correct_answer": "To mark specific events (like deployments or outages) on graphs to correlate them with metric changes.",
+        "options": [
+            "To mark specific events (like deployments or outages) on graphs to correlate them with metric changes.",
+            "To write comments in the code.",
+            "To add subtitles to videos.",
+            "To label user accounts."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Monitoring",
+                "Grafana"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How can you support multi-tenancy in Grafana?",
+        "correct_answer": "By using Organizations (Orgs) to isolate dashboards and data sources for different teams.",
+        "options": [
+            "By using Organizations (Orgs) to isolate dashboards and data sources for different teams.",
+            "By installing Grafana multiple times.",
+            "By using different browsers.",
+            "Grafana does not support multi-tenancy."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Monitoring",
+                "Grafana",
+                "Admin"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Explain the concept of 'Alert states' in Grafana (OK, Pending, Alerting, No Data).",
+        "correct_answer": "**OK**: Condition is not met. **Pending**: Condition is met but hasn't persisted for the defined duration. **Alerting**: Condition met for the duration; notification sent. **No Data**: Query returned no results.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Monitoring",
+                "Grafana",
+                "Alerting"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Compare Loki and Elasticsearch for logging.",
+        "correct_answer": "Loki indexes only labels (like Prometheus) and leaves log content unindexed, making it lightweight and cheaper. Elasticsearch indexes all text, enabling powerful full-text search but using more resources.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Logging",
+                "Comparison"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the Hot-Warm-Cold architecture in Elasticsearch?",
+        "correct_answer": "A data tiering strategy to optimize cost and performance: Hot (frequent I/O), Warm (read-only), Cold (archival).",
+        "options": [
+            "A data tiering strategy to optimize cost and performance: Hot (frequent I/O), Warm (read-only), Cold (archival).",
+            "Temperature control for server rooms.",
+            "A backup strategy using tapes.",
+            "A way to restart servers."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Logging",
+                "Elasticsearch",
+                "Architecture"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How is backpressure managed in Logstash?",
+        "correct_answer": "Using Persistent Queues (PQ) to buffer events on disk when outputs are overwhelmed.",
+        "options": [
+            "Using Persistent Queues (PQ) to buffer events on disk when outputs are overwhelmed.",
+            "By dropping packets immediately.",
+            "By crashing the server.",
+            "By sending emails to the admin."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Logging",
+                "Logstash"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multi_select",
+        "difficulty": 5,
+        "question": "Select strategies to secure an Elasticsearch cluster.",
+        "correct_answer": "Enable TLS for encryption, Use Role-Based Access Control (RBAC), Implement IP filtering",
+        "options": [
+            "Enable TLS for encryption",
+            "Use Role-Based Access Control (RBAC)",
+            "Implement IP filtering",
+            "Make the API public",
+            "Use 'admin' as password",
+            "Disable all logs"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Logging",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How do you optimize Elasticsearch query performance?",
+        "correct_answer": "Use 'filter' context (cached) instead of 'query' context where possible, and avoid leading wildcard searches.",
+        "options": [
+            "Use 'filter' context (cached) instead of 'query' context where possible, and avoid leading wildcard searches.",
+            "Index every single field.",
+            "Run queries on the master node.",
+            "Delete data every hour."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Logging",
+                "Performance"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "How can you implement centralized logging in Kubernetes?",
+        "correct_answer": "Deploy a DaemonSet (e.g., Fluentd or Filebeat) on every node to collect container logs from `/var/log/containers` and forward them to a central backend (Elasticsearch/Loki).",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Kubernetes",
+                "Logging"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the primary definition of DevOps?",
+        "correct_answer": "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
+        "options": [
+            "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
+            "A specific tool you buy.",
+            "A job title for a system administrator.",
+            "A programming language."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multi_select",
+        "difficulty": 1,
+        "question": "What are the main goals of DevOps?",
+        "correct_answer": "Faster time to market, Improved deployment frequency, Lower failure rate of new releases, Shortened lead time between fixes",
+        "options": [
+            "Faster time to market",
+            "Improved deployment frequency",
+            "Lower failure rate of new releases",
+            "Shortened lead time between fixes",
+            "Writing more lines of code",
+            "Increasing manual testing"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "DevOps",
+                "Goals"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What does CI stand for in CI/CD?",
+        "correct_answer": "Continuous Integration",
+        "options": [
+            "Continuous Integration",
+            "Continuous Improvement",
+            "Central Intelligence",
+            "Code Inspection"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What does CD stand for (in the context of automated deployment)?",
+        "correct_answer": "Continuous Deployment (or Continuous Delivery)",
+        "options": [
+            "Continuous Deployment (or Continuous Delivery)",
+            "Continuous Development",
+            "Central Database",
+            "Code Design"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is Infrastructure as Code (IaC)?",
+        "correct_answer": "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
+        "options": [
+            "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
+            "Writing code to build physical servers.",
+            "Using a GUI to click and create servers.",
+            "Writing documentation about servers."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "IaC"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which of the following is a key component of a DevOps culture?",
+        "correct_answer": "Shared responsibility",
+        "options": [
+            "Shared responsibility",
+            "Blaming other teams",
+            "Working in silos",
+            "Manual processes"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Culture"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "How does DevOps relate to Agile?",
+        "correct_answer": "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
+        "options": [
+            "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
+            "DevOps replaces Agile.",
+            "Agile is for hardware, DevOps is for software.",
+            "They are unrelated."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Agile"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Continuous Testing'?",
+        "correct_answer": "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
+        "options": [
+            "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
+            "Testing once a year.",
+            "Testing only manually.",
+            "Testing only in production."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Testing"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is a 'Silo' in traditional IT?",
+        "correct_answer": "An isolated team or department that does not share information or processes with others, hindering collaboration.",
+        "options": [
+            "An isolated team or department that does not share information or processes with others, hindering collaboration.",
+            "A storage unit for grain.",
+            "A type of server rack.",
+            "A backup tape."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Culture"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "open_ended",
+        "difficulty": 1,
+        "question": "Why is 'Automation' critical in DevOps?",
+        "correct_answer": "It ensures consistency, speeds up delivery, reduces human error, and allows engineers to focus on higher-value problem solving rather than repetitive tasks.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Automation"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is Version Control?",
+        "correct_answer": "A system that records changes to a file or set of files over time so that you can recall specific versions later.",
+        "options": [
+            "A system that records changes to a file or set of files over time so that you can recall specific versions later.",
+            "Controlling which version of Windows you use.",
+            "Managing software licenses.",
+            "Backing up databases."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "SCM"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which tool is the industry standard for Version Control?",
+        "correct_answer": "Git",
+        "options": [
+            "Git",
+            "Word",
+            "Excel",
+            "Notepad"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Tools"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the purpose of 'Monitoring' in DevOps?",
+        "correct_answer": "To gather metrics and logs to understand system health, performance, and usage patterns.",
+        "options": [
+            "To gather metrics and logs to understand system health, performance, and usage patterns.",
+            "To spy on employees.",
+            "To record video of the server room.",
+            "To control internet access."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Monitoring"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Shift Left' security?",
+        "correct_answer": "Integrating security practices early in the development lifecycle (design/code) rather than waiting for the end.",
+        "options": [
+            "Integrating security practices early in the development lifecycle (design/code) rather than waiting for the end.",
+            "Moving servers to the left side of the room.",
+            "Ignoring security.",
+            "Hiring left-handed security guards."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "DevSecOps"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Microservices Architecture'?",
+        "correct_answer": "Structuring an application as a collection of loosely coupled, independently deployable services.",
+        "options": [
+            "Structuring an application as a collection of loosely coupled, independently deployable services.",
+            "Building a very small computer.",
+            "Writing very short code.",
+            "Using a single monolithic database."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Architecture",
+                "Microservices"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is a 'Monolith'?",
+        "correct_answer": "An application built as a single, unified unit where all logic is tightly coupled.",
+        "options": [
+            "An application built as a single, unified unit where all logic is tightly coupled.",
+            "A large stone statue.",
+            "A multi-cloud strategy.",
+            "A dedicated server."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Architecture",
+                "Monolith"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Containerization'?",
+        "correct_answer": "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
+        "options": [
+            "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
+            "Shipping computers in containers.",
+            "Zip filing documents.",
+            "Virtualizing hardware."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Containers"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which tool is commonly used for Container Orchestration?",
+        "correct_answer": "Kubernetes",
+        "options": [
+            "Kubernetes",
+            "Docker Compose (Local only)",
+            "Excel",
+            "PowerPoint"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Tools"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is a Build Agent?",
+        "correct_answer": "A server or container that runs the tasks defined in your CI/CD pipeline.",
+        "options": [
+            "A server or container that runs the tasks defined in your CI/CD pipeline.",
+            "A secret agent.",
+            "A developer who writes code.",
+            "A project manager."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CI/CD",
+                "Infrastructure"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Configuration Management'?",
+        "correct_answer": "The process of maintaining systems, servers, and software in a desired, consistent state.",
+        "options": [
+            "The process of maintaining systems, servers, and software in a desired, consistent state.",
+            "Arranging icons on the desktop.",
+            "Managing user passwords.",
+            "Configuring email signatures."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Ops"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Example of a Configuration Management tool?",
+        "correct_answer": "Ansible",
+        "options": [
+            "Ansible",
+            "Git",
+            "Jenkins",
+            "Jira"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Tools"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Orchestration' in DevOps?",
+        "correct_answer": "Automated configuration, coordination, and management of computer systems and software.",
+        "options": [
+            "Automated configuration, coordination, and management of computer systems and software.",
+            "Playing music.",
+            "Organizing meetings.",
+            "Writing documentation."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Orchestration"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Mean Time to Recovery' (MTTR)?",
+        "correct_answer": "The average time it takes to recover from a product or system failure.",
+        "options": [
+            "The average time it takes to recover from a product or system failure.",
+            "The average time to run a mile.",
+            "The time to restart a computer.",
+            "The time to write a line of code."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "Metrics"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Blue-Green Deployment'?",
+        "correct_answer": "A technique that reduces downtime and risk by running two identical production environments called Blue and Green.",
+        "options": [
+            "A technique that reduces downtime and risk by running two identical production environments called Blue and Green.",
+            "Painting servers blue and green.",
+            "Deploying only on weekends.",
+            "Deploying to the ocean and the forest."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Deployment",
+                "Strategy"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Canary Release'?",
+        "correct_answer": "Rolling out a new feature to a small subset of users to test it before a full rollout.",
+        "options": [
+            "Rolling out a new feature to a small subset of users to test it before a full rollout.",
+            "Releasing birds.",
+            "A type of mining software.",
+            "A yellow colored app."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Deployment",
+                "Strategy"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Dark Launching'?",
+        "correct_answer": "Releasing code to production that is turned off by a feature toggle, invisible to users.",
+        "options": [
+            "Releasing code to production that is turned off by a feature toggle, invisible to users.",
+            "Launching a rocket at night.",
+            "Hackers attacking a site.",
+            "Using dark mode."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Deployment",
+                "Strategy"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'Feature Flag/Toggle'?",
+        "correct_answer": "A technique that allows you to turn features on or off without deploying new code.",
+        "options": [
+            "A technique that allows you to turn features on or off without deploying new code.",
+            "A flag on the roof.",
+            "A competitive sport.",
+            "A type of bug."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Development",
+                "Pattern"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'GitOps'?",
+        "correct_answer": "Using Git repositories as the source of truth for defining infrastructure and application state.",
+        "options": [
+            "Using Git repositories as the source of truth for defining infrastructure and application state.",
+            "Git for operations teams only.",
+            "A new version of Git.",
+            "Hosting Git on your own server."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "GitOps"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is 'ChatOps'?",
+        "correct_answer": "Using chat clients (Slack, Teams) to execute commands and manage systems via bots.",
+        "options": [
+            "Using chat clients (Slack, Teams) to execute commands and manage systems via bots.",
+            "Talking to operations team.",
+            "Customer support chat.",
+            "Chatting about operations."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "DevOps",
+                "ChatOps"
+            ]
+        }
+    }
+]

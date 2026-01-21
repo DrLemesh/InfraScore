@@ -1,0 +1,609 @@
+[
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is a MAC address?",
+        "correct_answer": "A unique hardware identifier assigned to network interfaces for communication at the Data Link Layer.",
+        "options": [
+            "A unique hardware identifier assigned to network interfaces for communication at the Data Link Layer.",
+            "A dynamic address assigned by the router.",
+            "An encrypted password for wifi.",
+            "The serial number of the CPU."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "Hardware"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Explain 'DNS Poisoning' and how to prevent it.",
+        "correct_answer": "DNS poisoning injects malicious DNS records into a cache to redirect users to fake sites. Prevention methods include using DNSSEC (digital signatures for DNS records) and securing DNS resolvers.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Security",
+                "DNS"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is 'Federated Identity'?",
+        "correct_answer": "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
+        "options": [
+            "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
+            "A government ID card.",
+            "A single password used everywhere.",
+            "An anonymous login method."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Identity"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What does a Kubernetes Network Policy do?",
+        "correct_answer": "It defines how groups of Pods are allowed to communicate with each other and other network endpoints.",
+        "options": [
+            "It defines how groups of Pods are allowed to communicate with each other and other network endpoints.",
+            "It assigns IP addresses to Pods.",
+            "It encrypts all traffic in the cluster.",
+            "It acts as a load balancer."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the Principle of Least Privilege (PoLP)?",
+        "correct_answer": "Users and systems should only have the specific permissions necessary to perform their intended function.",
+        "options": [
+            "Users and systems should only have the specific permissions necessary to perform their intended function.",
+            "Users should have admin access to everything to work faster.",
+            "Users should share passwords.",
+            "Systems should rely on network security only."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the purpose of HSTS (HTTP Strict Transport Security)?",
+        "correct_answer": "It forces web browsers to interact with websites only using secure HTTPS connections.",
+        "options": [
+            "It forces web browsers to interact with websites only using secure HTTPS connections.",
+            "It compresses HTTP headers.",
+            "It blocks SQL injection attacks.",
+            "It speeds up DNS resolution."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Web",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the main goal of automation in DevOps?",
+        "correct_answer": "To eliminate manual effort in repetitive tasks like deployment and provisioning to increase efficiency and reliability.",
+        "options": [
+            "To eliminate manual effort in repetitive tasks like deployment and provisioning to increase efficiency and reliability.",
+            "To replace all human workers with robots.",
+            "To write more code.",
+            "To make systems more complex."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Automation",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multi_select",
+        "difficulty": 1,
+        "question": "What are the benefits of scripting in DevOps?",
+        "correct_answer": "Consistency, Speed, Reduced Errors, Reusability",
+        "options": [
+            "Consistency",
+            "Speed",
+            "Reduced Errors",
+            "Reusability",
+            "Higher Latency",
+            "More Manual Work"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Automation",
+                "Benefits"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is a characteristic feature of Bash scripting?",
+        "correct_answer": "It is interpreted by the shell and used for automating command-line tasks in Unix-like systems.",
+        "options": [
+            "It is interpreted by the shell and used for automating command-line tasks in Unix-like systems.",
+            "It requires a compiler.",
+            "It runs only on Windows.",
+            "It is used for frontend web development."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "open_ended",
+        "difficulty": 1,
+        "question": "Write a basic 'Hello World' Bash script.",
+        "correct_answer": "#!/bin/bash\necho \"Hello, DevOps!\"",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What defines a variable in Bash?",
+        "correct_answer": "Variables are defined without a dollar sign (e.g., `name=\"value\"`) and accessed with one (e.g., `$name`).",
+        "options": [
+            "Variables are defined without a dollar sign (e.g., `name=\"value\"`) and accessed with one (e.g., `$name`).",
+            "Variables must be declared with `var`.",
+            "Variables always start with @.",
+            "Variables are typed implicitly like Python."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Why is Python popular in DevOps?",
+        "correct_answer": "It has extensive libraries for cloud automation, API interaction, and data processing.",
+        "options": [
+            "It has extensive libraries for cloud automation, API interaction, and data processing.",
+            "It is faster than C++.",
+            "It is the native language of the Linux kernel.",
+            "It compiles to binary."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Python"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "open_ended",
+        "difficulty": 1,
+        "question": "How do you define a function in Python?",
+        "correct_answer": "Use the `def` keyword. Example:\ndef my_func():\n    print(\"Hello\")",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Python"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What does YAML stand for?",
+        "correct_answer": "YAML Ain't Markup Language (or Yet Another Markup Language)",
+        "options": [
+            "YAML Ain't Markup Language (or Yet Another Markup Language)",
+            "Your Application Markup Language",
+            "Yellow Apple Melon Lemon",
+            "Yearly Automated Maintenance Log"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Format",
+                "YAML"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which indentation character must be used in YAML?",
+        "correct_answer": "Spaces",
+        "options": [
+            "Spaces",
+            "Tabs",
+            "Semicolons",
+            "Brackets"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Format",
+                "YAML"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Groovy is primarily used with which DevOps tool?",
+        "correct_answer": "Jenkins",
+        "options": [
+            "Jenkins",
+            "Docker",
+            "Kubernetes",
+            "Terraform"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Groovy"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is a 'Shebang' line?",
+        "correct_answer": "The first line in a script (e.g., `#!/bin/bash`) indicating the interpreter to use.",
+        "options": [
+            "The first line in a script (e.g., `#!/bin/bash`) indicating the interpreter to use.",
+            "A command to stop the script.",
+            "A comment at the end of the file.",
+            "A variable declaration."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Basics"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "How do you start a loop in Bash?",
+        "correct_answer": "for item in list; do ... done",
+        "options": [
+            "for item in list; do ... done",
+            "loop(item : list) { ... }",
+            "foreach item in list",
+            "repeat list as item"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "How do you execute an 'if' condition in Bash?",
+        "correct_answer": "if [ condition ]; then ... fi",
+        "options": [
+            "if [ condition ]; then ... fi",
+            "if (condition) { ... }",
+            "check condition: ...",
+            "when condition do ..."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which command reads user input in a Bash script?",
+        "correct_answer": "read",
+        "options": [
+            "read",
+            "input",
+            "get",
+            "scan"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "How do you activate a Python virtual environment?",
+        "correct_answer": "source venv/bin/activate",
+        "options": [
+            "source venv/bin/activate",
+            "start venv",
+            "run python venv",
+            "enable venv"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Python"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which Python library is standard for parsing JSON?",
+        "correct_answer": "json",
+        "options": [
+            "json",
+            "simplejson",
+            "yaml",
+            "gson"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Python"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the primary use of `awk`?",
+        "correct_answer": "Pattern scanning and processing, especially for columns of data.",
+        "options": [
+            "Pattern scanning and processing, especially for columns of data.",
+            "Downloading files.",
+            "Managing packages.",
+            "Editing headers."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Tools"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "How do you add a comment in a YAML file?",
+        "correct_answer": "Start the line with #",
+        "options": [
+            "Start the line with #",
+            "Start the line with //",
+            "Start the line with <!--",
+            "Put text inside {}"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Format",
+                "YAML"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "How do you define a variable in Groovy?",
+        "correct_answer": "def variableName = value",
+        "options": [
+            "def variableName = value",
+            "var variableName = value",
+            "let variableName = value",
+            "string variableName = value"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Groovy"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "How can you access the first argument passed to a Bash script?",
+        "correct_answer": "$1",
+        "options": [
+            "$1",
+            "$0",
+            "$ARG1",
+            "$FIRST"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What does `set -e` do in a script?",
+        "correct_answer": "It aborts the script execution immediately if any command returns a non-zero exit code.",
+        "options": [
+            "It aborts the script execution immediately if any command returns a non-zero exit code.",
+            "It enables echo mode.",
+            "It exports all variables.",
+            "It encrypts the script output."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Bash"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What format are Ansible playbooks written in?",
+        "correct_answer": "YAML",
+        "options": [
+            "YAML",
+            "JSON",
+            "XML",
+            "Python"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Format"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "How do you catch exceptions in Python?",
+        "correct_answer": "Using try...except blocks.",
+        "options": [
+            "Using try...except blocks.",
+            "Using try...catch blocks.",
+            "Using do...rescue blocks.",
+            "Using if...error blocks."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Python"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which command allows you to view or edit the Cron schedule?",
+        "correct_answer": "crontab -e",
+        "options": [
+            "crontab -e",
+            "cron edit",
+            "schedule -e",
+            "vi /etc/cron"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Cron"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "How do you modify a file in-place using `sed`?",
+        "correct_answer": "sed -i 'expression' filename",
+        "options": [
+            "sed -i 'expression' filename",
+            "sed -m 'expression' filename",
+            "sed --save 'expression' filename",
+            "sed 'expression' filename > filename"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Tools"
+            ]
+        }
+    }
+]

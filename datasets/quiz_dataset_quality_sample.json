@@ -1,0 +1,409 @@
+[
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What character sequence denotes a 'multiline string' block in YAML?",
+        "correct_answer": "|",
+        "options": [
+            "|",
+            ">>",
+            "&",
+            "%"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "YAML",
+                "Syntax"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which Docker flags are used to limit memory and CPU usage for a specific container?",
+        "correct_answer": "--memory and --cpus",
+        "options": [
+            "--memory and --cpus",
+            "--ram and --core-limit",
+            "-m and -c",
+            "--limit-mem and --limit-cpu"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "Performance"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Which of the following are widely used monitoring tools in DevOps?",
+        "correct_answer": "Prometheus, Grafana, Datadog",
+        "options": [
+            "Prometheus",
+            "Grafana",
+            "Datadog",
+            "VirtualBox",
+            "GCC",
+            "Atom"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Monitoring",
+                "Tools"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the primary goal of Site Reliability Engineering (SRE)?",
+        "correct_answer": "Applying software engineering principles to operations to improve system reliability.",
+        "options": [
+            "Applying software engineering principles to operations to improve system reliability.",
+            "Ensuring that developers write code faster regardless of bugs.",
+            "Replacing all manual system administration with AI agents.",
+            "Managing physical hardware racking and cabling only."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "SRE",
+                "Methodology"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the main function of a SIEM (Security Information and Event Management) system?",
+        "correct_answer": "Aggregating and analyzing security data from multiple sources.",
+        "options": [
+            "Aggregating and analyzing security data from multiple sources.",
+            "Acting as a simple firewall to block all traffic.",
+            "Encrypting all database traffic at rest.",
+            "Managing user passwords and resets only."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "SIEM"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the purpose of a Subnet Mask?",
+        "correct_answer": "It divides an IP address into network and host portions.",
+        "options": [
+            "It divides an IP address into network and host portions.",
+            "It encrypts the IP address for security.",
+            "It hides the IP address from the internet.",
+            "It speeds up file transfer protocols."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "IP"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "In security, what is a 'Threat Model'?",
+        "correct_answer": "A process to identify potential vulnerabilities and mitigate risks proactively.",
+        "options": [
+            "A process to identify potential vulnerabilities and mitigate risks proactively.",
+            "A 3D model of the physical datacenter security.",
+            "A database of known virus signatures.",
+            "A specific type of firewall rule."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Strategy"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Which language is commonly used for writing scripts in Jenkins pipelines?",
+        "correct_answer": "Groovy",
+        "options": [
+            "Groovy",
+            "Rust",
+            "Swift",
+            "Haskell"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Jenkins",
+                "Groovy"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is Continuous Integration (CI)?",
+        "correct_answer": "Frequent integration of code into a shared repository with automated testing.",
+        "options": [
+            "Frequent integration of code into a shared repository with automated testing.",
+            "Deploying code to production once a year.",
+            "Evaluating developer performance based on lines of code.",
+            "Using only one branch for all development forever."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CI/CD",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the purpose of a Terraform Module?",
+        "correct_answer": "To organize and reuse Terraform configurations.",
+        "options": [
+            "To organize and reuse Terraform configurations.",
+            "To compile Terraform code into binary.",
+            "To visual infrastructure in a 3D graph.",
+            "To encrypt state files."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "IaC"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What role does DNS play in networking?",
+        "correct_answer": "It translates domain names into IP addresses.",
+        "options": [
+            "It translates domain names into IP addresses.",
+            "It encrypts web traffic using SSL.",
+            "It routes packets between different subnets.",
+            "It blocks malicious websites."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "DNS"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How does serverless architecture primarily improve scalability?",
+        "correct_answer": "It auto-scales instantly based on demand without manual provisioning.",
+        "options": [
+            "It auto-scales instantly based on demand without manual provisioning.",
+            "It requires reserving large dedicated servers in advance.",
+            "It uses a fixed number of servers that never change.",
+            "It relies on manual intervention to add more RAM."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Cloud",
+                "Serverless"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How can you implement conditionals in Ansible tasks within a YAML file?",
+        "correct_answer": "Using the 'when' keyword.",
+        "options": [
+            "Using the 'when' keyword.",
+            "Using 'if-else' brackets like in C.",
+            "Conditionals are not supported in YAML.",
+            "Using the 'check' module."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "YAML"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Select the main components of AWS CloudFormation.",
+        "correct_answer": "Templates, Stacks, StackSets",
+        "options": [
+            "Templates",
+            "Stacks",
+            "StackSets",
+            "Droplets",
+            "Pods",
+            "Playbooks"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "AWS",
+                "CloudFormation"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is an SSRF (Server-Side Request Forgery) attack?",
+        "correct_answer": "Tricking a server into making unauthorized internal requests.",
+        "options": [
+            "Tricking a server into making unauthorized internal requests.",
+            "Stealing user cookies via client-side script.",
+            "Flooding a server with traffic to crash it (DDoS).",
+            "Guessing passwords using a dictionary attack."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Attacks"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Which tools are commonly used for managing dependencies and scanning them for vulnerabilities?",
+        "correct_answer": "Pip, Maven, Snyk, OWASP Dependency-Check",
+        "options": [
+            "Pip",
+            "Maven",
+            "Snyk",
+            "OWASP Dependency-Check",
+            "Notepad",
+            "Paint"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Security",
+                "Dependencies"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Which tools are dedicated to Secrets Management in DevOps?",
+        "correct_answer": "HashiCorp Vault, AWS Secrets Manager",
+        "options": [
+            "HashiCorp Vault",
+            "AWS Secrets Manager",
+            "Git (Plain Text)",
+            "Excel Spreadsheet",
+            "Post-it Notes"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Security",
+                "Secrets"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What does an Ansible Inventory file contain?",
+        "correct_answer": "A list of managed servers and their connection details.",
+        "options": [
+            "A list of managed servers and their connection details.",
+            "The source code of the application being deployed.",
+            "A history of all executed commands.",
+            "The passwords for all users in the system."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Inventory"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What describes 'Ephemeral Ports' in networking?",
+        "correct_answer": "Temporary ports used by client applications for outbound connections.",
+        "options": [
+            "Temporary ports used by client applications for outbound connections.",
+            "Permanent ports assigned to well-known services like HTTP.",
+            "Physical ports on the back of a router.",
+            "Ports that are always blocked by firewalls."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "Ports"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is a recommended best practice for securing Kubernetes Secrets?",
+        "correct_answer": "Encrypting them at rest and using external vaults.",
+        "options": [
+            "Encrypting them at rest and using external vaults.",
+            "Storing them in plain text in the Git repository.",
+            "Printing them to the console logs for debugging.",
+            "Writing them on a whiteboard in the office."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Security"
+            ]
+        }
+    }
+]

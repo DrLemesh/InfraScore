@@ -1,0 +1,204 @@
+[
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which tools are commonly used for handling database migrations efficiently within an automated CI/CD pipeline?",
+        "correct_answer": "Flyway",
+        "options": [
+            "Flyway",
+            "Elasticsearch",
+            "Nginx",
+            "Nagios"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CI/CD",
+                "Database",
+                "Automation"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "What are the primary methods used to optimize CI/CD pipelines?",
+        "correct_answer": "Parallelizing builds, Caching dependencies, Automated testing",
+        "options": [
+            "Parallelizing builds",
+            "Caching dependencies",
+            "Automated testing",
+            "Running everything sequentially",
+            "Disabling all tests",
+            "Manually copying artifacts"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "CI/CD",
+                "Optimization"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "In the ELK stack, what is the specific role of 'Beats'?",
+        "correct_answer": "Lightweight data shippers",
+        "options": [
+            "Lightweight data shippers",
+            "Data visualization dashboard",
+            "Search engine core",
+            "Log storage database"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "ELK",
+                "Monitoring",
+                "Logging"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which of the following best describes a 'Stateless' application in the context of cloud computing?",
+        "correct_answer": "It does not retain session data; each request is independent.",
+        "options": [
+            "It does not retain session data; each request is independent.",
+            "It retains user state across all requests explicitly.",
+            "It requires a persistent database connection for every function.",
+            "It allows for manual state management only."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Cloud",
+                "Architecture",
+                "Scalability"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "open_ended",
+        "difficulty": 3,
+        "question": "Describe a systematic approach to troubleshooting network connectivity issues on a Linux server.",
+        "correct_answer": "Check interface status (ip addr), test local/gateway connectivity (ping), verify DNS (nslookup/dig), check routing (ip route), inspect firewall (iptables/firewall-cmd), and analyze logs.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 3,
+            "tags": [
+                "Linux",
+                "Networking",
+                "Troubleshooting"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Which deployment strategies are most effective for reducing downtime during software releases?",
+        "correct_answer": "Rolling updates, Blue-green deployments",
+        "options": [
+            "Rolling updates",
+            "Blue-green deployments",
+            "Big Bang deployment",
+            "Manual FTP upload",
+            "Red-Black deployment (with immediate cutover)"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Deployment",
+                "Best Practices",
+                "DevOps"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the primary function of Terraform in a cloud environment?",
+        "correct_answer": "It is an Infrastructure as Code (IaC) tool for provisioning resources.",
+        "options": [
+            "It is an Infrastructure as Code (IaC) tool for provisioning resources.",
+            "It is a continuous integration server like Jenkins.",
+            "It is a monitoring tool for cloud applications.",
+            "It is a container orchestration platform."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "IaC",
+                "Cloud"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Explain the role of KVM (Kernel-based Virtual Machine) in Linux virtualization and how it differs from a Type-2 hypervisor.",
+        "correct_answer": "KVM transforms the Linux kernel into a Type-1 hypervisor, allowing direct hardware access for VMs, whereas Type-2 hypervisors run as software applications on top of an OS.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 4,
+            "tags": [
+                "Linux",
+                "Virtualization",
+                "KVM"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "How does Ansible primarily connect to managed nodes to execute tasks?",
+        "correct_answer": "Agentless, using SSH or WinRM",
+        "options": [
+            "Agentless, using SSH or WinRM",
+            "By installing a specialized Ansible Agent on every node",
+            "Through a central API server that pulls configurations",
+            "Using the SNMP protocol exclusively"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Configuration Management",
+                "IaC"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "In Bash scripting, why is `$(command)` generally preferred over backticks `` `command` ``?",
+        "correct_answer": "It is nestable and has better readability.",
+        "options": [
+            "It is nestable and has better readability.",
+            "It executes faster than backticks.",
+            "It is the only way to run commands in background.",
+            "It is supported by older non-POSIX shells."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Bash",
+                "Scripting",
+                "Linux"
+            ]
+        }
+    }
+]
