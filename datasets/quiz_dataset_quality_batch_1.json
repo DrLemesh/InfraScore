@@ -1,0 +1,976 @@
+[
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which of the following is a key feature of PowerShell compared to Bash?",
+        "correct_answer": "It is object-oriented, passing objects instead of text streams.",
+        "options": [
+            "It is object-oriented, passing objects instead of text streams.",
+            "It only runs on Windows and cannot be used on Linux.",
+            "It requires compiling scripts before execution.",
+            "It lacks support for functions and modules."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "PowerShell",
+                "Scripting"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the primary difference between a Region and an Availability Zone (AZ) in cloud providers like AWS?",
+        "correct_answer": "A Region is a geographic area, while an AZ is an isolated data center within that region.",
+        "options": [
+            "A Region is a geographic area, while an AZ is an isolated data center within that region.",
+            "A Region is a single data center, while an AZ is a country.",
+            "Regions are for backup only, while AZs are for production.",
+            "Regions share power and cooling, while AZs are completely independent geographies."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Cloud",
+                "AWS",
+                "Architecture"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What does the `set -e` command do in a Bash script?",
+        "correct_answer": "It causes the script to exit immediately if any command returns a non-zero status.",
+        "options": [
+            "It causes the script to exit immediately if any command returns a non-zero status.",
+            "It enables debugging mode to print executed commands.",
+            "It exports all variables to child processes.",
+            "It ignores all errors and forces execution to continue."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Bash",
+                "Error Handling"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "Explain the concept of 'Layer Caching' in Docker builds and how to optimize it.",
+        "correct_answer": "Docker builds images in layers. If a layer hasn't changed, Docker reuses the cached version. Optimize by ordering Dockerfile instructions from least to most frequent changes (e.g., copy requirements.txt and install dependencies before copying source code).",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 3,
+            "tags": [
+                "Docker",
+                "Performance",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which signal is sent to a process by default when you run `kill <PID>`?",
+        "correct_answer": "SIGTERM (15)",
+        "options": [
+            "SIGTERM (15)",
+            "SIGKILL (9)",
+            "SIGHUP (1)",
+            "SIGINT (2)"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Processes"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Compare 'Network Bonding' and 'Network Teaming' in Linux. What are the key differences?",
+        "correct_answer": "Bonding is the traditional kernel-based method. Teaming is a newer, user-space driven implementation (libteam) that is more modular, extensible, and performant. Teaming supports similar modes (LACP, active-backup) but offers better monitoring and control.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 3,
+            "tags": [
+                "Linux",
+                "Networking",
+                "Advanced"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the purpose of a Docker multi-stage build?",
+        "correct_answer": "To create smaller, more secure final images by copying artifacts from build stages.",
+        "options": [
+            "To create smaller, more secure final images by copying artifacts from build stages.",
+            "To run multiple containers simultaneously in one image.",
+            "To speed up the build process by using more CPU cores.",
+            "To allow Docker to run on multiple operating systems at once."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "Optimization"
+            ]
+        }
+    },
+    {
+        "category": "CI/CD",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "In Jenkins, what is a 'Shared Library'?",
+        "correct_answer": "A reusable collection of Groovy scripts that can be used across multiple pipelines.",
+        "options": [
+            "A reusable collection of Groovy scripts that can be used across multiple pipelines.",
+            "A plugin that connects Jenkins to GitHub.",
+            "A folder where build artifacts like JARs are stored.",
+            "A comprehensive manual for Jenkins users."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Jenkins",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is 'Mutual TLS' (mTLS)?",
+        "correct_answer": "A protocol where both the client and server authenticate each other using certificates.",
+        "options": [
+            "A protocol where both the client and server authenticate each other using certificates.",
+            "A method to encrypt traffic only from server to client.",
+            "A load balancing technique for TLS traffic.",
+            "A database encryption standard."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Encryption"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "In Terraform, what does the command `terraform plan` do?",
+        "correct_answer": "It shows a preview of the changes that will be made without applying them.",
+        "options": [
+            "It shows a preview of the changes that will be made without applying them.",
+            "It provisions the resources immediately.",
+            "It destroys all existing infrastructure.",
+            "It downloads all necessary provider plugins."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Workflow"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is a 'DaemonSet' in Kubernetes?",
+        "correct_answer": "A controller that ensures a copy of a Pod runs on selected nodes (usually all nodes).",
+        "options": [
+            "A controller that ensures a copy of a Pod runs on selected nodes (usually all nodes).",
+            "A set of background processes running on the master node.",
+            "A deployment strategy for stateless applications.",
+            "A network policy for restricting traffic."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Workloads"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "Which command allows you to view the real-time resource usage (CPU, Memory) of processes?",
+        "correct_answer": "top or htop",
+        "options": [
+            "top or htop",
+            "df -h",
+            "du -sh",
+            "netstat"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Monitoring"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "Who coined the term 'DevOps'?",
+        "correct_answer": "Patrick Debois",
+        "options": [
+            "Patrick Debois",
+            "Linus Torvalds",
+            "Bill Gates",
+            "Gene Kim"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "History",
+                "Trivia"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "Explain the difference between Hard Links and Soft (Symbolic) Links in Linux.",
+        "correct_answer": "Hard Link: A direct pointer to the file's inode; shares the same data blocks; cannot span filesystems. Soft Link: A special file pointing to the path of another file; breaks if target is moved/deleted; can span filesystems.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 3,
+            "tags": [
+                "Linux",
+                "Filesystem"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Select the different service models of Cloud Computing.",
+        "correct_answer": "IaaS, PaaS, SaaS",
+        "options": [
+            "IaaS",
+            "PaaS",
+            "SaaS",
+            "DaaS (Database as a Service)",
+            "FaaS (Function as a Service)",
+            "MaaS (Metal as a Service)"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Cloud",
+                "Models"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What is the default port for SSH?",
+        "correct_answer": "22",
+        "options": [
+            "22",
+            "21",
+            "80",
+            "443"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "Ports"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What does the content of the `/proc` directory represent in Linux?",
+        "correct_answer": "A virtual filesystem exposing kernel and process information.",
+        "options": [
+            "A virtual filesystem exposing kernel and process information.",
+            "A temporary storage for user files.",
+            "The location where all programs are installed.",
+            "The home directory for the root user."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Kernel"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "How do you check for open ports and the services listening on them in Linux?",
+        "correct_answer": "Use `netstat -tulpn` or `ss -tulpn`. These commands show TCP/UDP sockets, listening state, associated processes, and numeric ports.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Linux",
+                "Networking",
+                "Troubleshooting"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is Jaeger used for in a microservices architecture?",
+        "correct_answer": "Distributed Tracing",
+        "options": [
+            "Distributed Tracing",
+            "Log Aggregation",
+            "Infrastructure Monitoring",
+            "Secret Management"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Monitoring",
+                "Tracing"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What is 'Idempotency' in the context of Infrastructure as Code?",
+        "correct_answer": "Running the same operation multiple times produces the same result without side effects.",
+        "options": [
+            "Running the same operation multiple times produces the same result without side effects.",
+            "The ability to run a script faster each time.",
+            "Automatically retrying failed operations.",
+            "Generating unique IDs for every resource."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "IaC",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "Which Kubernetes object is used to expose an application running on a set of Pods as a network service?",
+        "correct_answer": "Service",
+        "options": [
+            "Service",
+            "Ingress",
+            "Deployment",
+            "ConfigMap"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Networking"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "What is a 'VPC Peering' connection?",
+        "correct_answer": "A networking connection between two VPCS that enables you to route traffic between them using private IP addresses.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Cloud",
+                "Networking",
+                "AWS"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the difference between TCP and UDP?",
+        "correct_answer": "TCP is connection-oriented and reliable; UDP is connectionless and faster but unreliable.",
+        "options": [
+            "TCP is connection-oriented and reliable; UDP is connectionless and faster but unreliable.",
+            "TCP is faster than UDP.",
+            "UDP ensures packet delivery, while TCP does not.",
+            "TCP is used for streaming video, while UDP is for emails."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "Protocols"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "Which file is commonly used to ignore unneeded files in Git?",
+        "correct_answer": ".gitignore",
+        "options": [
+            ".gitignore",
+            ".gitexclude",
+            ".gitremove",
+            ".nogit"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Git",
+                "Version Control"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What is a 'Race Condition'?",
+        "correct_answer": "A flaw where the system's output depends on the sequence or timing of uncontrollable events.",
+        "options": [
+            "A flaw where the system's output depends on the sequence or timing of uncontrollable events.",
+            "A competition between two developers to commit code first.",
+            "An optimization technique for multi-threaded apps.",
+            "A type of network attack."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Concurrency",
+                "Bugs"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the purpose of the `chmod` command?",
+        "correct_answer": "To change file access permissions.",
+        "options": [
+            "To change file access permissions.",
+            "To change file ownership.",
+            "To modify file content.",
+            "To mount a filesystem."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Permissions"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "Explain the Linux boot process briefly (BIOS/UEFI to Login).",
+        "correct_answer": "1. BIOS/UEFI initializes hardware. 2. Bootloader (GRUB) loads the kernel. 3. Kernel initializes hardware and mounts root FS. 4. Init system (systemd) starts services and user space. 5. Login prompt is displayed.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 3,
+            "tags": [
+                "Linux",
+                "Boot"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 1,
+        "question": "What is the filename used by default to build a Docker image?",
+        "correct_answer": "Dockerfile",
+        "options": [
+            "Dockerfile",
+            "DockerImage",
+            "BuildFile",
+            "Containerfile"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "Basics"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Select the types of metrics commonly monitored in DevOps.",
+        "correct_answer": "Latency, Traffic, Errors, Saturation",
+        "options": [
+            "Latency",
+            "Traffic",
+            "Errors",
+            "Saturation",
+            "Employee Happiness",
+            "Code Colors"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Monitoring",
+                "SRE",
+                "Golden Signals"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is a 'Bastion Host' or 'Jump Box'?",
+        "correct_answer": "A secure server used to access a private network from an external network.",
+        "options": [
+            "A secure server used to access a private network from an external network.",
+            "A server that hosts the main database.",
+            "A firewall appliance.",
+            "A backup server."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Architecture"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "What is 'Drift' in infrastructure management?",
+        "correct_answer": "Drift occurs when the actual state of the infrastructure diverges from the defined configuration (IaC) state due to manual changes or unmanaged updates.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "IaC",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "CI/CD",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "Which file is commonly used to define a GitHub Actions workflow?",
+        "correct_answer": ".github/workflows/main.yml",
+        "options": [
+            ".github/workflows/main.yml",
+            "jenkinsfile",
+            ".gitlab-ci.yml",
+            "buildspec.yml"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "GitHub Actions",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is a 'Pod' in Kubernetes?",
+        "correct_answer": "The smallest deployable unit in Kubernetes, representing a single instance of a running process.",
+        "options": [
+            "The smallest deployable unit in Kubernetes, representing a single instance of a running process.",
+            "A virtual machine.",
+            "A specialized storage volume.",
+            "A user account."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Basics"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What is 'Auto Scaling'?",
+        "correct_answer": "Automatically adjusting the number of computing resources based on load.",
+        "options": [
+            "Automatically adjusting the number of computing resources based on load.",
+            "Automatically restarting failed servers.",
+            "Automatically upgrading the OS version.",
+            "Automatically backing up databases."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Cloud",
+                "Scaling"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is 'Regular Expression' (Regex) primarily used for?",
+        "correct_answer": "Pattern matching and text manipulation.",
+        "options": [
+            "Pattern matching and text manipulation.",
+            "Encrypting passwords.",
+            "Designing user interfaces.",
+            "Compressing files."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Scripting",
+                "Regex"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What does the `grep` command do?",
+        "correct_answer": "Searches for text patterns within files.",
+        "options": [
+            "Searches for text patterns within files.",
+            "Downloads files from the internet.",
+            "Archives files into a tarball.",
+            "Displays process activity."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Commands"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What is 'Cross-Site Scripting' (XSS)?",
+        "correct_answer": "A vulnerability where attackers inject malicious scripts into web pages viewed by other users.",
+        "options": [
+            "A vulnerability where attackers inject malicious scripts into web pages viewed by other users.",
+            "A method to steal database credentials.",
+            "A denial of service attack.",
+            "A mechanism to encrypt weak passwords."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Security",
+                "Web"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the '12-Factor App' methodology?",
+        "correct_answer": "A set of best practices for building modern, scalable, cloud-native applications.",
+        "options": [
+            "A set of best practices for building modern, scalable, cloud-native applications.",
+            "A check-list for hardware procurement.",
+            "A database normalization technique.",
+            "A project management framework like Scrum."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Architecture",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What is 'Lead Time for Changes'?",
+        "correct_answer": "The time it takes for a code commit to be successfully deployed to production.",
+        "options": [
+            "The time it takes for a code commit to be successfully deployed to production.",
+            "The time it takes to hire a new developer.",
+            "The time a server runs before crashing.",
+            "The time needed to restart a database."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Metrics",
+                "DORA"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is 'Container Orchestration'?",
+        "correct_answer": "The automated management of container deployment, scaling, and networking.",
+        "options": [
+            "The automated management of container deployment, scaling, and networking.",
+            "Writing Dockerfiles.",
+            "Manually starting containers on a laptop.",
+            "Converting VMs to Containers."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Kubernetes",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What does 'Immutable Infrastructure' mean?",
+        "correct_answer": "Servers are never modified after deployment; they are replaced with new ones.",
+        "options": [
+            "Servers are never modified after deployment; they are replaced with new ones.",
+            "Infrastructure that cannot be deleted.",
+            "Servers that are patched manually every week.",
+            "Moving physical servers to a secure vault."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "IaC",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Linux System Admin",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is 'SELinux'?",
+        "correct_answer": "A security architecture for Linux allowing for fine-grained access control policies.",
+        "options": [
+            "A security architecture for Linux allowing for fine-grained access control policies.",
+            "A text editor for Linux.",
+            "A new file system type.",
+            "A web server similar to Nginx."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Linux",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is a 'Load Balancer'?",
+        "correct_answer": "A device or service that distributes network traffic across multiple servers.",
+        "options": [
+            "A device or service that distributes network traffic across multiple servers.",
+            "A tool to monitor disk usage.",
+            "A database for storing session keys.",
+            "A backup power supply."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Networking",
+                "Performance"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Which of the following are common HTTP status codes indicating an error?",
+        "correct_answer": "404, 500, 403",
+        "options": [
+            "404",
+            "500",
+            "403",
+            "200",
+            "301",
+            "100"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "HTTP",
+                "Web"
+            ]
+        }
+    },
+    {
+        "category": "Automation & Scripting",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What does `ssh-keygen` do?",
+        "correct_answer": "Generates, manages, and converts authentication keys for SSH.",
+        "options": [
+            "Generates, manages, and converts authentication keys for SSH.",
+            "Connects to a remote server.",
+            "Encrypts a file with a password.",
+            "Installs the SSH daemon."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "SSH",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "open_ended",
+        "difficulty": 4,
+        "question": "What is the difference between specific `ENTRYPOINT` and `CMD` in a Dockerfile?",
+        "correct_answer": "ENTRYPOINT acts as an executable to run, while CMD provides default arguments. Arguments passed to `docker run` override CMD but are appended to ENTRYPOINT.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Docker",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is 'Technical Debt'?",
+        "correct_answer": "The implied cost of additional rework caused by choosing an easy solution now instead of a better approach that takes longer.",
+        "options": [
+            "The implied cost of additional rework caused by choosing an easy solution now instead of a better approach that takes longer.",
+            "The money a company owes to cloud providers.",
+            "The salary paid to developers.",
+            "A bug in the production database."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Concepts",
+                "Management"
+            ]
+        }
+    },
+    {
+        "category": "Monitoring & Logging",
+        "type": "multiple_choice",
+        "difficulty": 4,
+        "question": "What is 'Log Rotation'?",
+        "correct_answer": "The process of renaming, compressing, or deleting old log files to save disk space.",
+        "options": [
+            "The process of renaming, compressing, or deleting old log files to save disk space.",
+            "Rotating the screen orientation.",
+            "Sending logs to a different server every hour.",
+            "Encrypting logs for security."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Logging",
+                "Linux"
+            ]
+        }
+    },
+    {
+        "category": "Core Concepts",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is 'Shift Left' testing?",
+        "correct_answer": "Moving testing earlier in the software development lifecycle.",
+        "options": [
+            "Moving testing earlier in the software development lifecycle.",
+            "Testing only on the left side of the screen.",
+            "Assigning all testing to junior developers.",
+            "Ignoring testing until production."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Testing",
+                "Methodology"
+            ]
+        }
+    },
+    {
+        "category": "CI/CD",
+        "type": "multi_select",
+        "difficulty": 3,
+        "question": "Select popular CI/CD tools.",
+        "correct_answer": "Jenkins, GitHub Actions, GitLab CI, CircleCI",
+        "options": [
+            "Jenkins",
+            "GitHub Actions",
+            "GitLab CI",
+            "CircleCI",
+            "Microsoft Word",
+            "VLC Player"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "CI/CD",
+                "Tools"
+            ]
+        }
+    }
+]

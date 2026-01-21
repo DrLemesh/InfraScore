@@ -1,0 +1,557 @@
+[
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "How do you conditionally create resources in AWS CloudFormation?",
+        "correct_answer": "By defining a Condition in the template and referencing it in the resource's Condition field.",
+        "options": [
+            "By defining a Condition in the template and referencing it in the resource's Condition field.",
+            "By using an `if` statement in the YAML file.",
+            "CloudFormation does not support conditional creation.",
+            "By creating a separate Lambda function."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "AWS"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the purpose of 'Drift Detection' in CloudFormation?",
+        "correct_answer": "To detect manual changes to stack resources that were made outside of CloudFormation.",
+        "options": [
+            "To detect manual changes to stack resources that were made outside of CloudFormation.",
+            "To find security vulnerabilities in the template.",
+            "To check if the template syntax is correct.",
+            "To automatically repair broken resources."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "Drift"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What are 'Intrinsic Functions' in CloudFormation templates?",
+        "correct_answer": "Built-in functions like `!Sub` or `!Ref` used to assign values dynamically at runtime.",
+        "options": [
+            "Built-in functions like `!Sub` or `!Ref` used to assign values dynamically at runtime.",
+            "Python scripts embedded in the template.",
+            "External API calls made during stack creation.",
+            "Mathematical operations for billing."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "Syntax"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multi_select",
+        "difficulty": 5,
+        "question": "Which steps are typically part of a clean Terraform workflow in CI/CD?",
+        "correct_answer": "terraform fmt, terraform validate, terraform plan, terraform apply",
+        "options": [
+            "terraform fmt",
+            "terraform validate",
+            "terraform plan",
+            "terraform apply",
+            "terraform compile",
+            "terraform push"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Terraform",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is a Terraform 'Data Source'?",
+        "correct_answer": "A configuration to fetch data from external/existing resources without managing them.",
+        "options": [
+            "A configuration to fetch data from external/existing resources without managing them.",
+            "A database where Terraform stores its state.",
+            "The source code repository URL.",
+            "An input variable for the module."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Concepts"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How do you verify the integrity of a Terraform module version?",
+        "correct_answer": "By specifying a version constraint in the `source` block.",
+        "options": [
+            "By specifying a version constraint in the `source` block.",
+            "By comparing MD5 checksums manually.",
+            "Terraform automatically updates to the latest always.",
+            "By checking the file size of the module."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How does Terraform handle circular dependencies between resources?",
+        "correct_answer": "It builds a Directed Acyclic Graph (DAG) and errors out if a cycle is detected.",
+        "options": [
+            "It builds a Directed Acyclic Graph (DAG) and errors out if a cycle is detected.",
+            "It automatically resolves them by deleting one resource.",
+            "It ignores them and tries to provision anyway.",
+            "It waits infinitely until one resource is ready."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Internals"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "Distinguish between `locals` and `output` values in Terraform.",
+        "correct_answer": "Locals are temporary variables calculated and used strictly *within* the module to avoid repetition. Outputs are values explicitly exposed *outside* the module (to the user or other modules) after the run completes.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Terraform",
+                "Syntax"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the purpose of 'Sentinel' in the HashiCorp ecosystem?",
+        "correct_answer": "A policy-as-code framework to enforce compliance rules before provisioning infrastructure.",
+        "options": [
+            "A policy-as-code framework to enforce compliance rules before provisioning infrastructure.",
+            "A logging agent for monitoring servers.",
+            "A backup solution for Terraform state.",
+            "A secrets management tool."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Policy"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "If a `terraform apply` fails or corrupts state, how can you restore a previous state?",
+        "correct_answer": "Manually restore the previous `terraform.tfstate` file from version control or backup.",
+        "options": [
+            "Manually restore the previous `terraform.tfstate` file from version control or backup.",
+            "Run `terraform undo`.",
+            "Run `terraform rollback`.",
+            "There is no way to recover; you must delete everything."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Troubleshooting"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What does `terraform refresh` do?",
+        "correct_answer": "It updates the local state file to match the real-world infrastructure without modifying resources.",
+        "options": [
+            "It updates the local state file to match the real-world infrastructure without modifying resources.",
+            "It reinstalls the Terraform binary.",
+            "It restarts the provider plugins.",
+            "It destroys and recreates all resources."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Commands"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multi_select",
+        "difficulty": 5,
+        "question": "Select the best practices for securing Terraform.",
+        "correct_answer": "Use remote state with encryption (e.g., S3+KMS), Run security scans (tfsec), Enforce least privilege IAM roles",
+        "options": [
+            "Use remote state with encryption (e.g., S3+KMS)",
+            "Run security scans (tfsec)",
+            "Enforce least privilege IAM roles",
+            "Commit `.tfstate` files to public GitHub repos",
+            "Hardcode AWS keys in `main.tf`",
+            "Run as root user always"
+        ],
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Terraform",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "Is it possible to manage minimal multi-cloud resources in a single Terraform config?",
+        "correct_answer": "Yes, by defining multiple `provider` blocks (e.g., one for AWS, one for Azure).",
+        "options": [
+            "Yes, by defining multiple `provider` blocks (e.g., one for AWS, one for Azure).",
+            "No, you must have separate state files for each cloud.",
+            "No, Terraform only supports AWS.",
+            "Yes, but only if they use the same account ID."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Terraform",
+                "Architecture"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How can you validate strict syntax compliance in Ansible playbooks?",
+        "correct_answer": "Using `ansible-lint`.",
+        "options": [
+            "Using `ansible-lint`.",
+            "Using `ansible-playbook --check --syntax-strict`.",
+            "Compiling the YAML with gcc.",
+            "Running it in production and checking logs."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Testing"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is the purpose of `ignore_errors: yes` in an Ansible task?",
+        "correct_answer": "To allow the playbook execution to continue even if that specific task fails.",
+        "options": [
+            "To allow the playbook execution to continue even if that specific task fails.",
+            "To hide the error message from the logs.",
+            "To automatically retry the task until it succeeds.",
+            "To skip the task entirely."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Flow Control"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "open_ended",
+        "difficulty": 5,
+        "question": "How can you securely pass a vault password to `ansible-playbook` in a CI/CD environment?",
+        "correct_answer": "Use the `--vault-password-file` argument pointing to a secured file or, more commonly, set the `ANSIBLE_VAULT_PASSWORD_FILE` environment variable.",
+        "options": null,
+        "metadata": {
+            "estimated_minutes": 2,
+            "tags": [
+                "Ansible",
+                "Security",
+                "CI/CD"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "Which Ansible module is primarily used to manage Kubernetes resources?",
+        "correct_answer": "community.kubernetes.k8s",
+        "options": [
+            "community.kubernetes.k8s",
+            "ansible.builtin.shell",
+            "ansible.builtin.service",
+            "ansible.windows.win_service"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Kubernetes"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "How do you ensure a task in Ansible is idempotent?",
+        "correct_answer": "By relying on modules that check state (e.g. `state: present`) rather than running raw shell commands.",
+        "options": [
+            "By relying on modules that check state (e.g. `state: present`) rather than running raw shell commands.",
+            "By adding a `always_run: yes` flag.",
+            "By deleting the resource before creating it every time.",
+            "Ansible tasks are never idempotent."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Ansible",
+                "Best Practices"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is a major benefit of using 'Nested Stacks' in CloudFormation?",
+        "correct_answer": "It allows breaking down large monolithic templates into smaller, reusable components.",
+        "options": [
+            "It allows breaking down large monolithic templates into smaller, reusable components.",
+            "It increases the limit of resources per stack to infinity.",
+            "It allows stacks to be deployed in different regions automatically.",
+            "It removes the need for IAM permissions."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "Architecture"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "When updating a CloudFormation stack, which flag allows you to override existing parameters?",
+        "correct_answer": "--parameters",
+        "options": [
+            "--parameters",
+            "--override",
+            "--new-values",
+            "--change-set"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "CLI"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What attribute prevents a CloudFormation resource (like an S3 bucket) from being deleted when the stack is deleted?",
+        "correct_answer": "DeletionPolicy: Retain",
+        "options": [
+            "DeletionPolicy: Retain",
+            "Protect: True",
+            "SafeMode: On",
+            "LifeCycle: Preserve"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "Safety"
+            ]
+        }
+    },
+    {
+        "category": "Infrastructure as Code",
+        "type": "multiple_choice",
+        "difficulty": 5,
+        "question": "What is a 'Stack Policy' in CloudFormation typically used for?",
+        "correct_answer": "To prevent accidental updates or deletions of critical stack resources during a stack update.",
+        "options": [
+            "To prevent accidental updates or deletions of critical stack resources during a stack update.",
+            "To define IAM permissions for the user running the stack.",
+            "To set billing alerts for the stack.",
+            "To define the order of resource creation."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "CloudFormation",
+                "Security"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What is the primary function of `docker-compose`?",
+        "correct_answer": "To define and run multi-container Docker applications.",
+        "options": [
+            "To define and run multi-container Docker applications.",
+            "To compile Docker source code.",
+            "To manage Kubernetes clusters.",
+            "To scan images for vulnerabilities."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "Compose"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "Which command lists all running Docker containers?",
+        "correct_answer": "docker ps",
+        "options": [
+            "docker ps",
+            "docker list",
+            "docker show",
+            "docker run --list"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "CLI"
+            ]
+        }
+    },
+    {
+        "category": "Containers",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What happens if you don't specify a tag when pulling a Docker image?",
+        "correct_answer": "It defaults to the `latest` tag.",
+        "options": [
+            "It defaults to the `latest` tag.",
+            "It pulls all available tags.",
+            "It throws an error.",
+            "It pulls the oldest stable version."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Docker",
+                "Images"
+            ]
+        }
+    },
+    {
+        "category": "Cloud Computing",
+        "type": "multiple_choice",
+        "difficulty": 3,
+        "question": "What is the main benefit of 'Elasticity' in cloud computing?",
+        "correct_answer": "The ability to scale resources up or down dynamically based on demand.",
+        "options": [
+            "The ability to scale resources up or down dynamically based on demand.",
+            "The ability to recover data from backups.",
+            "The ability to run on any operating system.",
+            "The ability to use open source software."
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Cloud",
+                "Benefits"
+            ]
+        }
+    },
+    {
+        "category": "Best Practices",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "What does DRY stand for in software development?",
+        "correct_answer": "Don't Repeat Yourself",
+        "options": [
+            "Don't Repeat Yourself",
+            "Do Review Yearly",
+            "Deploy Right Yesterday",
+            "Data Redundancy Yield"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Concepts",
+                "Acronyms"
+            ]
+        }
+    },
+    {
+        "category": "Networking & Security",
+        "type": "multiple_choice",
+        "difficulty": 2,
+        "question": "Which protocol is secure: HTTP or HTTPS?",
+        "correct_answer": "HTTPS",
+        "options": [
+            "HTTPS",
+            "HTTP",
+            "FTP",
+            "Telnet"
+        ],
+        "metadata": {
+            "estimated_minutes": 1,
+            "tags": [
+                "Web",
+                "Security"
+            ]
+        }
+    }
+]
