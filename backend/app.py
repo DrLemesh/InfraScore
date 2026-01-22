@@ -10,16 +10,57 @@ app = Flask(__name__, template_folder=template_dir)
 
 def get_db_connection():
     conn = psycopg2.connect(
-        host='localhost',
-        database='quiz_project',
-        user='admin',
-        password='password123'
+        host=os.environ.get('DB_HOST', 'localhost'),
+        database=os.environ.get('DB_NAME', 'quiz_project'),
+        user=os.environ.get('DB_USER', 'admin'),
+        password=os.environ.get('DB_PASSWORD', 'password123')
     )
     return conn
 
+def create_tables():
+    """Initialize the database with required tables."""
+    conn = get_db_connection()
+    cur = conn.cursor()
+    
+    # Create Users Table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            username VARCHAR(50) UNIQUE NOT NULL,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            password_hash VARCHAR(255) NOT NULL,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    
+    # Create Test Results Table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS test_results (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+            score INTEGER NOT NULL,
+            total_questions INTEGER NOT NULL,
+            completed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    
+    conn.commit()
+    cur.close()
+    conn.close()
+    print("Database tables created successfully.")
+
 @app.route('/')
-def index():
-    return render_template('index.html')
+def landing():
+    return render_template('landing-page.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/quiz')
+def quiz():
+    return render_template('question-tab.html')
+
 
 @app.route('/generate-exam', methods=['GET'])
 def generate_exam():
@@ -53,4 +94,8 @@ def generate_exam():
     return jsonify(exam_questions)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    try:
+        create_tables()
+    except Exception as e:
+        print(f"Error creating tables: {e}")
+    app.run(debug=True, host='0.0.0.0')
