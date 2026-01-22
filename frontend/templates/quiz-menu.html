@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ddff2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .grid-bg {
+            background-image: linear-gradient(rgba(13, 223, 242, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(13, 223, 242, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(16, 33, 34, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 223, 242, 0.2);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(13, 223, 242, 0.4);
+        }
+        .neon-border {
+            border: 1px solid #0ddff2;
+            box-shadow: inset 0 0 5px rgba(13, 223, 242, 0.2);
+        }.custom-input-container {
+            display: none;
+        }
+        #custom-toggle:checked ~ .custom-input-container {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen grid-bg">
+    <div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="flex items-center justify-between border-b border-primary/20 px-8 py-4 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+            <div class="flex items-center gap-4">
+                <div class="text-primary">
+                    <span class="material-symbols-outlined text-4xl">terminal</span>
+                </div>
+                <h2 class="text-white text-xl font-bold tracking-widest uppercase italic">InfraScore</h2>
+            </div>
+            <div class="flex items-center gap-8">
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors"
+                        href="#">DASHBOARD</a>
+                    <a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">ASSESSMENT</a>
+                    <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors"
+                        href="#">LEADERBOARD</a>
+                    <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">NODES</a>
+                </nav>
+                <div class="flex gap-4">
+                    <button
+                        class="p-2 rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition-all">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div class="h-10 w-10 rounded-lg bg-cover bg-center border border-primary/50"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClo9DHeE9UKVyEJHkx66cGhMgmNOwssyAQh89Pvoh8gOVQYNUB2CVJwRjEFUUQdKKsbEeH7zdAeDkzMHrULeEjaYdvQyQ5N3WjqYEk6NVxWXs9_7oWqicuSfRkySx_Z8GnlgWsPf5jRor2caF5wriRoTLtTM-80kZ2YuZ-ix79nexBMRqaW1hMbHgoVs-Izv4LwHiWTCaZ728HJN82dh6qeODdWFHJKe5QrgByvRt9XdbsWY5N1qDhAKynC_sopyIxqlXJdeb3zPU-');">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 flex flex-col items-center justify-center p-6 pb-24">
+            <div
+                class="absolute top-24 right-12 flex items-center gap-3 bg-primary/5 p-3 rounded-lg border border-primary/20">
+                <div class="relative flex h-3 w-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-tighter text-primary/70 leading-none">AI Core
+                        Status</span>
+                    <span class="text-xs font-bold text-white tracking-widest">SYSTEM READY</span>
+                </div>
+            </div>
+            <div class="glass-panel w-full max-w-2xl rounded-xl p-8 shadow-2xl relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-20">
+                </div>
+                <div class="text-center mb-10">
+                    <h1
+                        class="text-white text-3xl font-bold tracking-tight mb-2 flex items-center justify-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-4xl">settings_input_component</span>
+                        INITIALIZE ASSESSMENT
+                    </h1>
+                    <p class="text-white/50 text-sm tracking-widest uppercase">Select deployment parameters for the
+                        simulation</p>
+                </div>
+                <div class="mb-10">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-primary text-sm">database</span>
+                        <h3 class="text-white/90 text-sm font-bold tracking-[0.2em] uppercase">Select Load Size</h3>
+                    </div>
+                    <input class="hidden peer" id="custom-toggle" type="checkbox" />
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                        <button
+                            class="flex items-center justify-center gap-2 py-3 px-2 rounded-lg bg-primary/10 border border-primary/40 hover:bg-primary/20 transition-all group">
+                            <span
+                                class="material-symbols-outlined text-primary/70 group-hover:text-primary transition-colors text-lg">speed</span>
+                            <span class="text-xs font-bold whitespace-nowrap">SHORT (10)</span>
+                        </button>
+                        <button
+                            class="flex items-center justify-center gap-2 py-3 px-2 rounded-lg bg-primary border border-primary text-background-dark font-bold hover:shadow-[0_0_20px_rgba(13,223,242,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-lg">analytics</span>
+                            <span class="text-xs whitespace-nowrap">MEDIUM (15)</span>
+                        </button>
+                        <button
+                            class="flex items-center justify-center gap-2 py-3 px-2 rounded-lg bg-primary/10 border border-primary/40 hover:bg-primary/20 transition-all group">
+                            <span
+                                class="material-symbols-outlined text-primary/70 group-hover:text-primary transition-colors text-lg">memory</span>
+                            <span class="text-xs font-bold whitespace-nowrap">LONG (25)</span>
+                        </button>
+                        <label
+                            class="flex items-center justify-center gap-2 py-3 px-2 rounded-lg bg-primary/10 border border-primary/40 hover:bg-primary/20 transition-all group cursor-pointer peer-checked:bg-primary/30 peer-checked:border-primary"
+                            for="custom-toggle">
+                            <span
+                                class="material-symbols-outlined text-primary/70 group-hover:text-primary transition-colors text-lg">tune</span>
+                            <span class="text-xs font-bold whitespace-nowrap">CUSTOM</span>
+                        </label>
+                    </div>
+                    <div class="custom-input-container">
+                        <div class="flex flex-col gap-2 px-1 animate-in fade-in slide-in-from-top-2 duration-300">
+                            <label class="text-[10px] text-primary/60 uppercase font-bold tracking-widest">Custom
+                                Question Count</label>
+                            <div class="relative group">
+                                <input
+                                    class="w-full bg-background-dark/50 border border-primary/20 rounded-lg py-3 pl-10 pr-4 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-white/20"
+                                    placeholder="Enter count (e.g. 12)..." type="number" />
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-sm">edit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-sm">bolt</span>
+                            <h3 class="text-white/90 text-sm font-bold tracking-[0.2em] uppercase">Stress Level</h3>
+                        </div>
+                        <span class="text-primary font-bold text-xs bg-primary/10 px-2 py-1 rounded">LEVEL: 03</span>
+                    </div>
+                    <div class="relative pt-6 px-2">
+                        <input class="w-full h-1 bg-primary/20 rounded-lg appearance-none cursor-pointer accent-primary"
+                            max="5" min="1" step="1" type="range" value="3" />
+                        <div
+                            class="flex justify-between mt-4 text-[10px] text-white/40 font-bold uppercase tracking-widest px-1">
+                            <span>Junior</span>
+                            <span>DevOps</span>
+                            <span>Architect</span>
+                            <span>Principal</span>
+                            <span>Lead Tech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-6">
+                    <button
+                        class="w-full py-5 bg-primary text-background-dark font-black text-lg tracking-[0.25em] rounded-lg shadow-[0_0_30px_rgba(13,223,242,0.3)] hover:shadow-[0_0_50px_rgba(13,223,242,0.6)] hover:scale-[1.01] transition-all flex items-center justify-center gap-4">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        GENERATE ASSESSMENT
+                    </button>
+                    <div
+                        class="flex items-center gap-6 text-[10px] text-white/30 font-medium uppercase tracking-[0.15em]">
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-xs">check_circle</span> 15 Questions</span>
+                        <span class="w-1 h-1 bg-white/20 rounded-full"></span>
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-xs">check_circle</span> Level 3 Difficulty</span>
+                        <span class="w-1 h-1 bg-white/20 rounded-full"></span>
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-xs">check_circle</span> Infra Focus</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="fixed bottom-0 left-0 w-full h-64 opacity-20 pointer-events-none overflow-hidden flex items-end justify-center">
+                <div
+                    class="w-[1200px] h-[400px] border-t border-x border-primary/30 rounded-t-full flex items-center justify-center gap-20 p-20">
+                    <div
+                        class="w-24 h-24 rounded-lg border border-primary/20 bg-primary/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary/30 text-3xl">hub</span>
+                    </div>
+                    <div
+                        class="w-24 h-24 rounded-lg border border-primary/20 bg-primary/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary/30 text-3xl">dns</span>
+                    </div>
+                    <div
+                        class="w-24 h-24 rounded-lg border border-primary/20 bg-primary/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary/30 text-3xl">lan</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer
+            class="fixed bottom-0 left-0 w-full p-6 flex justify-between items-center bg-gradient-to-t from-background-dark to-transparent pointer-events-none">
+            <div class="text-[10px] text-white/40 tracking-[0.3em] font-medium">
+                NODE_STATION: 0XAF329 // AUTH_TOKEN: ACTIVE
+            </div>
+            <div class="flex gap-4 pointer-events-auto">
+                <span class="material-symbols-outlined text-primary/40 text-xl cursor-help">help_outline</span>
+                <span class="material-symbols-outlined text-primary/40 text-xl cursor-pointer">settings</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let selectedQuestionCount = 15; // Default: MEDIUM
+        let selectedDifficulty = 3; // Default: Level 3
+        let isCustom = false;
+
+        // Question count buttons - select by position in grid
+        const buttonGrid = document.querySelector('.grid.grid-cols-2.lg\\:grid-cols-4');
+        const shortBtn = buttonGrid.children[0]; // First button
+        const mediumBtn = buttonGrid.children[1]; // Second button
+        const longBtn = buttonGrid.children[2]; // Third button
+        const customToggle = document.getElementById('custom-toggle');
+        const customInput = document.querySelector('input[type="number"]');
+
+        // Difficulty slider
+        const difficultySlider = document.querySelector('input[type="range"]');
+        const difficultyDisplay = document.querySelector('.text-primary.font-bold.text-xs');
+
+        // Generate button - find by text content
+        const generateBtn = Array.from(document.querySelectorAll('button')).find(btn =>
+            btn.textContent.includes('GENERATE ASSESSMENT')
+        );
+
+        // Summary displays
+        const summaryContainer = document.querySelectorAll('.flex.items-center.gap-6')[0];
+        const questionCountDisplay = summaryContainer.children[0];
+        const difficultyLevelDisplay = summaryContainer.children[2];
+
+        // Handle question count selection
+        function selectQuestionCount(count, buttonElement) {
+            selectedQuestionCount = count;
+            isCustom = false;
+
+            // Remove active state from all buttons
+            [shortBtn, mediumBtn, longBtn].forEach(btn => {
+                btn.classList.remove('bg-primary', 'border-primary', 'text-background-dark', 'font-bold');
+                btn.classList.add('bg-primary/10', 'border-primary/40');
+            });
+
+            // Add active state to selected button
+            buttonElement.classList.remove('bg-primary/10', 'border-primary/40');
+            buttonElement.classList.add('bg-primary', 'border-primary', 'text-background-dark', 'font-bold');
+
+            updateSummary();
+        }
+
+        shortBtn.addEventListener('click', () => selectQuestionCount(10, shortBtn));
+        mediumBtn.addEventListener('click', () => selectQuestionCount(15, mediumBtn));
+        longBtn.addEventListener('click', () => selectQuestionCount(25, longBtn));
+
+        // Handle custom input
+        customToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                isCustom = true;
+                // Remove active state from preset buttons
+                [shortBtn, mediumBtn, longBtn].forEach(btn => {
+                    btn.classList.remove('bg-primary', 'border-primary', 'text-background-dark');
+                    btn.classList.add('bg-primary/10', 'border-primary/40');
+                });
+            }
+        });
+
+        customInput.addEventListener('input', (e) => {
+            if (isCustom && e.target.value) {
+                selectedQuestionCount = parseInt(e.target.value) || 15;
+                updateSummary();
+            }
+        });
+
+        // Handle difficulty slider
+        difficultySlider.addEventListener('input', (e) => {
+            selectedDifficulty = parseInt(e.target.value);
+            difficultyDisplay.textContent = `LEVEL: 0${selectedDifficulty}`;
+            updateSummary();
+        });
+
+        // Update summary display
+        function updateSummary() {
+            questionCountDisplay.innerHTML = `<span class="material-symbols-outlined text-xs">check_circle</span> ${selectedQuestionCount} Questions`;
+            difficultyLevelDisplay.innerHTML = `<span class="material-symbols-outlined text-xs">check_circle</span> Level ${selectedDifficulty} Difficulty`;
+        }
+
+        // Generate assessment button
+        generateBtn.addEventListener('click', async () => {
+            // Disable button and show loading state
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin">refresh</span>
+                GENERATING...
+            `;
+
+            try {
+                const response = await fetch('/api/generate-quiz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        count: selectedQuestionCount,
+                        difficulty: selectedDifficulty
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success - redirect to quiz page
+                    window.location.href = '/quiz';
+                } else {
+                    // Error - show message
+                    alert(data.error || 'Failed to generate quiz');
+                    // Reset button
+                    generateBtn.disabled = false;
+                    generateBtn.innerHTML = `
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        GENERATE ASSESSMENT
+                    `;
+                }
+            } catch (error) {
+                console.error('Error generating quiz:', error);
+                alert('Network error. Please try again.');
+                // Reset button
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = `
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    GENERATE ASSESSMENT
+                `;
+            }
+        });
+
+        // Initialize summary
+        updateSummary();
+    </script>
+
+</body>
+
+</html>

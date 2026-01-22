@@ -1,156 +1,433 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>InfraScore - Quiz Interface</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#0ddff2",
-              "background-light": "#f5f8f8",
-              "background-dark": "#102122",
-              "surface-dark": "#162a2d",
-              "surface-dark-hover": "#1d363a",
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>InfraScore - Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ddff2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102122",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
             },
-            fontFamily: {
-              "display": ["Space Grotesk", "sans-serif"],
-              "body": ["Noto Sans", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
-            boxShadow: {
-                'neon': '0 0 10px rgba(13, 223, 242, 0.3), 0 0 4px rgba(13, 223, 242, 0.1)',
-            }
-          },
-        },
-      }
+        }
     </script>
+    <style>
+        .grid-bg {
+            background-image: linear-gradient(rgba(13, 223, 242, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(13, 223, 242, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glass-panel {
+            background: rgba(16, 33, 34, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 223, 242, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased min-h-screen flex flex-col">
-<header class="w-full border-b border-gray-200 dark:border-[#224649] px-6 lg:px-12 py-4 bg-white/50 dark:bg-[#102123]/80 backdrop-blur-md sticky top-0 z-50">
-<div class="max-w-5xl mx-auto flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="text-primary p-1.5 rounded-lg bg-primary/10">
-<span class="material-symbols-outlined text-[24px]">terminal</span>
-</div>
-<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">InfraScore</h1>
-</div>
-<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 text-slate-600 dark:text-gray-300 hover:bg-red-500/10 hover:text-red-500 dark:hover:text-red-400">
-<span class="material-symbols-outlined text-[20px]">logout</span>
-<span class="hidden sm:inline">Quit Quiz</span>
-</button>
-</div>
-</header>
-<main class="flex-grow flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-<div class="w-full max-w-3xl flex flex-col gap-8">
-<div class="flex flex-col gap-3">
-<div class="flex justify-between items-end px-1">
-<div class="flex flex-col">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary mb-1">Infrastructure Basics</span>
-<p class="text-base font-medium text-slate-700 dark:text-gray-200">Question 5 of 20</p>
-</div>
-<p class="text-sm font-bold text-primary">25%</p>
-</div>
-<div class="h-1.5 w-full bg-gray-200 dark:bg-[#224649] rounded-full overflow-hidden">
-<div class="h-full bg-primary shadow-[0_0_10px_rgba(13,223,242,0.6)] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
-</div>
-</div>
-<div class="flex flex-col gap-8 py-4">
-<h2 class="text-2xl md:text-3xl lg:text-[32px] font-bold leading-tight text-slate-900 dark:text-white">
-                    Which Kubernetes component is responsible for maintaining the desired state of the cluster?
-                </h2>
-<div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-300 border border-gray-800 hidden">
-<div class="flex items-center gap-2 mb-2 border-b border-gray-700 pb-2">
-<span class="w-3 h-3 rounded-full bg-red-500"></span>
-<span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-<span class="w-3 h-3 rounded-full bg-green-500"></span>
-<span class="text-xs text-gray-500 ml-2">cluster-config.yaml</span>
-</div>
-<pre><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2</code></pre>
-</div>
-<div class="grid gap-4">
-<label class="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-[#316368] bg-white dark:bg-surface-dark p-5 cursor-pointer transition-all duration-200 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-surface-dark-hover">
-<div class="flex items-center justify-center">
-<input class="peer sr-only" name="quiz-option" type="radio"/>
-<div class="h-6 w-6 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-transparent transition-all peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-black opacity-0 peer-checked:opacity-100 transition-opacity font-bold">check</span>
-</div>
-</div>
-<div class="flex grow flex-col">
-<p class="text-base font-medium text-slate-800 dark:text-gray-200 group-hover:text-primary transition-colors">Kube-scheduler</p>
-</div>
-<div class="absolute inset-0 rounded-xl ring-2 ring-primary ring-opacity-0 transition-all peer-checked:ring-opacity-100 peer-checked:shadow-neon pointer-events-none"></div>
-</label>
-<label class="group relative flex items-center gap-4 rounded-xl border border-primary bg-primary/5 dark:bg-primary/5 p-5 cursor-pointer shadow-neon">
-<div class="flex items-center justify-center">
-<input checked="" class="peer sr-only" name="quiz-option" type="radio"/>
-<div class="h-6 w-6 rounded-full border-2 border-primary bg-primary transition-all flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-[#102123] font-bold">check</span>
-</div>
-</div>
-<div class="flex grow flex-col">
-<p class="text-base font-medium text-slate-900 dark:text-white">Kube-controller-manager</p>
-</div>
-<div class="absolute inset-0 rounded-xl border-2 border-primary pointer-events-none"></div>
-</label>
-<label class="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-[#316368] bg-white dark:bg-surface-dark p-5 cursor-pointer transition-all duration-200 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-surface-dark-hover">
-<div class="flex items-center justify-center">
-<input class="peer sr-only" name="quiz-option" type="radio"/>
-<div class="h-6 w-6 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-transparent transition-all peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-black opacity-0 peer-checked:opacity-100 transition-opacity font-bold">check</span>
-</div>
-</div>
-<div class="flex grow flex-col">
-<p class="text-base font-medium text-slate-800 dark:text-gray-200 group-hover:text-primary transition-colors">etcd</p>
-</div>
-<div class="absolute inset-0 rounded-xl ring-2 ring-primary ring-opacity-0 transition-all peer-checked:ring-opacity-100 peer-checked:shadow-neon pointer-events-none"></div>
-</label>
-<label class="group relative flex items-center gap-4 rounded-xl border border-gray-200 dark:border-[#316368] bg-white dark:bg-surface-dark p-5 cursor-pointer transition-all duration-200 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-surface-dark-hover">
-<div class="flex items-center justify-center">
-<input class="peer sr-only" name="quiz-option" type="radio"/>
-<div class="h-6 w-6 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-transparent transition-all peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-black opacity-0 peer-checked:opacity-100 transition-opacity font-bold">check</span>
-</div>
-</div>
-<div class="flex grow flex-col">
-<p class="text-base font-medium text-slate-800 dark:text-gray-200 group-hover:text-primary transition-colors">Kubelet</p>
-</div>
-<div class="absolute inset-0 rounded-xl ring-2 ring-primary ring-opacity-0 transition-all peer-checked:ring-opacity-100 peer-checked:shadow-neon pointer-events-none"></div>
-</label>
-</div>
-</div>
-<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 mt-auto sm:mt-0">
-<button class="w-full sm:w-auto px-6 py-3 rounded-xl border border-gray-300 dark:border-[#316368] text-slate-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-100 dark:hover:bg-[#1d363a] transition-colors duration-200 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[20px]">skip_next</span>
-                    Skip Question
+
+<body class="bg-background-dark text-white font-display min-h-screen grid-bg">
+    <!-- Header -->
+    <header class="border-b border-primary/20 px-6 py-4 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="text-primary">
+                    <span class="material-symbols-outlined text-3xl">terminal</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">InfraScore Quiz</h1>
+            </div>
+            <button onclick="quitQuiz()"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-red-400 hover:bg-red-500/10">
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                <span>Quit Quiz</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center justify-center p-6">
+        <div class="w-full max-w-3xl">
+            <!-- Progress Bar -->
+            <div id="progress-container" class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span id="progress-text" class="text-sm text-primary font-medium">Question 1 of 15</span>
+                    <span id="difficulty-badge" class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Level
+                        3</span>
+                </div>
+                <div class="w-full bg-[#224649] rounded-full h-2">
+                    <div id="progress-bar" class="bg-primary h-2 rounded-full transition-all duration-300"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div id="question-card" class="glass-panel rounded-xl p-8 shadow-2xl mb-6">
+                <div id="loading-state" class="text-center py-12">
+                    <span
+                        class="material-symbols-outlined text-primary text-5xl animate-spin inline-block">refresh</span>
+                    <p class="text-white/60 mt-4">Loading quiz...</p>
+                </div>
+
+                <div id="question-content" class="hidden">
+                    <!-- Question Text -->
+                    <div class="mb-8">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-2xl">help_outline</span>
+                            <h2 id="question-text" class="text-xl font-semibold text-white leading-relaxed"></h2>
+                        </div>
+                        <p id="question-category" class="text-sm text-primary/60 ml-11"></p>
+                    </div>
+
+                    <!-- Answer Options -->
+                    <div id="answer-container" class="space-y-3">
+                        <!-- Options will be dynamically inserted here -->
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message"
+                        class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div id="nav-buttons" class="hidden flex justify-between items-center">
+                <button id="prev-btn" onclick="navigatePrevious()"
+                    class="flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent border border-primary/30 text-primary hover:bg-primary/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Previous</span>
                 </button>
-<div class="flex items-center gap-4 w-full sm:w-auto">
-<button class="hidden sm:flex items-center justify-center w-12 h-12 rounded-xl border border-gray-300 dark:border-[#316368] text-slate-500 dark:text-gray-400 hover:text-primary hover:border-primary transition-all">
-<span class="material-symbols-outlined">lightbulb</span>
-</button>
-<button class="w-full sm:w-auto px-8 py-3 rounded-xl bg-primary text-[#102123] font-bold text-sm shadow-[0_0_15px_rgba(13,223,242,0.4)] hover:shadow-[0_0_25px_rgba(13,223,242,0.6)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2 group">
-                        Submit Answer
-                        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-<div class="fixed inset-0 pointer-events-none z-[-1] opacity-5 dark:opacity-20" data-alt="Abstract subtle grid background pattern for technical feel" style="background-image: linear-gradient(#316368 1px, transparent 1px), linear-gradient(90deg, #316368 1px, transparent 1px); background-size: 40px 40px;">
-</div>
-</body></html>
+
+                <button id="next-btn" onclick="navigateNext()"
+                    class="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-background-dark font-bold hover:shadow-[0_0_20px_rgba(13,223,242,0.4)] transition-all">
+                    <span>Next</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+
+                <button id="submit-btn" onclick="submitQuiz()"
+                    class="hidden flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-500 text-white font-bold hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Submit Quiz</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Results Modal -->
+    <div id="results-modal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
+        <div class="glass-panel rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="text-center mb-8">
+                <div class="inline-block p-4 bg-primary/10 rounded-full mb-4">
+                    <span class="material-symbols-outlined text-primary text-5xl">emoji_events</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-2">Quiz Complete!</h2>
+                <p class="text-white/60">Here are your results</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-[#162a2d] rounded-lg p-4 text-center">
+                    <p class="text-white/60 text-sm mb-1">Score</p>
+                    <p id="result-score" class="text-2xl font-bold text-primary">0/0</p>
+                </div>
+                <div class="bg-[#162a2d] rounded-lg p-4 text-center">
+                    <p class="text-white/60 text-sm mb-1">Percentage</p>
+                    <p id="result-percentage" class="text-2xl font-bold text-emerald-400">0%</p>
+                </div>
+                <div class="bg-[#162a2d] rounded-lg p-4 text-center">
+                    <p class="text-white/60 text-sm mb-1">Total</p>
+                    <p id="result-total" class="text-2xl font-bold text-white">0</p>
+                </div>
+            </div>
+
+            <div id="results-breakdown" class="space-y-3 mb-8">
+                <!-- Results breakdown will be inserted here -->
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="window.location.href='/dashboard'"
+                    class="flex-1 px-6 py-3 rounded-lg bg-transparent border border-primary/30 text-primary hover:bg-primary/10 transition-all">
+                    Back to Dashboard
+                </button>
+                <button onclick="window.location.href='/quiz-menu'"
+                    class="flex-1 px-6 py-3 rounded-lg bg-primary text-background-dark font-bold hover:shadow-[0_0_20px_rgba(13,223,242,0.4)] transition-all">
+                    Take Another Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestionData = null;
+        let currentAnswer = null;
+
+        // Load current question on page load
+        async function loadCurrentQuestion() {
+            try {
+                const response = await fetch('/api/quiz/current-question');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    if (data.completed) {
+                        // Quiz is completed, show results
+                        await showResults();
+                    } else if (response.status === 404) {
+                        // No active quiz, redirect to quiz menu
+                        alert('No active quiz found. Please generate a new quiz.');
+                        window.location.href = '/quiz-menu';
+                    } else {
+                        throw new Error(data.error || 'Failed to load question');
+                    }
+                    return;
+                }
+
+                currentQuestionData = data;
+                displayQuestion(data);
+
+                // Hide loading, show content
+                document.getElementById('loading-state').classList.add('hidden');
+                document.getElementById('question-content').classList.remove('hidden');
+                document.getElementById('nav-buttons').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error loading question:', error);
+                showError('Failed to load question. Please try again.');
+            }
+        }
+
+        function displayQuestion(data) {
+            const { question, current_index, total_questions, saved_answer, is_last } = data;
+
+            // Update progress
+            document.getElementById('progress-text').textContent = `Question ${current_index + 1} of ${total_questions}`;
+            const progressPercent = ((current_index + 1) / total_questions) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            // Update question text
+            document.getElementById('question-text').textContent = question.question_text;
+            document.getElementById('question-category').textContent = `Category: ${question.category || 'General'}`;
+
+            // Update difficulty badge
+            document.getElementById('difficulty-badge').textContent = `Level ${question.difficulty_level}`;
+
+            // Render answer options based on question type
+            const answerContainer = document.getElementById('answer-container');
+            answerContainer.innerHTML = '';
+
+            if (question.question_type === 'multiple_choice') {
+                renderMultipleChoice(question.options, saved_answer);
+            } else if (question.question_type === 'multi_select') {
+                renderMultiSelect(question.options, saved_answer);
+            } else if (question.question_type === 'open_ended') {
+                renderOpenEnded(saved_answer);
+            }
+
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = current_index === 0;
+
+            if (is_last) {
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('submit-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('submit-btn').classList.add('hidden');
+            }
+
+            currentAnswer = saved_answer;
+        }
+
+        function renderMultipleChoice(options, savedAnswer) {
+            const container = document.getElementById('answer-container');
+            options.forEach((option, index) => {
+                const isChecked = savedAnswer === option;
+                const optionHtml = `
+                    <label class="flex items-center gap-4 p-4 rounded-lg border border-primary/20 hover:border-primary/40 hover:bg-primary/5 cursor-pointer transition-all ${isChecked ? 'bg-primary/10 border-primary/50' : ''}">
+                        <input type="radio" name="answer" value="${option}" ${isChecked ? 'checked' : ''} 
+                            onchange="currentAnswer = this.value"
+                            class="w-5 h-5 text-primary focus:ring-primary focus:ring-offset-0 border-primary/30">
+                        <span class="text-white">${option}</span>
+                    </label>
+                `;
+                container.innerHTML += optionHtml;
+            });
+        }
+
+        function renderMultiSelect(options, savedAnswer) {
+            const container = document.getElementById('answer-container');
+            const savedSet = new Set(savedAnswer || []);
+            currentAnswer = savedAnswer || [];
+
+            container.innerHTML = '<p class="text-sm text-primary/60 mb-3">Select all that apply:</p>';
+
+            options.forEach((option, index) => {
+                const isChecked = savedSet.has(option);
+                const optionHtml = `
+                    <label class="flex items-center gap-4 p-4 rounded-lg border border-primary/20 hover:border-primary/40 hover:bg-primary/5 cursor-pointer transition-all ${isChecked ? 'bg-primary/10 border-primary/50' : ''}">
+                        <input type="checkbox" value="${option}" ${isChecked ? 'checked' : ''}
+                            onchange="handleMultiSelectChange(this)"
+                            class="w-5 h-5 text-primary focus:ring-primary focus:ring-offset-0 border-primary/30 rounded">
+                        <span class="text-white">${option}</span>
+                    </label>
+                `;
+                container.innerHTML += optionHtml;
+            });
+        }
+
+        function renderOpenEnded(savedAnswer) {
+            const container = document.getElementById('answer-container');
+            container.innerHTML = `
+                <textarea 
+                    id="open-answer"
+                    rows="6"
+                    placeholder="Type your answer here..."
+                    onchange="currentAnswer = this.value"
+                    class="w-full p-4 rounded-lg bg-[#162a2d] border border-primary/20 text-white placeholder:text-white/30 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                >${savedAnswer || ''}</textarea>
+            `;
+            currentAnswer = savedAnswer;
+        }
+
+        function handleMultiSelectChange(checkbox) {
+            if (!Array.isArray(currentAnswer)) {
+                currentAnswer = [];
+            }
+
+            if (checkbox.checked) {
+                if (!currentAnswer.includes(checkbox.value)) {
+                    currentAnswer.push(checkbox.value);
+                }
+            } else {
+                currentAnswer = currentAnswer.filter(v => v !== checkbox.value);
+            }
+        }
+
+        async function saveAnswer() {
+            try {
+                const response = await fetch('/api/quiz/submit-answer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ answer: currentAnswer })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to save answer');
+                }
+            } catch (error) {
+                console.error('Error saving answer:', error);
+            }
+        }
+
+        async function navigateNext() {
+            await saveAnswer();
+
+            const nextIndex = currentQuestionData.current_index + 1;
+            await navigateToQuestion(nextIndex);
+        }
+
+        async function navigatePrevious() {
+            await saveAnswer();
+
+            const prevIndex = currentQuestionData.current_index - 1;
+            await navigateToQuestion(prevIndex);
+        }
+
+        async function navigateToQuestion(index) {
+            try {
+                const response = await fetch('/api/quiz/navigate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ index })
+                });
+
+                if (response.ok) {
+                    await loadCurrentQuestion();
+                }
+            } catch (error) {
+                console.error('Navigation error:', error);
+                showError('Failed to navigate. Please try again.');
+            }
+        }
+
+        async function submitQuiz() {
+            if (!confirm('Are you sure you want to submit your quiz? You cannot change your answers after submission.')) {
+                return;
+            }
+
+            await saveAnswer();
+            await showResults();
+        }
+
+        async function showResults() {
+            try {
+                const response = await fetch('/api/quiz/results');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to get results');
+                }
+
+                // Update results display
+                document.getElementById('result-score').textContent = `${data.score}/${data.total_questions}`;
+                document.getElementById('result-percentage').textContent = `${data.percentage}%`;
+                document.getElementById('result-total').textContent = data.total_questions;
+
+                // Render breakdown
+                const breakdownContainer = document.getElementById('results-breakdown');
+                breakdownContainer.innerHTML = data.results_breakdown.map((result, index) => `
+                    <div class="p-4 rounded-lg ${result.is_correct ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-red-500/10 border border-red-500/30'}">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined ${result.is_correct ? 'text-emerald-400' : 'text-red-400'}">
+                                ${result.is_correct ? 'check_circle' : 'cancel'}
+                            </span>
+                            <div class="flex-1">
+                                <p class="font-semibold mb-1">Q${result.question_number}: ${result.question_text}</p>
+                                <p class="text-sm text-white/60">Your answer: ${result.user_answer || 'No answer'}</p>
+                                ${!result.is_correct ? `<p class="text-sm text-emerald-400">Correct answer: ${result.correct_answer}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Show modal
+                document.getElementById('results-modal').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error showing results:', error);
+                alert('Failed to load results. Please try again.');
+            }
+        }
+
+        function quitQuiz() {
+            if (confirm('Are you sure you want to quit? Your progress will be lost.')) {
+                window.location.href = '/dashboard';
+            }
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('error-message');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+        }
+
+        // Load question on page load
+        loadCurrentQuestion();
+    </script>
+</body>
+
+</html>
