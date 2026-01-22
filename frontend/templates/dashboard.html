@@ -463,146 +463,263 @@
         </main>
     </div>
 
-    <script>
-        // Fetch and display dashboard data
-        async function loadDashboardData() {
-            try {
-                // Load User Info
-                const userResponse = await fetch('/api/current-user');
-                const userData = await userResponse.json();
+    // Fetch and display dashboard data
+    async function loadDashboardData() {
+    try {
+    // Load User Info
+    const userResponse = await fetch('/api/current-user');
+    const userData = await userResponse.json();
 
-                if (userData.logged_in) {
-                    document.getElementById('user-display-name').textContent = userData.username || 'User';
-                } else {
-                    window.location.href = '/login';
-                    return;
-                }
+    if (userData.logged_in) {
+    document.getElementById('user-display-name').textContent = userData.username || 'User';
+    } else {
+    window.location.href = '/login';
+    return;
+    }
 
-                // Load Dashboard Stats
-                const statsResponse = await fetch('/api/dashboard/stats');
-                const statsData = await statsResponse.json();
+    // Load Dashboard Stats
+    const statsResponse = await fetch('/api/dashboard/stats');
+    const statsData = await statsResponse.json();
 
-                if (statsData.error) {
-                    console.error('Stats error:', statsData.error);
-                    return;
-                }
+    if (statsData.error) {
+    console.error('Stats error:', statsData.error);
+    return;
+    }
 
-                updateDashboardUI(statsData);
+    updateDashboardUI(statsData);
 
-            } catch (error) {
-                console.error('Error loading dashboard:', error);
-            }
-        }
+    } catch (error) {
+    console.error('Error loading dashboard:', error);
+    }
+    }
 
-        function updateDashboardUI(data) {
-            const { stats, analysis } = data;
+    async function viewSummary(resultId) {
+    try {
+    const response = await fetch(`/api/quiz/history/${resultId}`);
+    const data = await response.json();
 
-            // 1. Update Readiness/Score Circle
-            const scoreElement = document.querySelector('.text-4xl.font-bold');
-            const scoreLabel = document.querySelector('.text-4xl.font-bold + span');
+    if (data.success) {
+    const result = data.result;
+    const modal = document.getElementById('summary-modal');
+    const content = document.getElementById('summary-content');
 
-            if (scoreElement) {
-                scoreElement.textContent = `${stats.average_score}%`;
-                // Update circle stroke-dasharray (approx logic for visual)
-                // Full circle is ~100. 78% is "78, 100"
-                const circlePath = document.querySelector('path.text-primary.drop-shadow-\\[0_0_5px_rgba\\(13\\,223\\,242\\,0\\.8\\)\\]');
-                if (circlePath) {
-                    circlePath.setAttribute('stroke-dasharray', `${stats.average_score}, 100`);
-                }
-            }
+    // Populate Summary Header
+    document.getElementById('modal-title').textContent = `Exam Summary - Level ${result.difficulty}`;
+    document.getElementById('modal-score').textContent = `${result.score}/${result.total_questions}
+    (${Math.round(result.score/result.total_questions*100)}%)`;
+    document.getElementById('modal-date').textContent = result.date;
 
-            // 2. Update Quizzes Passed Count
-            const quizzesCountEl = document.querySelector('h4.text-2xl.font-bold');
-            if (quizzesCountEl) quizzesCountEl.textContent = stats.quizzes_taken;
+    // Populate Questions
+    let questionsHtml = '';
+    const breakdown = result.breakdown || [];
 
-            // 3. Update AI Analysis (Domain Proficiency replacement for now, or new section)
-            // Let's replace the "Interview Readiness" text with AI Level
-            const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
-            if (readinessLabel) readinessLabel.textContent = `AI Level: ${analysis.level}`;
+    if (breakdown.length === 0) {
+    questionsHtml = '<p class="text-slate-400 italic">Detailed breakdown not available for this exam.</p>';
+    } else {
+    breakdown.forEach((q, index) => {
+    const isCorrect = q.is_correct;
+    questionsHtml += `
+    <div
+        class="p-4 rounded-lg bg-[#102123]/50 border ${isCorrect ? 'border-emerald-500/30' : 'border-red-500/30'} mb-3">
+        <div class="flex items-start justify-between gap-4">
+            <div class="flex gap-3">
+                <span
+                    class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold ${isCorrect ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'}">
+                    ${index + 1}
+                </span>
+                <div>
+                    <p class="text-white text-sm font-medium mb-2">${q.question_text}</p>
+                    <div class="text-xs space-y-1">
+                        <p class="text-slate-400">Your Answer: <span
+                                class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${formatAnswer(q.user_answer)}</span>
+                        </p>
+                        ${!isCorrect ? `<p class="text-slate-400">Correct Answer: <span
+                                class="text-emerald-400">${formatAnswer(q.correct_answer)}</span></p>` : ''}
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0">
+                <span class="material-symbols-outlined ${isCorrect ? 'text-emerald-500' : 'text-red-500'}">
+                    ${isCorrect ? 'check_circle' : 'cancel'}
+                </span>
+            </div>
+        </div>
+        ${q.reference_answer ? `
+        <div class="mt-3 pt-3 border-t border-white/5">
+            <p class="text-[10px] text-[#90c6cb] uppercase font-bold mb-1">Explanation</p>
+            <p class="text-xs text-slate-300">${q.reference_answer}</p>
+        </div>
+        ` : ''}
+    </div>
+    `;
+    });
+    }
 
-            // Update "Projected success rate" text with summary
-            const summaryText = document.querySelector('.mt-4.w-full.text-center p');
-            if (summaryText) summaryText.textContent = analysis.summary;
+    content.innerHTML = questionsHtml;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    } catch (error) {
+    console.error('Error fetching summary:', error);
+    }
+    }
 
-            // Update Domain Proficiency section to be "AI Strength Analysis"
-            const domainHeader = document.querySelector('.material-symbols-outlined.text-\\[\\#90c6cb\\].text-base + span'); // "bar_chart" icon parent text? No, it's just text node
-            // Finding h3 with text "Domain Proficiency"
-            const domainH3 = Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Domain Proficiency'));
-            if (domainH3) {
-                domainH3.innerHTML = `
-                    <span class="material-symbols-outlined text-[#90c6cb] text-base">psychology</span>
-                    AI Performance Analysis
-                `;
+    function formatAnswer(ans) {
+    if (Array.isArray(ans)) return ans.join(', ');
+    return ans || 'No Answer';
+    }
 
-                const container = domainH3.parentElement.querySelector('.flex.flex-col.gap-3');
-                if (container) {
-                    container.innerHTML = ''; // Clear mock data
+    function closeModal() {
+    document.getElementById('summary-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+    }
 
-                    // Render Strengths
-                    if (analysis.strengths && analysis.strengths.length > 0) {
-                        const sDiv = document.createElement('div');
-                        sDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Strengths</p>`;
-                        analysis.strengths.forEach(s => {
-                            sDiv.innerHTML += `
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
-                                    <span class="text-white text-sm">${s}</span>
-                                </div>`;
-                        });
-                        container.appendChild(sDiv);
-                    }
+    function updateDashboardUI(data) {
+    const { stats, analysis } = data;
 
-                    // Render Weaknesses
-                    if (analysis.weaknesses && analysis.weaknesses.length > 0) {
-                        const wDiv = document.createElement('div');
-                        wDiv.classList.add('mt-2');
-                        wDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Focus Areas</p>`;
-                        analysis.weaknesses.forEach(w => {
-                            wDiv.innerHTML += `
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="material-symbols-outlined text-amber-400 text-sm">lightbulb</span>
-                                    <span class="text-white text-sm">${w}</span>
-                                </div>`;
-                        });
-                        container.appendChild(wDiv);
-                    }
-                }
-            }
+    // 1. Update Readiness/Score Circle
+    const scoreElement = document.querySelector('.text-4xl.font-bold');
+    const scoreLabel = document.querySelector('.text-4xl.font-bold + span');
 
-            // 4. Update Recent Activity History
-            const historyContainer = document.querySelector('.flex-1.overflow-y-auto.p-4.space-y-4'); // Container for list
-            if (historyContainer) {
-                if (stats.history.length === 0) {
-                    historyContainer.innerHTML = `<p class="text-[#90c6cb] text-sm text-center italic">No quizzes taken yet.</p>`;
-                } else {
-                    historyContainer.innerHTML = ''; // Clear mock data
-                    stats.history.slice(0, 5).forEach(item => { // Show max 5
-                        const isPass = item.percentage >= 70;
-                        const colorClass = isPass ? 'bg-emerald-500' : 'bg-red-500';
-                        const shadowClass = isPass ? 'rgba(16,185,129,0.5)' : 'rgba(239,68,68,0.5)';
-                        const icon = isPass ? 'Quiz Passed' : 'Quiz Completed'; // Or Failed
+    if (scoreElement) {
+    scoreElement.textContent = `${stats.average_score}%`;
+    const circlePath =
+    document.querySelector('path.text-primary.drop-shadow-\\[0_0_5px_rgba\\(13\\,223\\,242\\,0\\.8\\)\\]');
+    if (circlePath) {
+    circlePath.setAttribute('stroke-dasharray', `${stats.average_score}, 100`);
+    }
+    }
 
-                        const itemHtml = `
-                            <div class="flex gap-3 items-start animate-in fade-in slide-in-from-right-4 duration-500">
-                                <div class="mt-1 size-2 rounded-full ${colorClass} shadow-[0_0_5px_${shadowClass}]"></div>
-                                <div class="flex flex-col w-full">
-                                    <div class="flex justify-between items-center">
-                                        <p class="text-white text-xs font-medium">DevOps Assessment</p>
-                                        <span class="text-xs font-bold ${isPass ? 'text-emerald-400' : 'text-red-400'}">${item.percentage}%</span>
-                                    </div>
-                                    <p class="text-[#90c6cb] text-[10px] mt-0.5">${icon} · ${item.date}</p>
-                                </div>
-                            </div>
-                        `;
-                        historyContainer.innerHTML += itemHtml;
-                    });
-                }
-            }
-        }
+    // 2. Update Quizzes Passed Count
+    const quizzesCountEl = document.querySelector('h4.text-2xl.font-bold');
+    if (quizzesCountEl) quizzesCountEl.textContent = stats.quizzes_taken;
 
-        // Initialize
-        loadDashboardData();
+    // 3. Update AI Analysis
+    const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
+    if (readinessLabel) readinessLabel.textContent = `AI Level: ${analysis.level}`;
+
+    const summaryText = document.querySelector('.mt-4.w-full.text-center p');
+    if (summaryText) summaryText.textContent = analysis.summary;
+
+    // Update Domain Proficiency section to be "AI Strength Analysis"
+    // Using a more robust selector strategy
+    const domainPanel = Array.from(document.querySelectorAll('.glass-panel')).find(el => el.textContent.includes('Domain
+    Proficiency'));
+
+    if (domainPanel) {
+    const title = domainPanel.querySelector('h3');
+    if (title) {
+    title.innerHTML = `
+    <span class="material-symbols-outlined text-[#90c6cb] text-base">psychology</span>
+    AI Performance Analysis
+    `;
+    }
+
+    const container = domainPanel.querySelector('.flex.flex-col.gap-3');
+    if (container) {
+    container.innerHTML = '';
+
+    // Render Strengths
+    if (analysis.strengths && analysis.strengths.length > 0) {
+    const sDiv = document.createElement('div');
+    sDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Strengths</p>`;
+    analysis.strengths.forEach(s => {
+    sDiv.innerHTML += `
+    <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+        <span class="text-white text-sm">${s}</span>
+    </div>`;
+    });
+    container.appendChild(sDiv);
+    }
+
+    // Render Weaknesses
+    if (analysis.weaknesses && analysis.weaknesses.length > 0) {
+    const wDiv = document.createElement('div');
+    wDiv.classList.add('mt-4');
+    wDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Focus Areas</p>`;
+    analysis.weaknesses.forEach(w => {
+    wDiv.innerHTML += `
+    <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-amber-400 text-sm">lightbulb</span>
+        <span class="text-white text-sm">${w}</span>
+    </div>`;
+    });
+    container.appendChild(wDiv);
+    }
+    }
+    }
+
+    // 4. Update Recent Activity History
+    const historyContainer = document.querySelector('.flex-1.overflow-y-auto.p-4.space-y-4'); // Container for list
+    if (historyContainer) {
+    if (stats.history.length === 0) {
+    historyContainer.innerHTML = `<p class="text-[#90c6cb] text-sm text-center italic">No quizzes taken yet.</p>`;
+    } else {
+    historyContainer.innerHTML = ''; // Clear mock data
+    stats.history.slice(0, 5).forEach(item => { // Show max 5
+    const isPass = item.percentage >= 70;
+    const colorClass = isPass ? 'bg-emerald-500' : 'bg-red-500';
+    const shadowClass = isPass ? 'rgba(16,185,129,0.5)' : 'rgba(239,68,68,0.5)';
+    const difficultyText = item.difficulty ? `Level ${item.difficulty}` : 'General';
+
+    const itemHtml = `
+    <div class="flex gap-3 items-start animate-in fade-in slide-in-from-right-4 duration-500 group">
+        <div class="mt-1 size-2 flex-shrink-0 rounded-full ${colorClass} shadow-[0_0_5px_${shadowClass}]"></div>
+        <div class="flex flex-col w-full">
+            <div class="flex justify-between items-center">
+                <p class="text-white text-xs font-medium">${difficultyText} Exam</p>
+                <div class="flex items-center gap-3">
+                    <span
+                        class="text-xs font-bold ${isPass ? 'text-emerald-400' : 'text-red-400'}">${item.percentage}%</span>
+                    ${item.id ? `<button onclick="viewSummary(${item.id})"
+                        class="text-[10px] text-primary hover:text-white underline opacity-0 group-hover:opacity-100 transition-opacity">View
+                        Summary</button>` : ''}
+                </div>
+            </div>
+            <p class="text-[#90c6cb] text-[10px] mt-0.5">${item.total} Questions · ${item.date}</p>
+        </div>
+    </div>
+    `;
+    historyContainer.innerHTML += itemHtml;
+    });
+    }
+    }
+    }
+
+    // Initialize
+    loadDashboardData();
     </script>
+
+    <!-- Exam Summary Modal -->
+    <div id="summary-modal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div
+            class="glass-panel w-full max-w-2xl max-h-[85vh] rounded-xl flex flex-col shadow-2xl border border-primary/20 animate-in fade-in zoom-in-95 duration-200">
+            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-[#162a2d]/80">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2" id="modal-title">Exam Summary</h3>
+                    <p class="text-xs text-[#90c6cb] mt-1">Score: <span class="text-white font-bold"
+                            id="modal-score">--</span> · <span id="modal-date">--</span></p>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4" id="summary-content">
+                <!-- Content injected via JS -->
+                <div class="flex items-center justify-center h-48">
+                    <div class="text-primary animate-pulse">Loading summary...</div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-[#102123] flex justify-end">
+                <button onclick="closeModal()"
+                    class="px-4 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

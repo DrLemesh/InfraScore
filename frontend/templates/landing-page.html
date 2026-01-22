@@ -136,7 +136,7 @@
                     visualization and instant AI feedback.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                    <button onclick="window.location.href='/quiz'"
+                    <button onclick="startQuiz()"
                         class="w-full sm:w-auto h-12 px-8 rounded-lg bg-primary text-background-dark font-bold text-base hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-neon flex items-center justify-center gap-2 group">
                         Start Quiz
                         <span
@@ -295,6 +295,29 @@
         </footer>
     </div>
 
+    <script>
+        // Check login status before starting quiz
+        async function startQuiz() {
+            try {
+                // Show loading state on button if possible, or just proceed
+                const response = await fetch('/api/current-user');
+                const data = await response.json();
+
+                if (data.logged_in) {
+                    // User is logged in, proceed to quiz menu
+                    window.location.href = '/quiz-menu';
+                } else {
+                    // User not logged in, redirect to login
+                    // Optionally store return URL to redirect back after login
+                    window.location.href = '/login?redirect=/quiz-menu';
+                }
+            } catch (error) {
+                console.error('Error checking auth:', error);
+                // Fallback to login on error
+                window.location.href = '/login';
+            }
+        }
+    </script>
 </body>
 
 </html>

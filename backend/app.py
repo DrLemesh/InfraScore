@@ -407,12 +407,17 @@ def get_quiz_results():
         try:
             conn = get_db_connection()
             cur = conn.cursor()
+            
+            # Serialize results breakdown to JSON
+            results_json = json.dumps(results_breakdown)
+            difficulty = session.get('quiz_difficulty', 3) # Default to 3 if missing
+            
             cur.execute(
                 """
-                INSERT INTO test_results (user_id, score, total_questions, completed_at)
-                VALUES (%s, %s, %s, CURRENT_TIMESTAMP)
+                INSERT INTO test_results (user_id, score, total_questions, difficulty_level, results_data, completed_at)
+                VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP)
                 """,
-                (session['user_id'], correct_count, total_questions)
+                (session['user_id'], correct_count, total_questions, difficulty, results_json)
             )
             conn.commit()
             cur.close()
@@ -435,6 +440,45 @@ def get_quiz_results():
     except Exception as e:
         print(f"Results calculation error: {e}")
         return jsonify({'error': 'Failed to calculate results'}), 500
+
+@app.route('/api/quiz/history/<int:result_id>', methods=['GET'])
+def get_quiz_history_detail(result_id):
+    """Fetch detailed results for a specific past quiz"""
+    try:
+        if 'user_id' not in session:
+            return jsonify({'error': 'User not authenticated'}), 401
+            
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        
+        cur.execute("""
+            SELECT id, score, total_questions, difficulty_level, results_data, completed_at
+            FROM test_results 
+            WHERE id = %s AND user_id = %s
+        """, (result_id, session['user_id']))
+        
+        result = cur.fetchone()
+        cur.close()
+        conn.close()
+        
+        if not result:
+            return jsonify({'error': 'Result not found'}), 404
+            
+        return jsonify({
+            'success': True,
+            'result': {
+                'id': result['id'],
+                'score': result['score'],
+                'total_questions': result['total_questions'],
+                'difficulty': result['difficulty_level'],
+                'date': result['completed_at'].strftime('%Y-%m-%d %H:%M'),
+                'breakdown': result['results_data']
+            }
+        })
+        
+    except Exception as e:
+        print(f"History detail error: {e}")
+        return jsonify({'error': 'Failed to fetch history details'}), 500
 
 @app.route('/generate-exam', methods=['GET'])
 def generate_exam():
@@ -477,11 +521,11 @@ def get_dashboard_stats():
             
         user_id = session['user_id']
         conn = get_db_connection()
-        cur = conn.cursor(psycopg2.extras.RealDictCursor) # Use RealDictCursor to easier json serialization
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) 
         
         # 1. Fetch recent results
         cur.execute("""
-            SELECT score, total_questions, completed_at
+            SELECT id, score, total_questions, difficulty_level, completed_at
             FROM test_results
             WHERE user_id = %s
             ORDER BY completed_at DESC
@@ -500,8 +544,10 @@ def get_dashboard_stats():
             history = []
             for r in recent_results:
                 history.append({
+                    'id': r['id'],
                     'score': r['score'],
                     'total': r['total_questions'],
+                    'difficulty': r.get('difficulty_level', 3), # Default to 3 if null (old records)
                     'date': r['completed_at'].strftime('%Y-%m-%d %H:%M'),
                     'percentage': round((r['score'] / r['total_questions'] * 100), 1)
                 })
