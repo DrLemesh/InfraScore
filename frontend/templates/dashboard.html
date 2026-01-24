@@ -184,7 +184,8 @@
                                     <path class="text-[#224649]"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                         fill="none" stroke="currentColor" stroke-width="2"></path>
-                                    <path class="text-primary drop-shadow-[0_0_5px_rgba(13,223,242,0.8)]"
+                                    <path id="ai-readiness-circle"
+                                        class="text-primary drop-shadow-[0_0_5px_rgba(13,223,242,0.8)]"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                         fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-width="2">
                                     </path>
@@ -196,7 +197,7 @@
                             </div>
                             <div class="mt-4 w-full text-center">
                                 <p class="text-xs text-[#90c6cb]">Projected success rate is high.</p>
-                                <button onclick="window.location.href='/quiz'"
+                                <button onclick="startMockExam()"
                                     class="mt-3 w-full py-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40 rounded text-xs font-bold uppercase tracking-wide transition-colors">
                                     Start Mock Interview
                                 </button>
@@ -389,42 +390,10 @@
                                     Recent Activity
                                 </h3>
                             </div>
-                            <div class="flex-1 overflow-y-auto p-4 space-y-4">
-                                <div class="flex gap-3 items-start">
-                                    <div
-                                        class="mt-1 size-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]">
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-white text-xs font-medium">Kubernetes Basics: Pods</p>
-                                        <p class="text-[#90c6cb] text-[10px] mt-0.5">Quiz Passed · 10m ago</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div
-                                        class="mt-1 size-2 rounded-full bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.5)]">
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-white text-xs font-medium">Terraform State Management</p>
-                                        <p class="text-[#90c6cb] text-[10px] mt-0.5">Scenario Failed · 2h ago</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div
-                                        class="mt-1 size-2 rounded-full bg-primary shadow-[0_0_5px_rgba(13,223,242,0.5)]">
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-white text-xs font-medium">AWS IAM Roles</p>
-                                        <p class="text-[#90c6cb] text-[10px] mt-0.5">Study Material Viewed · 5h ago</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-3 items-start">
-                                    <div
-                                        class="mt-1 size-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]">
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-white text-xs font-medium">Docker Networking</p>
-                                        <p class="text-[#90c6cb] text-[10px] mt-0.5">Quiz Passed · 1d ago</p>
-                                    </div>
+                            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="recent-activity-list">
+                                <!-- Content will be loaded dynamically -->
+                                <div class="flex items-center justify-center h-full">
+                                    <p class="text-[#90c6cb] text-sm animate-pulse">Loading activity...</p>
                                 </div>
                             </div>
                             <div class="p-3 bg-[#102123]/50 border-t border-[#316368]/30">
@@ -463,232 +432,269 @@
         </main>
     </div>
 
-    // Fetch and display dashboard data
-    async function loadDashboardData() {
-    try {
-    // Load User Info
-    const userResponse = await fetch('/api/current-user');
-    const userData = await userResponse.json();
+    <script>
+        async function startMockExam() {
+            const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
+            const levelText = readinessLabel ? readinessLabel.textContent.replace('AI Level: ', '').trim() : 'Beginner';
 
-    if (userData.logged_in) {
-    document.getElementById('user-display-name').textContent = userData.username || 'User';
-    } else {
-    window.location.href = '/login';
-    return;
-    }
+            let difficulty = 1;
+            switch (levelText) {
+                case 'Beginner': difficulty = 1; break;
+                case 'Experienced': difficulty = 2; break;
+                case 'Junior': difficulty = 3; break;
+                case 'Intermediate': difficulty = 4; break;
+                case 'Expert': difficulty = 5; break;
+                default: difficulty = 1;
+            }
 
-    // Load Dashboard Stats
-    const statsResponse = await fetch('/api/dashboard/stats');
-    const statsData = await statsResponse.json();
+            const button = document.querySelector('button[onclick="startMockExam()"]');
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = '<span class="material-symbols-outlined animate-spin text-xs">refresh</span> Creating...';
+            }
 
-    if (statsData.error) {
-    console.error('Stats error:', statsData.error);
-    return;
-    }
+            try {
+                const response = await fetch('/api/generate-quiz', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ count: 15, difficulty: difficulty })
+                });
 
-    updateDashboardUI(statsData);
+                if (response.ok) {
+                    window.location.href = '/quiz';
+                } else {
+                    alert('Failed to start mock exam');
+                    if (button) {
+                        button.disabled = false;
+                        button.innerHTML = 'Start Mock Interview';
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Error starting exam');
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = 'Start Mock Interview';
+                }
+            }
+        }
 
-    } catch (error) {
-    console.error('Error loading dashboard:', error);
-    }
-    }
+        // Fetch and display dashboard data
+        async function loadDashboardData() {
+            try {
+                // Load User Info
+                const userResponse = await fetch('/api/current-user');
+                const userData = await userResponse.json();
 
-    async function viewSummary(resultId) {
-    try {
-    const response = await fetch(`/api/quiz/history/${resultId}`);
-    const data = await response.json();
+                if (userData.logged_in) {
+                    document.getElementById('user-display-name').textContent = userData.username || 'User';
+                } else {
+                    window.location.href = '/login';
+                    return;
+                }
 
-    if (data.success) {
-    const result = data.result;
-    const modal = document.getElementById('summary-modal');
-    const content = document.getElementById('summary-content');
+                // Load Dashboard Stats
+                const statsResponse = await fetch('/api/dashboard/stats');
+                const statsData = await statsResponse.json();
 
-    // Populate Summary Header
-    document.getElementById('modal-title').textContent = `Exam Summary - Level ${result.difficulty}`;
-    document.getElementById('modal-score').textContent = `${result.score}/${result.total_questions}
-    (${Math.round(result.score/result.total_questions*100)}%)`;
-    document.getElementById('modal-date').textContent = result.date;
+                if (statsData.error) {
+                    console.error('Stats error:', statsData.error);
+                    return;
+                }
 
-    // Populate Questions
-    let questionsHtml = '';
-    const breakdown = result.breakdown || [];
+                updateDashboardUI(statsData);
 
-    if (breakdown.length === 0) {
-    questionsHtml = '<p class="text-slate-400 italic">Detailed breakdown not available for this exam.</p>';
-    } else {
-    breakdown.forEach((q, index) => {
-    const isCorrect = q.is_correct;
-    questionsHtml += `
-    <div
-        class="p-4 rounded-lg bg-[#102123]/50 border ${isCorrect ? 'border-emerald-500/30' : 'border-red-500/30'} mb-3">
-        <div class="flex items-start justify-between gap-4">
-            <div class="flex gap-3">
-                <span
-                    class="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold ${isCorrect ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'}">
-                    ${index + 1}
-                </span>
-                <div>
-                    <p class="text-white text-sm font-medium mb-2">${q.question_text}</p>
-                    <div class="text-xs space-y-1">
-                        <p class="text-slate-400">Your Answer: <span
-                                class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${formatAnswer(q.user_answer)}</span>
-                        </p>
-                        ${!isCorrect ? `<p class="text-slate-400">Correct Answer: <span
-                                class="text-emerald-400">${formatAnswer(q.correct_answer)}</span></p>` : ''}
-                    </div>
-                </div>
-            </div>
-            <div class="flex-shrink-0">
-                <span class="material-symbols-outlined ${isCorrect ? 'text-emerald-500' : 'text-red-500'}">
-                    ${isCorrect ? 'check_circle' : 'cancel'}
-                </span>
-            </div>
-        </div>
-        ${q.reference_answer ? `
-        <div class="mt-3 pt-3 border-t border-white/5">
-            <p class="text-[10px] text-[#90c6cb] uppercase font-bold mb-1">Explanation</p>
-            <p class="text-xs text-slate-300">${q.reference_answer}</p>
-        </div>
-        ` : ''}
-    </div>
-    `;
-    });
-    }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
 
-    content.innerHTML = questionsHtml;
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-    } catch (error) {
-    console.error('Error fetching summary:', error);
-    }
-    }
+        async function viewSummary(resultId) {
+            try {
+                const response = await fetch(`/api/quiz/history/${resultId}`);
+                const data = await response.json();
 
-    function formatAnswer(ans) {
-    if (Array.isArray(ans)) return ans.join(', ');
-    return ans || 'No Answer';
-    }
+                if (data.success) {
+                    const result = data.result;
+                    const modal = document.getElementById('summary-modal');
+                    const content = document.getElementById('summary-content');
 
-    function closeModal() {
-    document.getElementById('summary-modal').classList.add('hidden');
-    document.body.style.overflow = '';
-    }
+                    // Populate Summary Header
+                    const difficultyText = result.difficulty ? `Level ${result.difficulty}` : 'General Proficiency';
+                    const percentage = Math.round(result.score / result.total_questions * 100);
+                    const isPass = percentage >= 70;
 
-    function updateDashboardUI(data) {
-    const { stats, analysis } = data;
+                    document.getElementById('modal-title').innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span>Exam Summary - ${difficultyText}</span>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold ${isPass ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : 'bg-red-500/20 text-red-400 border border-red-500/50'}">
+                            ${isPass ? 'PASSED' : 'FAILED'}
+                        </span>
+                    </div>`;
 
-    // 1. Update Readiness/Score Circle
-    const scoreElement = document.querySelector('.text-4xl.font-bold');
-    const scoreLabel = document.querySelector('.text-4xl.font-bold + span');
+                    document.getElementById('modal-score').textContent = `${result.score}/${result.total_questions} (${percentage}%)`;
+                    document.getElementById('modal-date').textContent = result.date;
 
-    if (scoreElement) {
-    scoreElement.textContent = `${stats.average_score}%`;
-    const circlePath =
-    document.querySelector('path.text-primary.drop-shadow-\\[0_0_5px_rgba\\(13\\,223\\,242\\,0\\.8\\)\\]');
-    if (circlePath) {
-    circlePath.setAttribute('stroke-dasharray', `${stats.average_score}, 100`);
-    }
-    }
+                    // Populate Questions
+                    let questionsHtml = '';
+                    const breakdown = result.breakdown || [];
 
-    // 2. Update Quizzes Passed Count
-    const quizzesCountEl = document.querySelector('h4.text-2xl.font-bold');
-    if (quizzesCountEl) quizzesCountEl.textContent = stats.quizzes_taken;
+                    if (breakdown.length === 0) {
+                        questionsHtml = '<p class="text-slate-400 italic">Detailed breakdown not available for this exam.</p>';
+                    } else {
+                        breakdown.forEach((q, index) => {
+                            const isCorrect = q.is_correct;
+                            questionsHtml += `
+                                <div class="p-4 rounded-lg mb-3 ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-red-500/10 border border-red-500/30'}">
+                                    <div class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined ${isCorrect ? 'text-emerald-400' : 'text-red-400'}">
+                                            ${isCorrect ? 'check_circle' : 'cancel'}
+                                        </span>
+                                        <div class="flex-1">
+                                            <p class="font-semibold mb-1 text-white">Q${index + 1}: ${q.question_text}</p>
+                                            <p class="text-sm text-white/60">Your answer: <span class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${formatAnswer(q.user_answer)}</span></p>
+                                            ${!isCorrect ? `<p class="text-sm text-emerald-400 mt-1">Correct answer: ${formatAnswer(q.correct_answer)}</p>` : ''}
+                                            ${q.reference_answer ? `
+                                            <div class="mt-2 pt-2 border-t border-white/5">
+                                                <p class="text-[10px] text-[#90c6cb] uppercase font-bold mb-1">Explanation</p>
+                                                <p class="text-xs text-slate-300">${q.reference_answer}</p>
+                                            </div>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
 
-    // 3. Update AI Analysis
-    const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
-    if (readinessLabel) readinessLabel.textContent = `AI Level: ${analysis.level}`;
+                    content.innerHTML = questionsHtml;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            } catch (error) {
+                console.error('Error fetching summary:', error);
+            }
+        }
 
-    const summaryText = document.querySelector('.mt-4.w-full.text-center p');
-    if (summaryText) summaryText.textContent = analysis.summary;
+        function formatAnswer(ans) {
+            if (Array.isArray(ans)) return ans.join(', ');
+            return ans || 'No Answer';
+        }
 
-    // Update Domain Proficiency section to be "AI Strength Analysis"
-    // Using a more robust selector strategy
-    const domainPanel = Array.from(document.querySelectorAll('.glass-panel')).find(el => el.textContent.includes('Domain
-    Proficiency'));
+        function closeModal() {
+            document.getElementById('summary-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
 
-    if (domainPanel) {
-    const title = domainPanel.querySelector('h3');
-    if (title) {
-    title.innerHTML = `
+        function updateDashboardUI(data) {
+            const { stats, analysis } = data;
+
+            // 1. Update Readiness/Score Circle
+            const scoreElement = document.querySelector('.text-4xl.font-bold');
+            const scoreLabel = document.querySelector('.text-4xl.font-bold + span');
+
+            if (scoreElement) {
+                scoreElement.textContent = `${stats.average_score}%`;
+                const circlePath = document.getElementById('ai-readiness-circle');
+                if (circlePath) {
+                    circlePath.setAttribute('stroke-dasharray', `${stats.average_score}, 100`);
+                }
+            }
+
+            // 2. Update Quizzes Passed Count
+            const quizzesCountEl = document.querySelector('h4.text-2xl.font-bold');
+            if (quizzesCountEl) quizzesCountEl.textContent = stats.quizzes_taken;
+
+            // 3. Update AI Analysis
+            const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
+            if (readinessLabel) readinessLabel.textContent = `AI Level: ${analysis.level}`;
+
+            const summaryText = document.querySelector('.mt-4.w-full.text-center p');
+            if (summaryText) summaryText.textContent = analysis.summary;
+
+            // Update Domain Proficiency section to be "AI Strength Analysis"
+            // Using a more robust selector strategy
+            const domainPanel = Array.from(document.querySelectorAll('.glass-panel')).find(el => el.textContent.includes('Domain Proficiency'));
+
+            if (domainPanel) {
+                const title = domainPanel.querySelector('h3');
+                if (title) {
+                    title.innerHTML = `
     <span class="material-symbols-outlined text-[#90c6cb] text-base">psychology</span>
     AI Performance Analysis
     `;
-    }
+                }
 
-    const container = domainPanel.querySelector('.flex.flex-col.gap-3');
-    if (container) {
-    container.innerHTML = '';
+                const container = domainPanel.querySelector('.flex.flex-col.gap-3');
+                if (container) {
+                    container.innerHTML = '';
 
-    // Render Strengths
-    if (analysis.strengths && analysis.strengths.length > 0) {
-    const sDiv = document.createElement('div');
-    sDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Strengths</p>`;
-    analysis.strengths.forEach(s => {
-    sDiv.innerHTML += `
+                    // Render Strengths
+                    if (analysis.strengths && analysis.strengths.length > 0) {
+                        const sDiv = document.createElement('div');
+                        sDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Strengths</p>`;
+                        analysis.strengths.forEach(s => {
+                            sDiv.innerHTML += `
     <div class="flex items-center gap-2 mb-1">
         <span class="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
         <span class="text-white text-sm">${s}</span>
     </div>`;
-    });
-    container.appendChild(sDiv);
-    }
+                        });
+                        container.appendChild(sDiv);
+                    }
 
-    // Render Weaknesses
-    if (analysis.weaknesses && analysis.weaknesses.length > 0) {
-    const wDiv = document.createElement('div');
-    wDiv.classList.add('mt-4');
-    wDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Focus Areas</p>`;
-    analysis.weaknesses.forEach(w => {
-    wDiv.innerHTML += `
+                    // Render Weaknesses
+                    if (analysis.weaknesses && analysis.weaknesses.length > 0) {
+                        const wDiv = document.createElement('div');
+                        wDiv.classList.add('mt-4');
+                        wDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Focus Areas</p>`;
+                        analysis.weaknesses.forEach(w => {
+                            wDiv.innerHTML += `
     <div class="flex items-center gap-2 mb-1">
         <span class="material-symbols-outlined text-amber-400 text-sm">lightbulb</span>
         <span class="text-white text-sm">${w}</span>
     </div>`;
-    });
-    container.appendChild(wDiv);
-    }
-    }
-    }
+                        });
+                        container.appendChild(wDiv);
+                    }
+                }
+            }
 
-    // 4. Update Recent Activity History
-    const historyContainer = document.querySelector('.flex-1.overflow-y-auto.p-4.space-y-4'); // Container for list
-    if (historyContainer) {
-    if (stats.history.length === 0) {
-    historyContainer.innerHTML = `<p class="text-[#90c6cb] text-sm text-center italic">No quizzes taken yet.</p>`;
-    } else {
-    historyContainer.innerHTML = ''; // Clear mock data
-    stats.history.slice(0, 5).forEach(item => { // Show max 5
-    const isPass = item.percentage >= 70;
-    const colorClass = isPass ? 'bg-emerald-500' : 'bg-red-500';
-    const shadowClass = isPass ? 'rgba(16,185,129,0.5)' : 'rgba(239,68,68,0.5)';
-    const difficultyText = item.difficulty ? `Level ${item.difficulty}` : 'General';
+            // 4. Update Recent Activity History
+            const historyContainer = document.getElementById('recent-activity-list');
+            if (historyContainer) {
+                if (!stats.history || stats.history.length === 0) {
+                    historyContainer.innerHTML = `<div class="flex items-center justify-center h-full">
+        <p class="text-[#90c6cb] text-sm text-center italic">No quizzes taken yet.</p>
+    </div>`;
+                } else {
+                    historyContainer.innerHTML = ''; // Clear mock data
+                    stats.history.slice(0, 5).forEach(item => { // Show max 5
+                        const isPass = item.percentage >= 70;
+                        const colorClass = isPass ? 'bg-emerald-500' : 'bg-red-500';
+                        const shadowClass = isPass ? 'rgba(16,185,129,0.5)' : 'rgba(239,68,68,0.5)';
+                        const difficultyText = item.difficulty ? `Level ${item.difficulty}` : 'General';
 
-    const itemHtml = `
-    <div class="flex gap-3 items-start animate-in fade-in slide-in-from-right-4 duration-500 group">
-        <div class="mt-1 size-2 flex-shrink-0 rounded-full ${colorClass} shadow-[0_0_5px_${shadowClass}]"></div>
-        <div class="flex flex-col w-full">
-            <div class="flex justify-between items-center">
-                <p class="text-white text-xs font-medium">${difficultyText} Exam</p>
-                <div class="flex items-center gap-3">
-                    <span
-                        class="text-xs font-bold ${isPass ? 'text-emerald-400' : 'text-red-400'}">${item.percentage}%</span>
-                    ${item.id ? `<button onclick="viewSummary(${item.id})"
-                        class="text-[10px] text-primary hover:text-white underline opacity-0 group-hover:opacity-100 transition-opacity">View
-                        Summary</button>` : ''}
-                </div>
-            </div>
-            <p class="text-[#90c6cb] text-[10px] mt-0.5">${item.total} Questions · ${item.date}</p>
-        </div>
-    </div>
-    `;
-    historyContainer.innerHTML += itemHtml;
-    });
-    }
-    }
-    }
+                        const itemHtml = `
+                        <div onclick="viewSummary(${item.id})" 
+                             class="flex gap-3 items-start animate-in fade-in slide-in-from-right-4 duration-500 cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-colors group">
+                            <div class="mt-1 size-2 flex-shrink-0 rounded-full ${colorClass} shadow-[0_0_5px_${shadowClass}]"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-white text-sm font-bold tracking-wide">${difficultyText} Exam</p>
+                                    <span class="text-xs font-bold ${isPass ? 'text-emerald-400' : 'text-red-400'}">${item.percentage}%</span>
+                                </div>
+                                <p class="text-[#90c6cb] text-[10px] mt-0.5">${item.total} Questions · ${item.date}</p>
+                            </div>
+                        </div>
+                        `;
+                        historyContainer.innerHTML += itemHtml;
+                    });
+                }
+            }
+        }
 
-    // Initialize
-    loadDashboardData();
+        // Initialize
+        loadDashboardData();
     </script>
 
     <!-- Exam Summary Modal -->

@@ -138,6 +138,7 @@
                     <span class="material-symbols-outlined text-primary text-5xl">emoji_events</span>
                 </div>
                 <h2 class="text-3xl font-bold mb-2">Quiz Complete!</h2>
+                <div id="result-status" class="mb-2"></div>
                 <p class="text-white/60">Here are your results</p>
             </div>
 
@@ -386,6 +387,15 @@
                 document.getElementById('result-score').textContent = `${data.score}/${data.total_questions}`;
                 document.getElementById('result-percentage').textContent = `${data.percentage}%`;
                 document.getElementById('result-total').textContent = data.total_questions;
+
+                // Show Pass/Fail Status
+                const isPass = data.percentage >= 70;
+                const statusEl = document.getElementById('result-status');
+                statusEl.innerHTML = `
+                    <span class="px-4 py-1 rounded-full text-sm font-bold tracking-wider ${isPass ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : 'bg-red-500/20 text-red-400 border border-red-500/50'}">
+                        ${isPass ? 'PASSED' : 'FAILED'}
+                    </span>
+                `;
 
                 // Render breakdown
                 const breakdownContainer = document.getElementById('results-breakdown');

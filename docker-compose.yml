@@ -39,6 +39,9 @@ services:
       DB_PASSWORD: password123
     depends_on:
       - db
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
 
 volumes:
   postgres_data:

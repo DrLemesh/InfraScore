@@ -4,6 +4,7 @@ from flask import Flask, jsonify, render_template, request, session, redirect, u
 from flask_bcrypt import Bcrypt
 import os
 import secrets
+import json
 
 # Get absolute path to the frontend/templates directory
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -582,6 +583,11 @@ def get_dashboard_stats():
                 analysis['summary'] = "You're getting there! Focus on understanding core concepts before moving to advanced topics."
                 analysis['strengths'] = ["Basic Terminology"]
                 analysis['weaknesses'] = ["System Architecture", "Deployment Strategies"]
+            elif average_percentage >= 25:
+                analysis['level'] = 'Experienced'
+                analysis['summary'] = "You have some experience but need to solidify your foundations."
+                analysis['strengths'] = ["Familiarity"]
+                analysis['weaknesses'] = ["Configuration Management", "Monitoring"]
             else:
                 analysis['level'] = 'Beginner'
                 analysis['summary'] = "Early stages of learning. Recommend reviewing the curriculum and starting with Level 1 quizzes."
