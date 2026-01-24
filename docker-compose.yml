@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15-alpine
-    container_name: devops_quiz_db
+    container_name: InfraScore_db
     restart: always
     environment:
       POSTGRES_USER: admin
@@ -25,6 +23,25 @@ services:
       - "8080:80"
     depends_on:
       - db
+
+  flask-app:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: devops_quiz_app
+    restart: always
+    ports:
+      - "5001:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: quiz_project
+      DB_USER: admin
+      DB_PASSWORD: password123
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
 
 volumes:
   postgres_data:

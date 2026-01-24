@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>InfraScore - Infrastructure Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ddff2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102123", // Deep dark teal/charcoal from provided components
+                        "surface-dark": "#162a2d", // Slightly lighter for cards
+                        "surface-glass": "rgba(22, 42, 45, 0.7)", // Glassmorphic effect
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "neon": "0 0 5px theme('colors.primary'), 0 0 10px theme('colors.primary')",
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(22, 42, 45, 0.6) 0%, rgba(16, 33, 35, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(144, 198, 203, 0.1);
+        }
+
+        .tech-grid-bg {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(13, 223, 242, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 223, 242, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+    <div class="flex h-screen w-full">
+        <div
+            class="w-64 flex-shrink-0 flex flex-col justify-between bg-[#102123] border-r border-[#316368]/30 p-4 hidden md:flex">
+            <div class="flex flex-col gap-6">
+                <div class="flex gap-3 items-center px-2">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">terminal</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-white text-lg font-bold leading-tight tracking-wide">InfraScore</h1>
+                        <p class="text-[#90c6cb] text-xs font-normal">v2.4.0-stable</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-2 mt-4">
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 border border-primary/20 group transition-all"
+                        href="/dashboard">
+                        <span class="material-symbols-outlined text-primary text-[20px]"
+                            data-weight="fill">dashboard</span>
+                        <p
+                            class="text-white text-sm font-medium leading-normal group-hover:text-primary transition-colors">
+                            Dashboard</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#224649]/50 transition-all group"
+                        href="/quiz-menu">
+                        <span
+                            class="material-symbols-outlined text-[#90c6cb] text-[20px] group-hover:text-white transition-colors">quiz</span>
+                        <p
+                            class="text-[#90c6cb] text-sm font-medium leading-normal group-hover:text-white transition-colors">
+                            Quizzes</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#224649]/50 transition-all group"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-[#90c6cb] text-[20px] group-hover:text-white transition-colors">hub</span>
+                        <p
+                            class="text-[#90c6cb] text-sm font-medium leading-normal group-hover:text-white transition-colors">
+                            Scenarios</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#224649]/50 transition-all group"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-[#90c6cb] text-[20px] group-hover:text-white transition-colors">monitoring</span>
+                        <p
+                            class="text-[#90c6cb] text-sm font-medium leading-normal group-hover:text-white transition-colors">
+                            Analytics</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#224649]/50 transition-all group"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-[#90c6cb] text-[20px] group-hover:text-white transition-colors">settings</span>
+                        <p
+                            class="text-[#90c6cb] text-sm font-medium leading-normal group-hover:text-white transition-colors">
+                            Settings</p>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-3 pt-4 border-t border-[#316368]/30">
+                <div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#224649]/50 cursor-pointer">
+                    <div class="relative">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 border border-primary/50"
+                            data-alt="User profile avatar"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj1PTcIRhncH3cLf_DjcG7qcwyGPioBpBDJ6xs1Hb3U9nA0edihZmX9qCOXwbOhkQNPpJ9lYL5B-McXvTTJ6abJkhpBGRPI7Fqt7DiaM_dcG6-M8Yf6RVoROmvA1TCnWc0obIf3ppsbeQ_m87BBY82_otcXcjZohYlfpPun9egIwhkzotoWGMx9gJoiJLjezERSPgNTlBjRuZZKddwX9VDPkMWsc8Ru5AknjCbB8wxAZPeq-nxOD8eobu113TLcC-qJXLY1-JK7b0D");'>
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 size-2.5 bg-primary rounded-full border-2 border-[#102123]">
+                        </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                        <p id="user-display-name" class="text-white text-sm font-medium truncate">Loading...</p>
+                        <p class="text-[#90c6cb] text-xs truncate">Online</p>
+                    </div>
+                </div>
+                <a class="flex items-center gap-3 px-3 py-2 text-[#90c6cb] hover:text-white transition-colors" href="/">
+                    <span class="material-symbols-outlined text-[20px]">logout</span>
+                    <span class="text-sm font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
+        <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+            <div class="absolute inset-0 tech-grid-bg opacity-30 pointer-events-none z-0"></div>
+            <header
+                class="h-16 border-b border-[#316368]/30 flex items-center justify-between px-6 bg-[#102123]/90 backdrop-blur-md z-10">
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="text-[#90c6cb]">InfraScore</span>
+                    <span class="text-[#316368]">/</span>
+                    <span class="text-white font-medium">Dashboard</span>
+                    <span class="text-[#316368]">/</span>
+                    <span class="text-primary font-medium">Infrastructure Map</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#162a2d] border border-[#316368]/50">
+                        <div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        <span class="text-xs font-mono text-[#90c6cb]">SYSTEM OPERATIONAL</span>
+                    </div>
+                    <button class="text-[#90c6cb] hover:text-white transition-colors relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <div class="absolute top-0 right-0 size-2 bg-primary rounded-full"></div>
+                    </button>
+                </div>
+            </header>
+            <div class="flex-1 overflow-y-auto p-6 z-10 scrollbar-hide">
+                <div class="grid grid-cols-12 gap-6 h-full min-h-[800px]">
+                    <div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+                        <div
+                            class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50">
+                            </div>
+                            <h3 class="text-[#90c6cb] text-sm font-medium mb-4 uppercase tracking-wider">Interview
+                                Readiness</h3>
+                            <div class="relative size-40">
+                                <svg class="size-full -rotate-90" viewBox="0 0 36 36">
+                                    <path class="text-[#224649]"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none" stroke="currentColor" stroke-width="2"></path>
+                                    <path id="ai-readiness-circle"
+                                        class="text-primary drop-shadow-[0_0_5px_rgba(13,223,242,0.8)]"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-width="2">
+                                    </path>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-4xl font-bold text-white tracking-tighter">78%</span>
+                                    <span class="text-xs text-[#90c6cb] mt-1">Ready</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 w-full text-center">
+                                <p class="text-xs text-[#90c6cb]">Projected success rate is high.</p>
+                                <button onclick="startMockExam()"
+                                    class="mt-3 w-full py-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40 rounded text-xs font-bold uppercase tracking-wide transition-colors">
+                                    Start Mock Interview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-primary flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-[#90c6cb] text-xs font-medium uppercase">Quizzes Passed</p>
+                                    <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                                </div>
+                                <div class="flex items-end gap-2">
+                                    <h4 class="text-2xl font-bold text-white">45</h4>
+                                    <span class="text-emerald-400 text-xs font-medium mb-1">+12%</span>
+                                </div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-purple-500 flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-[#90c6cb] text-xs font-medium uppercase">Incidents Resolved</p>
+                                    <span class="material-symbols-outlined text-purple-400 text-lg">bug_report</span>
+                                </div>
+                                <div class="flex items-end gap-2">
+                                    <h4 class="text-2xl font-bold text-white">12</h4>
+                                    <span class="text-emerald-400 text-xs font-medium mb-1">+5%</span>
+                                </div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-500 flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-[#90c6cb] text-xs font-medium uppercase">Current Streak</p>
+                                    <span
+                                        class="material-symbols-outlined text-amber-400 text-lg">local_fire_department</span>
+                                </div>
+                                <div class="flex items-end gap-2">
+                                    <h4 class="text-2xl font-bold text-white">7 Days</h4>
+                                    <span class="text-emerald-400 text-xs font-medium mb-1">Top 10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-6 flex flex-col">
+                        <div class="glass-panel rounded-xl flex-1 flex flex-col relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-[#316368]/30 flex justify-between items-center bg-[#102123]/50">
+                                <h2 class="text-white text-lg font-bold tracking-tight flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">hub</span>
+                                    Infrastructure Topology
+                                </h2>
+                                <div class="flex gap-2">
+                                    <button
+                                        class="p-1.5 rounded bg-[#224649] text-[#90c6cb] hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined text-sm">zoom_in</span>
+                                    </button>
+                                    <button
+                                        class="p-1.5 rounded bg-[#224649] text-[#90c6cb] hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined text-sm">zoom_out</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex-1 relative bg-[#0d1819] p-4 flex items-center justify-center">
+                                <div
+                                    class="absolute inset-0 bg-[linear-gradient(rgba(13,223,242,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(13,223,242,0.03)_1px,transparent_1px)] bg-[size:20px_20px]">
+                                </div>
+                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+                                    <line stroke="#316368" stroke-width="2" x1="50%" x2="50%" y1="15%" y2="30%"></line>
+                                    <path d="M 50% 30% L 50% 40% L 30% 60%" fill="none" stroke="#316368"
+                                        stroke-width="2"></path>
+                                    <path d="M 50% 30% L 50% 40% L 70% 60%" fill="none" stroke="#316368"
+                                        stroke-width="2"></path>
+                                    <path d="M 30% 60% L 30% 70% L 50% 85%" fill="none" stroke="#316368"
+                                        stroke-width="2"></path>
+                                    <path d="M 70% 60% L 70% 70% L 50% 85%" fill="none" stroke="#316368"
+                                        stroke-width="2"></path>
+                                    <path class="animate-pulse opacity-60" d="M 50% 30% L 50% 40% L 30% 60%" fill="none"
+                                        stroke="#0ddff2" stroke-dasharray="10 10" stroke-width="2"></path>
+                                </svg>
+                                <div class="relative w-full h-full z-10">
+                                    <div
+                                        class="absolute top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer">
+                                        <div
+                                            class="size-16 rounded-full bg-[#1e2f31] border-2 border-[#316368] flex items-center justify-center shadow-[0_0_15px_rgba(49,99,104,0.3)] group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(13,223,242,0.4)] transition-all">
+                                            <span
+                                                class="material-symbols-outlined text-white text-3xl">cloud_circle</span>
+                                        </div>
+                                        <div
+                                            class="px-2 py-1 rounded bg-[#102123]/80 border border-[#316368] text-xs text-[#90c6cb]">
+                                            AWS Cloud</div>
+                                    </div>
+                                    <div
+                                        class="absolute top-[30%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer">
+                                        <div
+                                            class="w-48 h-24 rounded border border-dashed border-[#90c6cb]/30 bg-[#162a2d]/30 flex items-start justify-center pt-2">
+                                            <span class="text-[10px] text-[#90c6cb] uppercase tracking-widest">VPC
+                                                Network</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-[55%] left-[25%] -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer">
+                                        <div
+                                            class="size-14 rounded-lg bg-[#1e2f31] border border-primary flex items-center justify-center shadow-[0_0_10px_rgba(13,223,242,0.2)] animate-pulse">
+                                            <span
+                                                class="material-symbols-outlined text-primary text-2xl">grid_view</span>
+                                        </div>
+                                        <div
+                                            class="px-2 py-1 rounded bg-[#102123]/80 border border-primary/50 text-xs text-primary font-bold">
+                                            EKS Cluster A</div>
+                                        <div class="flex gap-1">
+                                            <span class="block size-1.5 rounded-full bg-emerald-500"></span>
+                                            <span class="text-[10px] text-emerald-500">Mastered</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-[55%] left-[75%] -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+                                        <div
+                                            class="size-14 rounded-lg bg-[#1e2f31] border border-[#316368] flex items-center justify-center">
+                                            <span
+                                                class="material-symbols-outlined text-[#90c6cb] text-2xl">grid_view</span>
+                                        </div>
+                                        <div
+                                            class="px-2 py-1 rounded bg-[#102123]/80 border border-[#316368] text-xs text-[#90c6cb]">
+                                            EKS Cluster B</div>
+                                        <div class="flex gap-1">
+                                            <span class="block size-1.5 rounded-full bg-amber-500"></span>
+                                            <span class="text-[10px] text-amber-500">Pending</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-[80%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer">
+                                        <div
+                                            class="size-14 rounded-full bg-[#1e2f31] border border-[#316368] flex items-center justify-center group-hover:border-primary transition-colors">
+                                            <span class="material-symbols-outlined text-white text-2xl">database</span>
+                                        </div>
+                                        <div
+                                            class="px-2 py-1 rounded bg-[#102123]/80 border border-[#316368] text-xs text-[#90c6cb]">
+                                            RDS Master</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+                        <div class="glass-panel p-5 rounded-xl flex flex-col">
+                            <h3 class="text-white text-sm font-medium mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[#90c6cb] text-base">bar_chart</span>
+                                Domain Proficiency
+                            </h3>
+                            <div class="flex flex-col gap-3">
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-[#90c6cb]">CI/CD Pipelines</span>
+                                        <span class="text-white font-mono">92%</span>
+                                    </div>
+                                    <div class="w-full bg-[#1e2f31] rounded-full h-1.5">
+                                        <div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(13,223,242,0.6)]"
+                                            style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-[#90c6cb]">Networking (VPC)</span>
+                                        <span class="text-white font-mono">65%</span>
+                                    </div>
+                                    <div class="w-full bg-[#1e2f31] rounded-full h-1.5">
+                                        <div class="bg-amber-400 h-1.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-[#90c6cb]">Container Orchestration</span>
+                                        <span class="text-white font-mono">80%</span>
+                                    </div>
+                                    <div class="w-full bg-[#1e2f31] rounded-full h-1.5">
+                                        <div class="bg-emerald-400 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-[#90c6cb]">Security &amp; IAM</span>
+                                        <span class="text-white font-mono">45%</span>
+                                    </div>
+                                    <div class="w-full bg-[#1e2f31] rounded-full h-1.5">
+                                        <div class="bg-red-400 h-1.5 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-0 rounded-xl flex-1 flex flex-col overflow-hidden">
+                            <div class="p-4 border-b border-[#316368]/30 bg-[#162a2d]/40">
+                                <h3 class="text-white text-sm font-medium flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[#90c6cb] text-base">history</span>
+                                    Recent Activity
+                                </h3>
+                            </div>
+                            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="recent-activity-list">
+                                <!-- Content will be loaded dynamically -->
+                                <div class="flex items-center justify-center h-full">
+                                    <p class="text-[#90c6cb] text-sm animate-pulse">Loading activity...</p>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-[#102123]/50 border-t border-[#316368]/30">
+                                <a class="text-xs text-primary hover:text-white flex items-center justify-center gap-1 transition-colors"
+                                    href="#">
+                                    View Full Log <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="mt-6 glass-panel rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 border border-primary/20 bg-gradient-to-r from-[#162a2d] to-[#102123]">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 bg-primary/10 rounded-lg border border-primary/30">
+                            <span class="material-symbols-outlined text-primary text-2xl">rocket_launch</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Daily Challenge Available</h3>
+                            <p class="text-[#90c6cb] text-sm">Boost your streak by completing the "Microservices
+                                Architecture" challenge.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 w-full md:w-auto">
+                        <button
+                            class="flex-1 md:flex-none px-6 py-2.5 rounded-lg border border-[#316368] text-white hover:bg-[#224649] transition-colors text-sm font-medium">
+                            Skip
+                        </button>
+                        <button onclick="window.location.href='/quiz'"
+                            class="flex-1 md:flex-none px-6 py-2.5 rounded-lg bg-primary hover:bg-cyan-300 text-[#102123] font-bold shadow-[0_0_15px_rgba(13,223,242,0.4)] transition-all text-sm">
+                            Deploy Challenge
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function startMockExam() {
+            const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
+            const levelText = readinessLabel ? readinessLabel.textContent.replace('AI Level: ', '').trim() : 'Beginner';
+
+            let difficulty = 1;
+            switch (levelText) {
+                case 'Beginner': difficulty = 1; break;
+                case 'Experienced': difficulty = 2; break;
+                case 'Junior': difficulty = 3; break;
+                case 'Intermediate': difficulty = 4; break;
+                case 'Expert': difficulty = 5; break;
+                default: difficulty = 1;
+            }
+
+            const button = document.querySelector('button[onclick="startMockExam()"]');
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = '<span class="material-symbols-outlined animate-spin text-xs">refresh</span> Creating...';
+            }
+
+            try {
+                const response = await fetch('/api/generate-quiz', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ count: 15, difficulty: difficulty })
+                });
+
+                if (response.ok) {
+                    window.location.href = '/quiz';
+                } else {
+                    alert('Failed to start mock exam');
+                    if (button) {
+                        button.disabled = false;
+                        button.innerHTML = 'Start Mock Interview';
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Error starting exam');
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = 'Start Mock Interview';
+                }
+            }
+        }
+
+        // Fetch and display dashboard data
+        async function loadDashboardData() {
+            try {
+                // Load User Info
+                const userResponse = await fetch('/api/current-user');
+                const userData = await userResponse.json();
+
+                if (userData.logged_in) {
+                    document.getElementById('user-display-name').textContent = userData.username || 'User';
+                } else {
+                    window.location.href = '/login';
+                    return;
+                }
+
+                // Load Dashboard Stats
+                const statsResponse = await fetch('/api/dashboard/stats');
+                const statsData = await statsResponse.json();
+
+                if (statsData.error) {
+                    console.error('Stats error:', statsData.error);
+                    return;
+                }
+
+                updateDashboardUI(statsData);
+
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        async function viewSummary(resultId) {
+            try {
+                const response = await fetch(`/api/quiz/history/${resultId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    const result = data.result;
+                    const modal = document.getElementById('summary-modal');
+                    const content = document.getElementById('summary-content');
+
+                    // Populate Summary Header
+                    const difficultyText = result.difficulty ? `Level ${result.difficulty}` : 'General Proficiency';
+                    const percentage = Math.round(result.score / result.total_questions * 100);
+                    const isPass = percentage >= 70;
+
+                    document.getElementById('modal-title').innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span>Exam Summary - ${difficultyText}</span>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold ${isPass ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : 'bg-red-500/20 text-red-400 border border-red-500/50'}">
+                            ${isPass ? 'PASSED' : 'FAILED'}
+                        </span>
+                    </div>`;
+
+                    document.getElementById('modal-score').textContent = `${result.score}/${result.total_questions} (${percentage}%)`;
+                    document.getElementById('modal-date').textContent = result.date;
+
+                    // Populate Questions
+                    let questionsHtml = '';
+                    const breakdown = result.breakdown || [];
+
+                    if (breakdown.length === 0) {
+                        questionsHtml = '<p class="text-slate-400 italic">Detailed breakdown not available for this exam.</p>';
+                    } else {
+                        breakdown.forEach((q, index) => {
+                            const isCorrect = q.is_correct;
+                            questionsHtml += `
+                                <div class="p-4 rounded-lg mb-3 ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-red-500/10 border border-red-500/30'}">
+                                    <div class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined ${isCorrect ? 'text-emerald-400' : 'text-red-400'}">
+                                            ${isCorrect ? 'check_circle' : 'cancel'}
+                                        </span>
+                                        <div class="flex-1">
+                                            <p class="font-semibold mb-1 text-white">Q${index + 1}: ${q.question_text}</p>
+                                            <p class="text-sm text-white/60">Your answer: <span class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${formatAnswer(q.user_answer)}</span></p>
+                                            ${!isCorrect ? `<p class="text-sm text-emerald-400 mt-1">Correct answer: ${formatAnswer(q.correct_answer)}</p>` : ''}
+                                            ${q.reference_answer ? `
+                                            <div class="mt-2 pt-2 border-t border-white/5">
+                                                <p class="text-[10px] text-[#90c6cb] uppercase font-bold mb-1">Explanation</p>
+                                                <p class="text-xs text-slate-300">${q.reference_answer}</p>
+                                            </div>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
+
+                    content.innerHTML = questionsHtml;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            } catch (error) {
+                console.error('Error fetching summary:', error);
+            }
+        }
+
+        function formatAnswer(ans) {
+            if (Array.isArray(ans)) return ans.join(', ');
+            return ans || 'No Answer';
+        }
+
+        function closeModal() {
+            document.getElementById('summary-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function updateDashboardUI(data) {
+            const { stats, analysis } = data;
+
+            // 1. Update Readiness/Score Circle
+            const scoreElement = document.querySelector('.text-4xl.font-bold');
+            const scoreLabel = document.querySelector('.text-4xl.font-bold + span');
+
+            if (scoreElement) {
+                scoreElement.textContent = `${stats.average_score}%`;
+                const circlePath = document.getElementById('ai-readiness-circle');
+                if (circlePath) {
+                    circlePath.setAttribute('stroke-dasharray', `${stats.average_score}, 100`);
+                }
+            }
+
+            // 2. Update Quizzes Passed Count
+            const quizzesCountEl = document.querySelector('h4.text-2xl.font-bold');
+            if (quizzesCountEl) quizzesCountEl.textContent = stats.quizzes_taken;
+
+            // 3. Update AI Analysis
+            const readinessLabel = document.querySelector('h3.uppercase.tracking-wider');
+            if (readinessLabel) readinessLabel.textContent = `AI Level: ${analysis.level}`;
+
+            const summaryText = document.querySelector('.mt-4.w-full.text-center p');
+            if (summaryText) summaryText.textContent = analysis.summary;
+
+            // Update Domain Proficiency section to be "AI Strength Analysis"
+            // Using a more robust selector strategy
+            const domainPanel = Array.from(document.querySelectorAll('.glass-panel')).find(el => el.textContent.includes('Domain Proficiency'));
+
+            if (domainPanel) {
+                const title = domainPanel.querySelector('h3');
+                if (title) {
+                    title.innerHTML = `
+    <span class="material-symbols-outlined text-[#90c6cb] text-base">psychology</span>
+    AI Performance Analysis
+    `;
+                }
+
+                const container = domainPanel.querySelector('.flex.flex-col.gap-3');
+                if (container) {
+                    container.innerHTML = '';
+
+                    // Render Strengths
+                    if (analysis.strengths && analysis.strengths.length > 0) {
+                        const sDiv = document.createElement('div');
+                        sDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Strengths</p>`;
+                        analysis.strengths.forEach(s => {
+                            sDiv.innerHTML += `
+    <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-emerald-400 text-sm">check_circle</span>
+        <span class="text-white text-sm">${s}</span>
+    </div>`;
+                        });
+                        container.appendChild(sDiv);
+                    }
+
+                    // Render Weaknesses
+                    if (analysis.weaknesses && analysis.weaknesses.length > 0) {
+                        const wDiv = document.createElement('div');
+                        wDiv.classList.add('mt-4');
+                        wDiv.innerHTML = `<p class="text-[#90c6cb] text-xs font-bold uppercase mb-2">Focus Areas</p>`;
+                        analysis.weaknesses.forEach(w => {
+                            wDiv.innerHTML += `
+    <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-amber-400 text-sm">lightbulb</span>
+        <span class="text-white text-sm">${w}</span>
+    </div>`;
+                        });
+                        container.appendChild(wDiv);
+                    }
+                }
+            }
+
+            // 4. Update Recent Activity History
+            const historyContainer = document.getElementById('recent-activity-list');
+            if (historyContainer) {
+                if (!stats.history || stats.history.length === 0) {
+                    historyContainer.innerHTML = `<div class="flex items-center justify-center h-full">
+        <p class="text-[#90c6cb] text-sm text-center italic">No quizzes taken yet.</p>
+    </div>`;
+                } else {
+                    historyContainer.innerHTML = ''; // Clear mock data
+                    stats.history.slice(0, 5).forEach(item => { // Show max 5
+                        const isPass = item.percentage >= 70;
+                        const colorClass = isPass ? 'bg-emerald-500' : 'bg-red-500';
+                        const shadowClass = isPass ? 'rgba(16,185,129,0.5)' : 'rgba(239,68,68,0.5)';
+                        const difficultyText = item.difficulty ? `Level ${item.difficulty}` : 'General';
+
+                        const itemHtml = `
+                        <div onclick="viewSummary(${item.id})" 
+                             class="flex gap-3 items-start animate-in fade-in slide-in-from-right-4 duration-500 cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-colors group">
+                            <div class="mt-1 size-2 flex-shrink-0 rounded-full ${colorClass} shadow-[0_0_5px_${shadowClass}]"></div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-white text-sm font-bold tracking-wide">${difficultyText} Exam</p>
+                                    <span class="text-xs font-bold ${isPass ? 'text-emerald-400' : 'text-red-400'}">${item.percentage}%</span>
+                                </div>
+                                <p class="text-[#90c6cb] text-[10px] mt-0.5">${item.total} Questions · ${item.date}</p>
+                            </div>
+                        </div>
+                        `;
+                        historyContainer.innerHTML += itemHtml;
+                    });
+                }
+            }
+        }
+
+        // Initialize
+        loadDashboardData();
+    </script>
+
+    <!-- Exam Summary Modal -->
+    <div id="summary-modal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div
+            class="glass-panel w-full max-w-2xl max-h-[85vh] rounded-xl flex flex-col shadow-2xl border border-primary/20 animate-in fade-in zoom-in-95 duration-200">
+            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-[#162a2d]/80">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2" id="modal-title">Exam Summary</h3>
+                    <p class="text-xs text-[#90c6cb] mt-1">Score: <span class="text-white font-bold"
+                            id="modal-score">--</span> · <span id="modal-date">--</span></p>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4" id="summary-content">
+                <!-- Content injected via JS -->
+                <div class="flex items-center justify-center h-48">
+                    <div class="text-primary animate-pulse">Loading summary...</div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-[#102123] flex justify-end">
+                <button onclick="closeModal()"
+                    class="px-4 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
