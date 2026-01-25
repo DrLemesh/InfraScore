@@ -5,7 +5,7 @@ import json
 DB_HOST = "localhost"
 DB_NAME = "quiz_project"
 DB_USER = "admin"
-DB_PASS = "password123"
+DB_PASS = "pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt"
 DB_PORT = "5432"
 
 OUTPUT_FILE = "clean_database_dump.txt"
@@ -15,7 +15,7 @@ def main():
         conn = psycopg2.connect(host=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASS, port=DB_PORT)
         cur = conn.cursor()
 
-        cur.execute("SELECT * FROM questions ORDER BY id")
+        cur.execute("SELECT * FROM quiz_questions ORDER BY id")
         rows = cur.fetchall()
 
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:

@@ -4,4 +4,4 @@ terraform.tfvars
 venv/
 __pycache__/
 *.pyc
-.env
+.envdb_credentials.txt

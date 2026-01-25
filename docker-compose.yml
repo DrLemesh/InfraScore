@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123
+      POSTGRES_PASSWORD: pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt
       POSTGRES_DB: quiz_project
     ports:
       - "5432:5432"
@@ -36,7 +36,7 @@ services:
       DB_HOST: db
       DB_NAME: quiz_project
       DB_USER: admin
-      DB_PASSWORD: password123
+      DB_PASSWORD: pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt
     depends_on:
       - db
     volumes:
