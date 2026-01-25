@@ -1,0 +1,3335 @@
+[
+  {
+    "id": 4,
+    "text": "What is the primary goal of Site Reliability Engineering (SRE)?",
+    "correct": "Applying software engineering principles to operations to improve system reliability.",
+    "current_options": [
+      "Applying software engineering principles to operations to improve system reliability.",
+      "Ensuring that developers write code faster regardless of bugs.",
+      "Replacing all manual system administration with AI agents.",
+      "Managing physical hardware racking and cabling only."
+    ]
+  },
+  {
+    "id": 5,
+    "text": "What is the main function of a SIEM (Security Information and Event Management) system?",
+    "correct": "Aggregating and analyzing security data from multiple sources.",
+    "current_options": [
+      "Aggregating and analyzing security data from multiple sources.",
+      "Acting as a simple firewall to block all traffic.",
+      "Encrypting all database traffic at rest.",
+      "Managing user passwords and resets only."
+    ]
+  },
+  {
+    "id": 6,
+    "text": "What is the purpose of a Subnet Mask?",
+    "correct": "It divides an IP address into network and host portions.",
+    "current_options": [
+      "It divides an IP address into network and host portions.",
+      "It encrypts the IP address for security.",
+      "It hides the IP address from the internet.",
+      "It speeds up file transfer protocols."
+    ]
+  },
+  {
+    "id": 7,
+    "text": "In security, what is a 'Threat Model'?",
+    "correct": "A process to identify potential vulnerabilities and mitigate risks proactively.",
+    "current_options": [
+      "A process to identify potential vulnerabilities and mitigate risks proactively.",
+      "A 3D model of the physical datacenter security.",
+      "A database of known virus signatures.",
+      "A specific type of firewall rule."
+    ]
+  },
+  {
+    "id": 9,
+    "text": "What is Continuous Integration (CI)?",
+    "correct": "Frequent integration of code into a shared repository with automated testing.",
+    "current_options": [
+      "Frequent integration of code into a shared repository with automated testing.",
+      "Deploying code to production once a year.",
+      "Evaluating developer performance based on lines of code.",
+      "Using only one branch for all development forever."
+    ]
+  },
+  {
+    "id": 10,
+    "text": "What is the purpose of a Terraform Module?",
+    "correct": "To organize and reuse Terraform configurations.",
+    "current_options": [
+      "To organize and reuse Terraform configurations.",
+      "To compile Terraform code into binary.",
+      "To visual infrastructure in a 3D graph.",
+      "To encrypt state files."
+    ]
+  },
+  {
+    "id": 11,
+    "text": "What role does DNS play in networking?",
+    "correct": "It translates domain names into IP addresses.",
+    "current_options": [
+      "It translates domain names into IP addresses.",
+      "It encrypts web traffic using SSL.",
+      "It routes packets between different subnets.",
+      "It blocks malicious websites."
+    ]
+  },
+  {
+    "id": 12,
+    "text": "How does serverless architecture primarily improve scalability?",
+    "correct": "It auto-scales instantly based on demand without manual provisioning.",
+    "current_options": [
+      "It auto-scales instantly based on demand without manual provisioning.",
+      "It requires reserving large dedicated servers in advance.",
+      "It uses a fixed number of servers that never change.",
+      "It relies on manual intervention to add more RAM."
+    ]
+  },
+  {
+    "id": 15,
+    "text": "What is an SSRF (Server-Side Request Forgery) attack?",
+    "correct": "Tricking a server into making unauthorized internal requests.",
+    "current_options": [
+      "Tricking a server into making unauthorized internal requests.",
+      "Stealing user cookies via client-side script.",
+      "Flooding a server with traffic to crash it (DDoS).",
+      "Guessing passwords using a dictionary attack."
+    ]
+  },
+  {
+    "id": 18,
+    "text": "What does an Ansible Inventory file contain?",
+    "correct": "A list of managed servers and their connection details.",
+    "current_options": [
+      "A list of managed servers and their connection details.",
+      "The source code of the application being deployed.",
+      "A history of all executed commands.",
+      "The passwords for all users in the system."
+    ]
+  },
+  {
+    "id": 19,
+    "text": "What describes 'Ephemeral Ports' in networking?",
+    "correct": "Temporary ports used by client applications for outbound connections.",
+    "current_options": [
+      "Temporary ports used by client applications for outbound connections.",
+      "Permanent ports assigned to well-known services like HTTP.",
+      "Physical ports on the back of a router.",
+      "Ports that are always blocked by firewalls."
+    ]
+  },
+  {
+    "id": 20,
+    "text": "What is a recommended best practice for securing Kubernetes Secrets?",
+    "correct": "Encrypting them at rest and using external vaults.",
+    "current_options": [
+      "Encrypting them at rest and using external vaults.",
+      "Storing them in plain text in the Git repository.",
+      "Printing them to the console logs for debugging.",
+      "Writing them on a whiteboard in the office."
+    ]
+  },
+  {
+    "id": 21,
+    "text": "Which of the following is a key feature of PowerShell compared to Bash?",
+    "correct": "It is object-oriented, passing objects instead of text streams.",
+    "current_options": [
+      "It is object-oriented, passing objects instead of text streams.",
+      "It only runs on Windows and cannot be used on Linux.",
+      "It requires compiling scripts before execution.",
+      "It lacks support for functions and modules."
+    ]
+  },
+  {
+    "id": 22,
+    "text": "What is the primary difference between a Region and an Availability Zone (AZ) in cloud providers like AWS?",
+    "correct": "A Region is a geographic area, while an AZ is an isolated data center within that region.",
+    "current_options": [
+      "A Region is a geographic area, while an AZ is an isolated data center within that region.",
+      "A Region is a single data center, while an AZ is a country.",
+      "Regions are for backup only, while AZs are for production.",
+      "Regions share power and cooling, while AZs are completely independent geographies."
+    ]
+  },
+  {
+    "id": 23,
+    "text": "What does the `set -e` command do in a Bash script?",
+    "correct": "It causes the script to exit immediately if any command returns a non-zero status.",
+    "current_options": [
+      "It causes the script to exit immediately if any command returns a non-zero status.",
+      "It enables debugging mode to print executed commands.",
+      "It exports all variables to child processes.",
+      "It ignores all errors and forces execution to continue."
+    ]
+  },
+  {
+    "id": 25,
+    "text": "Which signal is sent to a process by default when you run `kill <PID>`?",
+    "correct": "SIGTERM (15)",
+    "current_options": [
+      "SIGTERM (15)",
+      "SIGKILL (9)",
+      "SIGHUP (1)",
+      "SIGINT (2)"
+    ]
+  },
+  {
+    "id": 27,
+    "text": "What is the purpose of a Docker multi-stage build?",
+    "correct": "To create smaller, more secure final images by copying artifacts from build stages.",
+    "current_options": [
+      "To create smaller, more secure final images by copying artifacts from build stages.",
+      "To run multiple containers simultaneously in one image.",
+      "To speed up the build process by using more CPU cores.",
+      "To allow Docker to run on multiple operating systems at once."
+    ]
+  },
+  {
+    "id": 28,
+    "text": "In Jenkins, what is a 'Shared Library'?",
+    "correct": "A reusable collection of Groovy scripts that can be used across multiple pipelines.",
+    "current_options": [
+      "A reusable collection of Groovy scripts that can be used across multiple pipelines.",
+      "A plugin that connects Jenkins to GitHub.",
+      "A folder where build artifacts like JARs are stored.",
+      "A comprehensive manual for Jenkins users."
+    ]
+  },
+  {
+    "id": 29,
+    "text": "What is 'Mutual TLS' (mTLS)?",
+    "correct": "A protocol where both the client and server authenticate each other using certificates.",
+    "current_options": [
+      "A protocol where both the client and server authenticate each other using certificates.",
+      "A method to encrypt traffic only from server to client.",
+      "A load balancing technique for TLS traffic.",
+      "A database encryption standard."
+    ]
+  },
+  {
+    "id": 30,
+    "text": "In Terraform, what does the command `terraform plan` do?",
+    "correct": "It shows a preview of the changes that will be made without applying them.",
+    "current_options": [
+      "It shows a preview of the changes that will be made without applying them.",
+      "It provisions the resources immediately.",
+      "It destroys all existing infrastructure.",
+      "It downloads all necessary provider plugins."
+    ]
+  },
+  {
+    "id": 31,
+    "text": "What is a 'DaemonSet' in Kubernetes?",
+    "correct": "A controller that ensures a copy of a Pod runs on selected nodes (usually all nodes).",
+    "current_options": [
+      "A controller that ensures a copy of a Pod runs on selected nodes (usually all nodes).",
+      "A set of background processes running on the master node.",
+      "A deployment strategy for stateless applications.",
+      "A network policy for restricting traffic."
+    ]
+  },
+  {
+    "id": 32,
+    "text": "Which command allows you to view the real-time resource usage (CPU, Memory) of processes?",
+    "correct": "top or htop",
+    "current_options": [
+      "top or htop",
+      "df -h",
+      "du -sh",
+      "netstat"
+    ]
+  },
+  {
+    "id": 37,
+    "text": "What does the content of the `/proc` directory represent in Linux?",
+    "correct": "A virtual filesystem exposing kernel and process information.",
+    "current_options": [
+      "A virtual filesystem exposing kernel and process information.",
+      "A temporary storage for user files.",
+      "The location where all programs are installed.",
+      "The home directory for the root user."
+    ]
+  },
+  {
+    "id": 40,
+    "text": "What is 'Idempotency' in the context of Infrastructure as Code?",
+    "correct": "Running the same operation multiple times produces the same result without side effects.",
+    "current_options": [
+      "Running the same operation multiple times produces the same result without side effects.",
+      "The ability to run a script faster each time.",
+      "Automatically retrying failed operations.",
+      "Generating unique IDs for every resource."
+    ]
+  },
+  {
+    "id": 43,
+    "text": "What is the difference between TCP and UDP?",
+    "correct": "TCP is connection-oriented and reliable; UDP is connectionless and faster but unreliable.",
+    "current_options": [
+      "TCP is connection-oriented and reliable; UDP is connectionless and faster but unreliable.",
+      "TCP is faster than UDP.",
+      "UDP ensures packet delivery, while TCP does not.",
+      "TCP is used for streaming video, while UDP is for emails."
+    ]
+  },
+  {
+    "id": 45,
+    "text": "What is a 'Race Condition'?",
+    "correct": "A flaw where the system's output depends on the sequence or timing of uncontrollable events.",
+    "current_options": [
+      "A flaw where the system's output depends on the sequence or timing of uncontrollable events.",
+      "A competition between two developers to commit code first.",
+      "An optimization technique for multi-threaded apps.",
+      "A type of network attack."
+    ]
+  },
+  {
+    "id": 46,
+    "text": "What is the purpose of the `chmod` command?",
+    "correct": "To change file access permissions.",
+    "current_options": [
+      "To change file access permissions.",
+      "To change file ownership.",
+      "To modify file content.",
+      "To mount a filesystem."
+    ]
+  },
+  {
+    "id": 50,
+    "text": "What is a 'Bastion Host' or 'Jump Box'?",
+    "correct": "A secure server used to access a private network from an external network.",
+    "current_options": [
+      "A secure server used to access a private network from an external network.",
+      "A server that hosts the main database.",
+      "A firewall appliance.",
+      "A backup server."
+    ]
+  },
+  {
+    "id": 52,
+    "text": "Which file is commonly used to define a GitHub Actions workflow?",
+    "correct": ".github/workflows/main.yml",
+    "current_options": [
+      ".github/workflows/main.yml",
+      "jenkinsfile",
+      ".gitlab-ci.yml",
+      "buildspec.yml"
+    ]
+  },
+  {
+    "id": 53,
+    "text": "What is a 'Pod' in Kubernetes?",
+    "correct": "The smallest deployable unit in Kubernetes, representing a single instance of a running process.",
+    "current_options": [
+      "The smallest deployable unit in Kubernetes, representing a single instance of a running process.",
+      "A virtual machine.",
+      "A specialized storage volume.",
+      "A user account."
+    ]
+  },
+  {
+    "id": 54,
+    "text": "What is 'Auto Scaling'?",
+    "correct": "Automatically adjusting the number of computing resources based on load.",
+    "current_options": [
+      "Automatically adjusting the number of computing resources based on load.",
+      "Automatically restarting failed servers.",
+      "Automatically upgrading the OS version.",
+      "Automatically backing up databases."
+    ]
+  },
+  {
+    "id": 55,
+    "text": "What is 'Regular Expression' (Regex) primarily used for?",
+    "correct": "Pattern matching and text manipulation.",
+    "current_options": [
+      "Pattern matching and text manipulation.",
+      "Encrypting passwords.",
+      "Designing user interfaces.",
+      "Compressing files."
+    ]
+  },
+  {
+    "id": 56,
+    "text": "What does the `grep` command do?",
+    "correct": "Searches for text patterns within files.",
+    "current_options": [
+      "Searches for text patterns within files.",
+      "Downloads files from the internet.",
+      "Archives files into a tarball.",
+      "Displays process activity."
+    ]
+  },
+  {
+    "id": 57,
+    "text": "What is 'Cross-Site Scripting' (XSS)?",
+    "correct": "A vulnerability where attackers inject malicious scripts into web pages viewed by other users.",
+    "current_options": [
+      "A vulnerability where attackers inject malicious scripts into web pages viewed by other users.",
+      "A method to steal database credentials.",
+      "A denial of service attack.",
+      "A mechanism to encrypt weak passwords."
+    ]
+  },
+  {
+    "id": 58,
+    "text": "What is the '12-Factor App' methodology?",
+    "correct": "A set of best practices for building modern, scalable, cloud-native applications.",
+    "current_options": [
+      "A set of best practices for building modern, scalable, cloud-native applications.",
+      "A check-list for hardware procurement.",
+      "A database normalization technique.",
+      "A project management framework like Scrum."
+    ]
+  },
+  {
+    "id": 59,
+    "text": "What is 'Lead Time for Changes'?",
+    "correct": "The time it takes for a code commit to be successfully deployed to production.",
+    "current_options": [
+      "The time it takes for a code commit to be successfully deployed to production.",
+      "The time it takes to hire a new developer.",
+      "The time a server runs before crashing.",
+      "The time needed to restart a database."
+    ]
+  },
+  {
+    "id": 60,
+    "text": "What is 'Container Orchestration'?",
+    "correct": "The automated management of container deployment, scaling, and networking.",
+    "current_options": [
+      "The automated management of container deployment, scaling, and networking.",
+      "Writing Dockerfiles.",
+      "Manually starting containers on a laptop.",
+      "Converting VMs to Containers."
+    ]
+  },
+  {
+    "id": 61,
+    "text": "What does 'Immutable Infrastructure' mean?",
+    "correct": "Servers are never modified after deployment; they are replaced with new ones.",
+    "current_options": [
+      "Servers are never modified after deployment; they are replaced with new ones.",
+      "Infrastructure that cannot be deleted.",
+      "Servers that are patched manually every week.",
+      "Moving physical servers to a secure vault."
+    ]
+  },
+  {
+    "id": 62,
+    "text": "What is 'SELinux'?",
+    "correct": "A security architecture for Linux allowing for fine-grained access control policies.",
+    "current_options": [
+      "A security architecture for Linux allowing for fine-grained access control policies.",
+      "A text editor for Linux.",
+      "A new file system type.",
+      "A web server similar to Nginx."
+    ]
+  },
+  {
+    "id": 63,
+    "text": "What is a 'Load Balancer'?",
+    "correct": "A device or service that distributes network traffic across multiple servers.",
+    "current_options": [
+      "A device or service that distributes network traffic across multiple servers.",
+      "A tool to monitor disk usage.",
+      "A database for storing session keys.",
+      "A backup power supply."
+    ]
+  },
+  {
+    "id": 65,
+    "text": "What does `ssh-keygen` do?",
+    "correct": "Generates, manages, and converts authentication keys for SSH.",
+    "current_options": [
+      "Generates, manages, and converts authentication keys for SSH.",
+      "Connects to a remote server.",
+      "Encrypts a file with a password.",
+      "Installs the SSH daemon."
+    ]
+  },
+  {
+    "id": 67,
+    "text": "What is 'Technical Debt'?",
+    "correct": "The implied cost of additional rework caused by choosing an easy solution now instead of a better approach that takes longer.",
+    "current_options": [
+      "The implied cost of additional rework caused by choosing an easy solution now instead of a better approach that takes longer.",
+      "The money a company owes to cloud providers.",
+      "The salary paid to developers.",
+      "A bug in the production database."
+    ]
+  },
+  {
+    "id": 68,
+    "text": "What is 'Log Rotation'?",
+    "correct": "The process of renaming, compressing, or deleting old log files to save disk space.",
+    "current_options": [
+      "The process of renaming, compressing, or deleting old log files to save disk space.",
+      "Rotating the screen orientation.",
+      "Sending logs to a different server every hour.",
+      "Encrypting logs for security."
+    ]
+  },
+  {
+    "id": 69,
+    "text": "What is 'Shift Left' testing?",
+    "correct": "Moving testing earlier in the software development lifecycle.",
+    "current_options": [
+      "Moving testing earlier in the software development lifecycle.",
+      "Testing only on the left side of the screen.",
+      "Assigning all testing to junior developers.",
+      "Ignoring testing until production."
+    ]
+  },
+  {
+    "id": 71,
+    "text": "How do you conditionally create resources in AWS CloudFormation?",
+    "correct": "By defining a Condition in the template and referencing it in the resource's Condition field.",
+    "current_options": [
+      "By defining a Condition in the template and referencing it in the resource's Condition field.",
+      "By using an `if` statement in the YAML file.",
+      "CloudFormation does not support conditional creation.",
+      "By creating a separate Lambda function."
+    ]
+  },
+  {
+    "id": 72,
+    "text": "What is the purpose of 'Drift Detection' in CloudFormation?",
+    "correct": "To detect manual changes to stack resources that were made outside of CloudFormation.",
+    "current_options": [
+      "To detect manual changes to stack resources that were made outside of CloudFormation.",
+      "To find security vulnerabilities in the template.",
+      "To check if the template syntax is correct.",
+      "To automatically repair broken resources."
+    ]
+  },
+  {
+    "id": 73,
+    "text": "What are 'Intrinsic Functions' in CloudFormation templates?",
+    "correct": "Built-in functions like `!Sub` or `!Ref` used to assign values dynamically at runtime.",
+    "current_options": [
+      "Built-in functions like `!Sub` or `!Ref` used to assign values dynamically at runtime.",
+      "Python scripts embedded in the template.",
+      "External API calls made during stack creation.",
+      "Mathematical operations for billing."
+    ]
+  },
+  {
+    "id": 75,
+    "text": "What is a Terraform 'Data Source'?",
+    "correct": "A configuration to fetch data from external/existing resources without managing them.",
+    "current_options": [
+      "A configuration to fetch data from external/existing resources without managing them.",
+      "A database where Terraform stores its state.",
+      "The source code repository URL.",
+      "An input variable for the module."
+    ]
+  },
+  {
+    "id": 76,
+    "text": "How do you verify the integrity of a Terraform module version?",
+    "correct": "By specifying a version constraint in the `source` block.",
+    "current_options": [
+      "By specifying a version constraint in the `source` block.",
+      "By comparing MD5 checksums manually.",
+      "Terraform automatically updates to the latest always.",
+      "By checking the file size of the module."
+    ]
+  },
+  {
+    "id": 77,
+    "text": "How does Terraform handle circular dependencies between resources?",
+    "correct": "It builds a Directed Acyclic Graph (DAG) and errors out if a cycle is detected.",
+    "current_options": [
+      "It builds a Directed Acyclic Graph (DAG) and errors out if a cycle is detected.",
+      "It automatically resolves them by deleting one resource.",
+      "It ignores them and tries to provision anyway.",
+      "It waits infinitely until one resource is ready."
+    ]
+  },
+  {
+    "id": 79,
+    "text": "What is the purpose of 'Sentinel' in the HashiCorp ecosystem?",
+    "correct": "A policy-as-code framework to enforce compliance rules before provisioning infrastructure.",
+    "current_options": [
+      "A policy-as-code framework to enforce compliance rules before provisioning infrastructure.",
+      "A logging agent for monitoring servers.",
+      "A backup solution for Terraform state.",
+      "A secrets management tool."
+    ]
+  },
+  {
+    "id": 80,
+    "text": "If a `terraform apply` fails or corrupts state, how can you restore a previous state?",
+    "correct": "Manually restore the previous `terraform.tfstate` file from version control or backup.",
+    "current_options": [
+      "Manually restore the previous `terraform.tfstate` file from version control or backup.",
+      "Run `terraform undo`.",
+      "Run `terraform rollback`.",
+      "There is no way to recover; you must delete everything."
+    ]
+  },
+  {
+    "id": 81,
+    "text": "What does `terraform refresh` do?",
+    "correct": "It updates the local state file to match the real-world infrastructure without modifying resources.",
+    "current_options": [
+      "It updates the local state file to match the real-world infrastructure without modifying resources.",
+      "It reinstalls the Terraform binary.",
+      "It restarts the provider plugins.",
+      "It destroys and recreates all resources."
+    ]
+  },
+  {
+    "id": 83,
+    "text": "Is it possible to manage minimal multi-cloud resources in a single Terraform config?",
+    "correct": "Yes, by defining multiple `provider` blocks (e.g., one for AWS, one for Azure).",
+    "current_options": [
+      "Yes, by defining multiple `provider` blocks (e.g., one for AWS, one for Azure).",
+      "No, you must have separate state files for each cloud.",
+      "No, Terraform only supports AWS.",
+      "Yes, but only if they use the same account ID."
+    ]
+  },
+  {
+    "id": 85,
+    "text": "What is the purpose of `ignore_errors: yes` in an Ansible task?",
+    "correct": "To allow the playbook execution to continue even if that specific task fails.",
+    "current_options": [
+      "To allow the playbook execution to continue even if that specific task fails.",
+      "To hide the error message from the logs.",
+      "To automatically retry the task until it succeeds.",
+      "To skip the task entirely."
+    ]
+  },
+  {
+    "id": 88,
+    "text": "How do you ensure a task in Ansible is idempotent?",
+    "correct": "By relying on modules that check state (e.g. `state: present`) rather than running raw shell commands.",
+    "current_options": [
+      "By relying on modules that check state (e.g. `state: present`) rather than running raw shell commands.",
+      "By adding a `always_run: yes` flag.",
+      "By deleting the resource before creating it every time.",
+      "Ansible tasks are never idempotent."
+    ]
+  },
+  {
+    "id": 89,
+    "text": "What is a major benefit of using 'Nested Stacks' in CloudFormation?",
+    "correct": "It allows breaking down large monolithic templates into smaller, reusable components.",
+    "current_options": [
+      "It allows breaking down large monolithic templates into smaller, reusable components.",
+      "It increases the limit of resources per stack to infinity.",
+      "It allows stacks to be deployed in different regions automatically.",
+      "It removes the need for IAM permissions."
+    ]
+  },
+  {
+    "id": 91,
+    "text": "What attribute prevents a CloudFormation resource (like an S3 bucket) from being deleted when the stack is deleted?",
+    "correct": "DeletionPolicy: Retain",
+    "current_options": [
+      "DeletionPolicy: Retain",
+      "Protect: True",
+      "SafeMode: On",
+      "LifeCycle: Preserve"
+    ]
+  },
+  {
+    "id": 92,
+    "text": "What is a 'Stack Policy' in CloudFormation typically used for?",
+    "correct": "To prevent accidental updates or deletions of critical stack resources during a stack update.",
+    "current_options": [
+      "To prevent accidental updates or deletions of critical stack resources during a stack update.",
+      "To define IAM permissions for the user running the stack.",
+      "To set billing alerts for the stack.",
+      "To define the order of resource creation."
+    ]
+  },
+  {
+    "id": 93,
+    "text": "What is the primary function of `docker-compose`?",
+    "correct": "To define and run multi-container Docker applications.",
+    "current_options": [
+      "To define and run multi-container Docker applications.",
+      "To compile Docker source code.",
+      "To manage Kubernetes clusters.",
+      "To scan images for vulnerabilities."
+    ]
+  },
+  {
+    "id": 96,
+    "text": "What is the main benefit of 'Elasticity' in cloud computing?",
+    "correct": "The ability to scale resources up or down dynamically based on demand.",
+    "current_options": [
+      "The ability to scale resources up or down dynamically based on demand.",
+      "The ability to recover data from backups.",
+      "The ability to run on any operating system.",
+      "The ability to use open source software."
+    ]
+  },
+  {
+    "id": 101,
+    "text": "What is the structure of a Git commit object?",
+    "correct": "It contains the tree ID, parent commit ID(s), author info, committer info, and the commit message.",
+    "current_options": [
+      "It contains the tree ID, parent commit ID(s), author info, committer info, and the commit message.",
+      "It contains the actual file diffs.",
+      "It is simply a pointer to a single file.",
+      "It contains only the timestamp."
+    ]
+  },
+  {
+    "id": 102,
+    "text": "What is the function of the `.git/refs` directory?",
+    "correct": "It stores references (pointers) to commit objects, such as branches and tags.",
+    "current_options": [
+      "It stores references (pointers) to commit objects, such as branches and tags.",
+      "It stores the actual file contents of the project.",
+      "It contains the user's global configuration.",
+      "It holds the stash data."
+    ]
+  },
+  {
+    "id": 104,
+    "text": "What happens during Git garbage collection (`git gc`)?",
+    "correct": "Optimizes repository by packing loose objects, removing unreachable objects, and updating references.",
+    "current_options": [
+      "Optimizes repository by packing loose objects, removing unreachable objects, and updating references.",
+      "Deletes all uncommitted changes.",
+      "Resets the repository to the initial commit.",
+      "Uploads the repository to GitHub."
+    ]
+  },
+  {
+    "id": 106,
+    "text": "Which command searches specifically for 'dangling commits' to help recover lost data?",
+    "correct": "git fsck --lost-found",
+    "current_options": [
+      "git fsck --lost-found",
+      "git data-recover",
+      "git commit --restore",
+      "git search --deleted"
+    ]
+  },
+  {
+    "id": 107,
+    "text": "What is the 'Reflog' in Git primarily used for?",
+    "correct": "A local log of all reference updates (HEAD movements) used to recover lost commits.",
+    "current_options": [
+      "A local log of all reference updates (HEAD movements) used to recover lost commits.",
+      "A shared history of all commits on the remote server.",
+      "A log of all syntax errors in the code.",
+      "A database of all user passwords."
+    ]
+  },
+  {
+    "id": 108,
+    "text": "How do you create a custom Git command named `git-awesome`?",
+    "correct": "Create an executable script named `git-awesome` and ensure it is in your system's PATH.",
+    "current_options": [
+      "Create an executable script named `git-awesome` and ensure it is in your system's PATH.",
+      "Edit the git source code and recompile.",
+      "Add an alias in .gitconfig.",
+      "It is impossible to add custom commands to Git."
+    ]
+  },
+  {
+    "id": 110,
+    "text": "How does Git generally mark unresolvable merge conflicts in a file?",
+    "correct": "With special markers: <<<<<<<, =======, >>>>>>>",
+    "current_options": [
+      "With special markers: <<<<<<<, =======, >>>>>>>",
+      "By deleting the file.",
+      "By creating a .conflict file.",
+      "By sending an email to the admin."
+    ]
+  },
+  {
+    "id": 112,
+    "text": "What does 'Keep It Simple, Stupid' (KISS) principle advocate?",
+    "correct": "Comparing to complexity, simplicity should be a key goal in design, and unnecessary complexity should be avoided.",
+    "current_options": [
+      "Comparing to complexity, simplicity should be a key goal in design, and unnecessary complexity should be avoided.",
+      "Writing code that only stupid people can understand.",
+      "Never using comments in code.",
+      "Using the simplest programming language available."
+    ]
+  },
+  {
+    "id": 113,
+    "text": "What is 'Code Review'?",
+    "correct": "A systematic examination of computer source code by someone other than the author.",
+    "current_options": [
+      "A systematic examination of computer source code by someone other than the author.",
+      "Running code in production to see if it breaks.",
+      "Rewriting code to be shorter.",
+      "Checking code into version control."
+    ]
+  },
+  {
+    "id": 114,
+    "text": "What is 'Pair Programming'?",
+    "correct": "An agile technique where two programmers work together at one workstation.",
+    "current_options": [
+      "An agile technique where two programmers work together at one workstation.",
+      "Connecting two monitors to one computer.",
+      "Using two keyboards at once.",
+      "Writing code in two languages simultaneously."
+    ]
+  },
+  {
+    "id": 115,
+    "text": "What is 'White-Box Monitoring'?",
+    "correct": "Monitoring based on metrics exposed by the internals of the system (e.g., logs, JVM stats).",
+    "current_options": [
+      "Monitoring based on metrics exposed by the internals of the system (e.g., logs, JVM stats).",
+      "Monitoring from the outside only (e.g., ping).",
+      "Monitoring using only white dashboards.",
+      "Monitoring without permissions."
+    ]
+  },
+  {
+    "id": 116,
+    "text": "What is 'Black-Box Monitoring'?",
+    "correct": "Monitoring externally visible behavior as a user sees it (e.g., HTTP availability).",
+    "current_options": [
+      "Monitoring externally visible behavior as a user sees it (e.g., HTTP availability).",
+      "Monitoring internal code paths.",
+      "Monitoring using dark mode.",
+      "Monitoring failed login attempts only."
+    ]
+  },
+  {
+    "id": 117,
+    "text": "What is a 'Build Artifact'?",
+    "correct": "The file(s) produced by the build process (e.g., JAR, WAR, Docker Image).",
+    "current_options": [
+      "The file(s) produced by the build process (e.g., JAR, WAR, Docker Image).",
+      "A failed build log.",
+      "The source code itself.",
+      "The compiler software."
+    ]
+  },
+  {
+    "id": 118,
+    "text": "What is 'Canary Deployment'?",
+    "correct": "Rolling out changes to a small subset of users before making it available to everyone.",
+    "current_options": [
+      "Rolling out changes to a small subset of users before making it available to everyone.",
+      "Deploying only to birds.",
+      "Using a yellow background for the app.",
+      "Deploying everything at midnight."
+    ]
+  },
+  {
+    "id": 125,
+    "text": "What is a 'Hybrid Cloud'?",
+    "correct": "A computing environment that combines a public cloud and a private cloud/on-premises infrastructure.",
+    "current_options": [
+      "A computing environment that combines a public cloud and a private cloud/on-premises infrastructure.",
+      "A cloud that uses both Windows and Linux.",
+      "A cloud that runs only hybrid cars.",
+      "A cloud owned by two different companies."
+    ]
+  },
+  {
+    "id": 126,
+    "text": "What is a VPN (Virtual Private Network)?",
+    "correct": "A secure tunnel between two or more devices across a public network (like the Internet).",
+    "current_options": [
+      "A secure tunnel between two or more devices across a public network (like the Internet).",
+      "A virus protection program.",
+      "A tool to speed up internet connection.",
+      "A private web browser mode."
+    ]
+  },
+  {
+    "id": 127,
+    "text": "What is the purpose of a Firewall?",
+    "correct": "To monitor and control incoming and outgoing network traffic based on predetermined security rules.",
+    "current_options": [
+      "To monitor and control incoming and outgoing network traffic based on predetermined security rules.",
+      "To physically cool down servers.",
+      "To prevent power outages.",
+      "To speed up database queries."
+    ]
+  },
+  {
+    "id": 128,
+    "text": "What does DHCP stand for?",
+    "correct": "Dynamic Host Configuration Protocol",
+    "current_options": [
+      "Dynamic Host Configuration Protocol",
+      "Data Host Control Panel",
+      "Domain Host Connection Point",
+      "Digital Hardware Control Protocol"
+    ]
+  },
+  {
+    "id": 129,
+    "text": "What is 'Agile' software development?",
+    "correct": "An iterative approach to project management and software development that helps teams deliver value to their customers faster.",
+    "current_options": [
+      "An iterative approach to project management and software development that helps teams deliver value to their customers faster.",
+      "A programming language.",
+      "A rigid, sequential process for building software.",
+      "A tool for monitoring servers."
+    ]
+  },
+  {
+    "id": 130,
+    "text": "What is 'Scrum'?",
+    "correct": "A framework used to implement Agile development.",
+    "current_options": [
+      "A framework used to implement Agile development.",
+      "A type of database.",
+      "A coding style guide.",
+      "A Linux distribution."
+    ]
+  },
+  {
+    "id": 131,
+    "text": "What is 'YAGNI'?",
+    "correct": "You Aren't Gonna Need It - a principle of extreme programming that states a programmer should not add functionality until deemed necessary.",
+    "current_options": [
+      "You Aren't Gonna Need It - a principle of extreme programming that states a programmer should not add functionality until deemed necessary.",
+      "Yet Another Graphic Network Interface.",
+      "Your App Goes Nowhere Instantly.",
+      "Yield All Generated New Instances."
+    ]
+  },
+  {
+    "id": 132,
+    "text": "What is 'Object Storage' (like AWS S3)?",
+    "correct": "A storage architecture that manages data as objects (data + metadata + ID), scalable and accessible via API.",
+    "current_options": [
+      "A storage architecture that manages data as objects (data + metadata + ID), scalable and accessible via API.",
+      "A traditional file system with folders.",
+      "A block storage device attached to a VM.",
+      "A relational database."
+    ]
+  },
+  {
+    "id": 133,
+    "text": "What is 'Docker Hub'?",
+    "correct": "A cloud-based registry service for sharing and storing Docker images.",
+    "current_options": [
+      "A cloud-based registry service for sharing and storing Docker images.",
+      "A networking tool for Docker.",
+      "A GUI for managing Docker containers.",
+      "The kernel component of Docker."
+    ]
+  },
+  {
+    "id": 136,
+    "text": "What does `pwd` command output?",
+    "correct": "Print Working Directory (current path)",
+    "current_options": [
+      "Print Working Directory (current path)",
+      "Password",
+      "Previous Working Directory",
+      "Print Web Domain"
+    ]
+  },
+  {
+    "id": 137,
+    "text": "What does the `ls` command do?",
+    "correct": "Lists files and directories.",
+    "current_options": [
+      "Lists files and directories.",
+      "Lists running services.",
+      "Logs system errors.",
+      "Leaves the shell."
+    ]
+  },
+  {
+    "id": 138,
+    "text": "What does `tar` command typically do?",
+    "correct": "Archives multiple files into a single file (often compressed).",
+    "current_options": [
+      "Archives multiple files into a single file (often compressed).",
+      "Compiles C code.",
+      "Tests network connection.",
+      "Mounts a tape drive."
+    ]
+  },
+  {
+    "id": 140,
+    "text": "What is the file extension for Ansible playbooks?",
+    "correct": ".yml or .yaml",
+    "current_options": [
+      ".yml or .yaml",
+      ".ans",
+      ".pb",
+      ".play"
+    ]
+  },
+  {
+    "id": 141,
+    "text": "What is 'Continuous Deployment'?",
+    "correct": "Every change that passes all stages of your production pipeline is released to your customers automatically.",
+    "current_options": [
+      "Every change that passes all stages of your production pipeline is released to your customers automatically.",
+      "Deploying once a week manually.",
+      "Deploying only to a staging environment.",
+      "Continuously coding without sleeping."
+    ]
+  },
+  {
+    "id": 142,
+    "text": "What is 'Continuous Delivery'?",
+    "correct": "Code changes are automatically built, tested, and prepared for a release to production, but the final deployment is manual.",
+    "current_options": [
+      "Code changes are automatically built, tested, and prepared for a release to production, but the final deployment is manual.",
+      "The same as Continuous Deployment.",
+      "Delivering hardware to data centers.",
+      "Writing documentation."
+    ]
+  },
+  {
+    "id": 143,
+    "text": "What does MTTR stand for?",
+    "correct": "Mean Time To Recovery (or Repair)",
+    "current_options": [
+      "Mean Time To Recovery (or Repair)",
+      "Mean Time To Run",
+      "Max Time To Respond",
+      "Minimum Time To Reboot"
+    ]
+  },
+  {
+    "id": 144,
+    "text": "What does MTTF stand for?",
+    "correct": "Mean Time To Failure",
+    "current_options": [
+      "Mean Time To Failure",
+      "Mean Time To Finish",
+      "Max Time To Fail",
+      "Mean Time To Fix"
+    ]
+  },
+  {
+    "id": 145,
+    "text": "What is a 'Provider' in Terraform?",
+    "correct": "A plugin that allows Terraform to interact with cloud providers, SaaS providers, and other APIs (e.g., AWS, Azure).",
+    "current_options": [
+      "A plugin that allows Terraform to interact with cloud providers, SaaS providers, and other APIs (e.g., AWS, Azure).",
+      "The company hosting the server.",
+      "The person writing the code.",
+      "A type of resource."
+    ]
+  },
+  {
+    "id": 146,
+    "text": "What is 'State' in Terraform?",
+    "correct": "A file that keeps track of the IDs and details of resources created by Terraform.",
+    "current_options": [
+      "A file that keeps track of the IDs and details of resources created by Terraform.",
+      "The geographical location of the server.",
+      "The current status of the build pipeline.",
+      "The operating system version."
+    ]
+  },
+  {
+    "id": 150,
+    "text": "What is 'Spot Instance' in AWS?",
+    "correct": "Unused EC2 capacity available at a significant discount, but can be interrupted with little notice.",
+    "current_options": [
+      "Unused EC2 capacity available at a significant discount, but can be interrupted with little notice.",
+      "A dedicated, always-on server.",
+      "An instance reserved for 3 years.",
+      "A server with a GPU for Spotify."
+    ]
+  },
+  {
+    "id": 151,
+    "text": "What is 'CloudWatch' in AWS?",
+    "correct": "A monitoring and observability service.",
+    "current_options": [
+      "A monitoring and observability service.",
+      "A weather forecast service.",
+      "A time-keeping service.",
+      "A global lock management system."
+    ]
+  },
+  {
+    "id": 152,
+    "text": "What is a Network?",
+    "correct": "A group of interconnected devices that communicate to share resources and information.",
+    "current_options": [
+      "A group of interconnected devices that communicate to share resources and information.",
+      "A single computer connected to a printer.",
+      "The physical cables connecting servers.",
+      "The wifi password."
+    ]
+  },
+  {
+    "id": 154,
+    "text": "What is the primary difference between IPv4 and IPv6?",
+    "correct": "IPv4 uses 32-bit addresses (approx 4.3 billion), while IPv6 uses 128-bit addresses (virtually infinite).",
+    "current_options": [
+      "IPv4 uses 32-bit addresses (approx 4.3 billion), while IPv6 uses 128-bit addresses (virtually infinite).",
+      "IPv4 is faster than IPv6.",
+      "IPv6 cannot be used on the internet.",
+      "IPv4 is more secure by default."
+    ]
+  },
+  {
+    "id": 156,
+    "text": "What function does a Subnet Mask perform?",
+    "correct": "It determines which part of the IP address is the network portion and which is the host portion.",
+    "current_options": [
+      "It determines which part of the IP address is the network portion and which is the host portion.",
+      "It hides the IP address from hackers.",
+      "It encrypts the traffic.",
+      "It speeds up the connection."
+    ]
+  },
+  {
+    "id": 157,
+    "text": "What does DHCP do?",
+    "correct": "Automatically assigns IP addresses and other network configuration to devices.",
+    "current_options": [
+      "Automatically assigns IP addresses and other network configuration to devices.",
+      "Filters malicious packets.",
+      "Translates domain names to IPs.",
+      "Encrypts wifi passwords."
+    ]
+  },
+  {
+    "id": 159,
+    "text": "What is NAT (Network Address Translation)?",
+    "correct": "A method to map multiple private IP addresses to a single public IP address.",
+    "current_options": [
+      "A method to map multiple private IP addresses to a single public IP address.",
+      "A protocol to transfer files.",
+      "A type of firewall.",
+      "A way to encrypt passwords."
+    ]
+  },
+  {
+    "id": 161,
+    "text": "What implies that 'SSH' is more secure than 'Telnet'?",
+    "correct": "SSH encrypts all communication, while Telnet sends data (including passwords) in plain text.",
+    "current_options": [
+      "SSH encrypts all communication, while Telnet sends data (including passwords) in plain text.",
+      "SSH is faster.",
+      "Telnet is only for Windows.",
+      "SSH uses a GUI."
+    ]
+  },
+  {
+    "id": 163,
+    "text": "What is the primary role of an SSL/TLS certificate?",
+    "correct": "To encrypt traffic between client and server and verify the server's identity.",
+    "current_options": [
+      "To encrypt traffic between client and server and verify the server's identity.",
+      "To speed up the website load time.",
+      "To improve SEO ranking.",
+      "To compress images."
+    ]
+  },
+  {
+    "id": 164,
+    "text": "At which OSI layer does a 'Layer 4 Load Balancer' operate?",
+    "correct": "Transport Layer (TCP/UDP)",
+    "current_options": [
+      "Transport Layer (TCP/UDP)",
+      "Application Layer (HTTP)",
+      "Network Layer (IP)",
+      "Physical Layer"
+    ]
+  },
+  {
+    "id": 165,
+    "text": "What is a 'DMZ' in network security?",
+    "correct": "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
+    "current_options": [
+      "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
+      "A blocked zone where no traffic passes.",
+      "A dedicated connection to the cloud.",
+      "The admin's personal computer."
+    ]
+  },
+  {
+    "id": 168,
+    "text": "What is the difference between IDS and IPS?",
+    "correct": "IDS detects potential threats and alerts; IPS detects threats and takes action to block them.",
+    "current_options": [
+      "IDS detects potential threats and alerts; IPS detects threats and takes action to block them.",
+      "IDS is for internal networks; IPS is for public networks.",
+      "IDS prevents attacks; IPS only logs them.",
+      "There is no difference."
+    ]
+  },
+  {
+    "id": 171,
+    "text": "How does a CDN improve website performance?",
+    "correct": "By caching content on edge servers geographically closer to the user.",
+    "current_options": [
+      "By caching content on edge servers geographically closer to the user.",
+      "By compressing the HTML code.",
+      "By upgrading the user's internet connection.",
+      "By removing all images from the site."
+    ]
+  },
+  {
+    "id": 176,
+    "text": "What is the primary function of a WAF?",
+    "correct": "To protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet.",
+    "current_options": [
+      "To protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet.",
+      "To protect the internal network from viruses.",
+      "To encrypt database connections.",
+      "To manage user logins."
+    ]
+  },
+  {
+    "id": 177,
+    "text": "What is the purpose of a 'Honeypot'?",
+    "correct": "A decoy system used to attract and trap attackers to study their behavior.",
+    "current_options": [
+      "A decoy system used to attract and trap attackers to study their behavior.",
+      "A secure storage for passwords.",
+      "A faster way to route traffic.",
+      "An automated patching system."
+    ]
+  },
+  {
+    "id": 179,
+    "text": "Which of these is a common mitigation strategy for DDoS using Cloud services?",
+    "correct": "Using a CDN and Web Application Firewall (WAF) to absorb and filter traffic.",
+    "current_options": [
+      "Using a CDN and Web Application Firewall (WAF) to absorb and filter traffic.",
+      "Turning off the server.",
+      "Blocking all IP addresses.",
+      "Increasing the server RAM."
+    ]
+  },
+  {
+    "id": 181,
+    "text": "What is the main advantage of SSO (Single Sign-On)?",
+    "correct": "It improves user experience and productivity by requiring only one set of credentials for multiple apps.",
+    "current_options": [
+      "It improves user experience and productivity by requiring only one set of credentials for multiple apps.",
+      "It makes passwords shorter.",
+      "It removes the need for encryption.",
+      "It allows anyone to login without a password."
+    ]
+  },
+  {
+    "id": 182,
+    "text": "How does an ACL (Access Control List) function?",
+    "correct": "It is a list of rules that grants or denies access to specific digital environments.",
+    "current_options": [
+      "It is a list of rules that grants or denies access to specific digital environments.",
+      "It is a list of all users in the company.",
+      "It is a log of all past logins.",
+      "It is a list of approved websites."
+    ]
+  },
+  {
+    "id": 183,
+    "text": "Why is container security a concern regarding the Kernel?",
+    "correct": "Containers share the host OS kernel, so a vulnerability in the kernel affects all containers.",
+    "current_options": [
+      "Containers share the host OS kernel, so a vulnerability in the kernel affects all containers.",
+      "Containers act as full VMs.",
+      "Containers run on Windows only.",
+      "Containers cannot run antivirus software."
+    ]
+  },
+  {
+    "id": 184,
+    "text": "Where can you find community support for this project?",
+    "correct": "GitHub, Blog, and Telegram",
+    "current_options": [
+      "GitHub, Blog, and Telegram",
+      "Only via Fax",
+      "By mailing a letter",
+      "In the local newspaper"
+    ]
+  },
+  {
+    "id": 185,
+    "text": "What is a MAC address?",
+    "correct": "A unique hardware identifier assigned to network interfaces for communication at the Data Link Layer.",
+    "current_options": [
+      "A unique hardware identifier assigned to network interfaces for communication at the Data Link Layer.",
+      "A dynamic address assigned by the router.",
+      "An encrypted password for wifi.",
+      "The serial number of the CPU."
+    ]
+  },
+  {
+    "id": 187,
+    "text": "What is 'Federated Identity'?",
+    "correct": "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
+    "current_options": [
+      "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
+      "A government ID card.",
+      "A single password used everywhere.",
+      "An anonymous login method."
+    ]
+  },
+  {
+    "id": 188,
+    "text": "What does a Kubernetes Network Policy do?",
+    "correct": "It defines how groups of Pods are allowed to communicate with each other and other network endpoints.",
+    "current_options": [
+      "It defines how groups of Pods are allowed to communicate with each other and other network endpoints.",
+      "It assigns IP addresses to Pods.",
+      "It encrypts all traffic in the cluster.",
+      "It acts as a load balancer."
+    ]
+  },
+  {
+    "id": 189,
+    "text": "What is the Principle of Least Privilege (PoLP)?",
+    "correct": "Users and systems should only have the specific permissions necessary to perform their intended function.",
+    "current_options": [
+      "Users and systems should only have the specific permissions necessary to perform their intended function.",
+      "Users should have admin access to everything to work faster.",
+      "Users should share passwords.",
+      "Systems should rely on network security only."
+    ]
+  },
+  {
+    "id": 190,
+    "text": "What is the purpose of HSTS (HTTP Strict Transport Security)?",
+    "correct": "It forces web browsers to interact with websites only using secure HTTPS connections.",
+    "current_options": [
+      "It forces web browsers to interact with websites only using secure HTTPS connections.",
+      "It compresses HTTP headers.",
+      "It blocks SQL injection attacks.",
+      "It speeds up DNS resolution."
+    ]
+  },
+  {
+    "id": 191,
+    "text": "What is the main goal of automation in DevOps?",
+    "correct": "To eliminate manual effort in repetitive tasks like deployment and provisioning to increase efficiency and reliability.",
+    "current_options": [
+      "To eliminate manual effort in repetitive tasks like deployment and provisioning to increase efficiency and reliability.",
+      "To replace all human workers with robots.",
+      "To write more code.",
+      "To make systems more complex."
+    ]
+  },
+  {
+    "id": 193,
+    "text": "What is a characteristic feature of Bash scripting?",
+    "correct": "It is interpreted by the shell and used for automating command-line tasks in Unix-like systems.",
+    "current_options": [
+      "It is interpreted by the shell and used for automating command-line tasks in Unix-like systems.",
+      "It requires a compiler.",
+      "It runs only on Windows.",
+      "It is used for frontend web development."
+    ]
+  },
+  {
+    "id": 195,
+    "text": "What defines a variable in Bash?",
+    "correct": "Variables are defined without a dollar sign (e.g., `name=\"value\"`) and accessed with one (e.g., `$name`).",
+    "current_options": [
+      "Variables are defined without a dollar sign (e.g., `name=\"value\"`) and accessed with one (e.g., `$name`).",
+      "Variables must be declared with `var`.",
+      "Variables always start with @.",
+      "Variables are typed implicitly like Python."
+    ]
+  },
+  {
+    "id": 196,
+    "text": "Why is Python popular in DevOps?",
+    "correct": "It has extensive libraries for cloud automation, API interaction, and data processing.",
+    "current_options": [
+      "It has extensive libraries for cloud automation, API interaction, and data processing.",
+      "It is faster than C++.",
+      "It is the native language of the Linux kernel.",
+      "It compiles to binary."
+    ]
+  },
+  {
+    "id": 198,
+    "text": "What does YAML stand for?",
+    "correct": "YAML Ain't Markup Language (or Yet Another Markup Language)",
+    "current_options": [
+      "YAML Ain't Markup Language (or Yet Another Markup Language)",
+      "Your Application Markup Language",
+      "Yellow Apple Melon Lemon",
+      "Yearly Automated Maintenance Log"
+    ]
+  },
+  {
+    "id": 201,
+    "text": "What is a 'Shebang' line?",
+    "correct": "The first line in a script (e.g., `#!/bin/bash`) indicating the interpreter to use.",
+    "current_options": [
+      "The first line in a script (e.g., `#!/bin/bash`) indicating the interpreter to use.",
+      "A command to stop the script.",
+      "A comment at the end of the file.",
+      "A variable declaration."
+    ]
+  },
+  {
+    "id": 202,
+    "text": "How do you start a loop in Bash?",
+    "correct": "for item in list; do ... done",
+    "current_options": [
+      "for item in list; do ... done",
+      "loop(item : list) { ... }",
+      "foreach item in list",
+      "repeat list as item"
+    ]
+  },
+  {
+    "id": 203,
+    "text": "How do you execute an 'if' condition in Bash?",
+    "correct": "if [ condition ]; then ... fi",
+    "current_options": [
+      "if [ condition ]; then ... fi",
+      "if (condition) { ... }",
+      "check condition: ...",
+      "when condition do ..."
+    ]
+  },
+  {
+    "id": 205,
+    "text": "How do you activate a Python virtual environment?",
+    "correct": "source venv/bin/activate",
+    "current_options": [
+      "source venv/bin/activate",
+      "start venv",
+      "run python venv",
+      "enable venv"
+    ]
+  },
+  {
+    "id": 207,
+    "text": "What is the primary use of `awk`?",
+    "correct": "Pattern scanning and processing, especially for columns of data.",
+    "current_options": [
+      "Pattern scanning and processing, especially for columns of data.",
+      "Downloading files.",
+      "Managing packages.",
+      "Editing headers."
+    ]
+  },
+  {
+    "id": 211,
+    "text": "What does `set -e` do in a script?",
+    "correct": "It aborts the script execution immediately if any command returns a non-zero exit code.",
+    "current_options": [
+      "It aborts the script execution immediately if any command returns a non-zero exit code.",
+      "It enables echo mode.",
+      "It exports all variables.",
+      "It encrypts the script output."
+    ]
+  },
+  {
+    "id": 213,
+    "text": "How do you catch exceptions in Python?",
+    "correct": "Using try...except blocks.",
+    "current_options": [
+      "Using try...except blocks.",
+      "Using try...catch blocks.",
+      "Using do...rescue blocks.",
+      "Using if...error blocks."
+    ]
+  },
+  {
+    "id": 217,
+    "text": "How do you perform an HTTP GET request in Python?",
+    "correct": "import requests; response = requests.get('url')",
+    "current_options": [
+      "import requests; response = requests.get('url')",
+      "import http; http.get('url')",
+      "import url; url.open('url')",
+      "import web; web.fetch('url')"
+    ]
+  },
+  {
+    "id": 220,
+    "text": "What is the structure of a multi-stage Jenkins pipeline?",
+    "correct": "pipeline { stages { stage('Name') { steps { ... } } } }",
+    "current_options": [
+      "pipeline { stages { stage('Name') { steps { ... } } } }",
+      "jenkins { job { task { ... } } }",
+      "workflow { step { command { ... } } }",
+      "process { phase { action { ... } } }"
+    ]
+  },
+  {
+    "id": 221,
+    "text": "What is an 'inline script' in the context of CI/CD?",
+    "correct": "A script written directly inside the pipeline configuration file (e.g., within `run:` key) rather than in a separate file.",
+    "current_options": [
+      "A script written directly inside the pipeline configuration file (e.g., within `run:` key) rather than in a separate file.",
+      "A script that runs in the background.",
+      "A script that connects to the internet.",
+      "A script that deletes files."
+    ]
+  },
+  {
+    "id": 223,
+    "text": "How does Ansible ensure 'idempotency'?",
+    "correct": "Modules check the current state of the system and only apply changes if the state does not match the desired configuration.",
+    "current_options": [
+      "Modules check the current state of the system and only apply changes if the state does not match the desired configuration.",
+      "It always overwrites files.",
+      "It runs scripts in a loop until they succeed.",
+      "It creates a backup of the system before every run."
+    ]
+  },
+  {
+    "id": 224,
+    "text": "What is the primary definition of Cloud Computing?",
+    "correct": "The on-demand delivery of computing services (servers, storage, etc.) over the internet with pay-as-you-go pricing.",
+    "current_options": [
+      "The on-demand delivery of computing services (servers, storage, etc.) over the internet with pay-as-you-go pricing.",
+      "Computing done only when it is cloudy.",
+      "Storing data on hard drives in your office.",
+      "Using supercomputers for weather forecasting."
+    ]
+  },
+  {
+    "id": 227,
+    "text": "What does IaaS stand for?",
+    "correct": "Infrastructure as a Service",
+    "current_options": [
+      "Infrastructure as a Service",
+      "Internet as a Service",
+      "Information as a Source",
+      "Internal as a Server"
+    ]
+  },
+  {
+    "id": 229,
+    "text": "What describes 'Serverless Computing'?",
+    "correct": "Developers run code without provisioning or managing servers; resources are allocated dynamically.",
+    "current_options": [
+      "Developers run code without provisioning or managing servers; resources are allocated dynamically.",
+      "Computing without any hardware.",
+      "Servers that never turn on.",
+      "Running code on your local laptop only."
+    ]
+  },
+  {
+    "id": 230,
+    "text": "What is Virtualization?",
+    "correct": "Creating virtual instances of computing resources (like VMs) on a single physical machine.",
+    "current_options": [
+      "Creating virtual instances of computing resources (like VMs) on a single physical machine.",
+      "Playing video games.",
+      "Simulating reality.",
+      "Browsing the internet."
+    ]
+  },
+  {
+    "id": 231,
+    "text": "What does a 'Multi-Cloud' strategy involve?",
+    "correct": "Using services from multiple cloud providers (e.g., AWS + Azure) to avoid vendor lock-in.",
+    "current_options": [
+      "Using services from multiple cloud providers (e.g., AWS + Azure) to avoid vendor lock-in.",
+      "Using multiple computers.",
+      "Using multiple user accounts.",
+      "Using multiple wifi networks."
+    ]
+  },
+  {
+    "id": 232,
+    "text": "What is 'Scaling Out' (Horizontal Scaling)?",
+    "correct": "Adding more servers/instances to existing resource pool.",
+    "current_options": [
+      "Adding more servers/instances to existing resource pool.",
+      "Adding more CPU/RAM to a single server.",
+      "Making the server physically larger.",
+      "Moving data to a bigger hard drive."
+    ]
+  },
+  {
+    "id": 233,
+    "text": "What is an Availability Zone (AZ)?",
+    "correct": "A physically separate data center within a cloud region, designed for fault tolerance.",
+    "current_options": [
+      "A physically separate data center within a cloud region, designed for fault tolerance.",
+      "A time zone.",
+      "A zone where internet is free.",
+      "A parking zone."
+    ]
+  },
+  {
+    "id": 235,
+    "text": "What is a VPC?",
+    "correct": "Virtual Private Cloud - an isolated cloud network environment.",
+    "current_options": [
+      "Virtual Private Cloud - an isolated cloud network environment.",
+      "Very Personal Computer.",
+      "Virtual Public Connection.",
+      "Visual Processing Center."
+    ]
+  },
+  {
+    "id": 236,
+    "text": "What does an Elastic Load Balancer (ELB) do?",
+    "correct": "Distributes incoming traffic across multiple targets to improve availability.",
+    "current_options": [
+      "Distributes incoming traffic across multiple targets to improve availability.",
+      "Encrypts data.",
+      "Stores backups.",
+      "Generates logs."
+    ]
+  },
+  {
+    "id": 237,
+    "text": "Object Storage (like S3) is best for:",
+    "correct": "Storing unstructured data like photos, videos, and backups.",
+    "current_options": [
+      "Storing unstructured data like photos, videos, and backups.",
+      "Running an operating system.",
+      "Hosting a high-speed database.",
+      "Caching memory."
+    ]
+  },
+  {
+    "id": 238,
+    "text": "Block Storage (like EBS) is best for:",
+    "correct": "Attaching to virtual machines for OS and database storage.",
+    "current_options": [
+      "Attaching to virtual machines for OS and database storage.",
+      "Storing public website assets.",
+      "Long-term archival.",
+      "Global content delivery."
+    ]
+  },
+  {
+    "id": 239,
+    "text": "What is a Content Delivery Network (CDN)?",
+    "correct": "A distributed network of servers that caches content close to users for faster delivery.",
+    "current_options": [
+      "A distributed network of servers that caches content close to users for faster delivery.",
+      "A central main server.",
+      "A database replication service.",
+      "A VPN service."
+    ]
+  },
+  {
+    "id": 240,
+    "text": "What is an IAM Role?",
+    "correct": "An identity that you can assume to gain temporary access permissions.",
+    "current_options": [
+      "An identity that you can assume to gain temporary access permissions.",
+      "A permanent user account.",
+      "A password policy.",
+      "A firewall rule."
+    ]
+  },
+  {
+    "id": 241,
+    "text": "What is CloudFormation?",
+    "correct": "An AWS service for defining infrastructure as code using templates.",
+    "current_options": [
+      "An AWS service for defining infrastructure as code using templates.",
+      "A cloud weather service.",
+      "A tool to format hard drives.",
+      "A cloud migration tool."
+    ]
+  },
+  {
+    "id": 242,
+    "text": "What is 'Autoscaling'?",
+    "correct": "Automatically adjusting the number of computing resources based on load.",
+    "current_options": [
+      "Automatically adjusting the number of computing resources based on load.",
+      "Manually adding servers.",
+      "Buying more computers.",
+      "Measuring weight of servers."
+    ]
+  },
+  {
+    "id": 243,
+    "text": "Which of these is a Platform as a Service (PaaS)?",
+    "correct": "AWS Elastic Beanstalk",
+    "current_options": [
+      "AWS Elastic Beanstalk",
+      "AWS EC2",
+      "AWS VPC",
+      "AWS S3"
+    ]
+  },
+  {
+    "id": 244,
+    "text": "What defines a 'Region' in cloud computing?",
+    "correct": "A distinct geographical area with multiple availability zones.",
+    "current_options": [
+      "A distinct geographical area with multiple availability zones.",
+      "A single data center.",
+      "A country.",
+      "A city."
+    ]
+  },
+  {
+    "id": 245,
+    "text": "What is the main benefit of 'Serverless' architectures like AWS Lambda?",
+    "correct": "Pay only for compute time used, no idle cost, and no server management.",
+    "current_options": [
+      "Pay only for compute time used, no idle cost, and no server management.",
+      "It is faster than EC2.",
+      "It allows you to SSH into the server.",
+      "It supports all programming languages natively."
+    ]
+  },
+  {
+    "id": 246,
+    "text": "What is Kubernetes (K8s)?",
+    "correct": "An open-source system for automating deployment, scaling, and management of containerized applications.",
+    "current_options": [
+      "An open-source system for automating deployment, scaling, and management of containerized applications.",
+      "A virtualization software.",
+      "A cloud provider.",
+      "A programming language."
+    ]
+  },
+  {
+    "id": 247,
+    "text": "What is a 'node' in a Kubernetes cluster?",
+    "correct": "A worker machine (virtual or physical) that runs containerized applications.",
+    "current_options": [
+      "A worker machine (virtual or physical) that runs containerized applications.",
+      "The master control plane.",
+      "A database entry.",
+      "A networking cable."
+    ]
+  },
+  {
+    "id": 251,
+    "text": "What is 'Latency'?",
+    "correct": "The delay before a transfer of data begins following an instruction for its transfer.",
+    "current_options": [
+      "The delay before a transfer of data begins following an instruction for its transfer.",
+      "The speed of download.",
+      "The size of the hard drive.",
+      "The cost of the server."
+    ]
+  },
+  {
+    "id": 254,
+    "text": "What is a 'Snapshot' in cloud storage?",
+    "correct": "A point-in-time copy of a storage volume (like a backup).",
+    "current_options": [
+      "A point-in-time copy of a storage volume (like a backup).",
+      "A screenshot of the console.",
+      "A short log file.",
+      "A quick server restart."
+    ]
+  },
+  {
+    "id": 255,
+    "text": "What is 'Edge Computing'?",
+    "correct": "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
+    "current_options": [
+      "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
+      "Computing on the newest servers.",
+      "Computing using Microsoft Edge browser.",
+      "Computing at the speed of light."
+    ]
+  },
+  {
+    "id": 257,
+    "text": "How do you handle authentication in a Python script?",
+    "correct": "requests.get(\"https://example.com\", auth=(\"user\", \"pass\"))",
+    "current_options": [
+      "requests.get(\"https://example.com\", auth=(\"user\", \"pass\"))",
+      "Using `sudo` before python.",
+      "Hardcoding passwords in plain text.",
+      "Python scripts cannot handle authentication."
+    ]
+  },
+  {
+    "id": 260,
+    "text": "What is an inline script?",
+    "correct": "Running a script directly inside a pipeline configuration (e.g., GitHub Actions run command).",
+    "current_options": [
+      "Running a script directly inside a pipeline configuration (e.g., GitHub Actions run command).",
+      "A script that is written on one line.",
+      "A script that has no comments.",
+      "A script that runs offline."
+    ]
+  },
+  {
+    "id": 262,
+    "text": "How does Ansible ensure idempotency?",
+    "correct": "Ansible modules check the current state and only apply changes if the state differs from the desired configuration.",
+    "current_options": [
+      "Ansible modules check the current state and only apply changes if the state differs from the desired configuration.",
+      "It deletes everything and starts over.",
+      "It asks the user for confirmation every time.",
+      "It relies on chance."
+    ]
+  },
+  {
+    "id": 263,
+    "text": "What is cloud computing?",
+    "correct": "The on-demand delivery of computing services over the internet with pay-as-you-go pricing.",
+    "current_options": [
+      "The on-demand delivery of computing services over the internet with pay-as-you-go pricing.",
+      "A network of satellites.",
+      "Weather forecasting software.",
+      "Personal hard drives."
+    ]
+  },
+  {
+    "id": 266,
+    "text": "What does IaaS enable?",
+    "correct": "Provides virtualized computing resources (e.g., VMs) over the internet.",
+    "current_options": [
+      "Provides virtualized computing resources (e.g., VMs) over the internet.",
+      "Provides email software.",
+      "Provides a development platform.",
+      "Provides office furniture."
+    ]
+  },
+  {
+    "id": 267,
+    "text": "What defines Serverless Computing?",
+    "correct": "Running applications without managing the underlying infrastructure; resources are allocated dynamically.",
+    "current_options": [
+      "Running applications without managing the underlying infrastructure; resources are allocated dynamically.",
+      "Computing without electricity.",
+      "Storing data on tapes.",
+      "Using a single server for everything."
+    ]
+  },
+  {
+    "id": 268,
+    "text": "What is Virtualization?",
+    "correct": "Creating virtual instances of servers, storage, or networks on a single physical server.",
+    "current_options": [
+      "Creating virtual instances of servers, storage, or networks on a single physical server.",
+      "Simulating a video game.",
+      "Connecting to the metaverse.",
+      "Browsing the web securely."
+    ]
+  },
+  {
+    "id": 270,
+    "text": "What is Vertical Scaling?",
+    "correct": "Increasing resources (CPU, RAM) in an existing server.",
+    "current_options": [
+      "Increasing resources (CPU, RAM) in an existing server.",
+      "Adding more servers.",
+      "Moving the server to a higher shelf.",
+      "Buying a taller server case."
+    ]
+  },
+  {
+    "id": 271,
+    "text": "What is an Availability Zone (AZ)?",
+    "correct": "A physically separate data center within a cloud provider's region.",
+    "current_options": [
+      "A physically separate data center within a cloud provider's region.",
+      "A timezone setting.",
+      "A type of firewall.",
+      "A software license."
+    ]
+  },
+  {
+    "id": 272,
+    "text": "In the Shared Responsibility Model, what is the customer responsible for?",
+    "correct": "Securing applications, data, and user access.",
+    "current_options": [
+      "Securing applications, data, and user access.",
+      "Physical security of the data center.",
+      "Maintenance of the host hardware.",
+      "Cooling systems."
+    ]
+  },
+  {
+    "id": 273,
+    "text": "What is a VPC?",
+    "correct": "A virtual network dedicated to your AWS account.",
+    "current_options": [
+      "A virtual network dedicated to your AWS account.",
+      "A physical computer.",
+      "A type of hard drive.",
+      "A video processing card."
+    ]
+  },
+  {
+    "id": 274,
+    "text": "What is the function of an ELB?",
+    "correct": "Distributes incoming application traffic across multiple targets, such as EC2 instances.",
+    "current_options": [
+      "Distributes incoming application traffic across multiple targets, such as EC2 instances.",
+      "Encrypts sensitive data.",
+      "Stores backups.",
+      "Generates reports."
+    ]
+  },
+  {
+    "id": 275,
+    "text": "What is Object Storage?",
+    "correct": "Storage architecture that manages data as objects, suitable for unstructured data like media.",
+    "current_options": [
+      "Storage architecture that manages data as objects, suitable for unstructured data like media.",
+      "Storage for databases only.",
+      "Storage for operating systems.",
+      "Storage for RAM."
+    ]
+  },
+  {
+    "id": 276,
+    "text": "What is Block Storage tailored for?",
+    "correct": "Databases and virtual machines requiring low-latency access.",
+    "current_options": [
+      "Databases and virtual machines requiring low-latency access.",
+      "Storing photos.",
+      "Web hosting static files.",
+      "Email archiving."
+    ]
+  },
+  {
+    "id": 277,
+    "text": "What benefit does a CDN provide?",
+    "correct": "Faster content delivery by caching data on servers close to the user.",
+    "current_options": [
+      "Faster content delivery by caching data on servers close to the user.",
+      "Cheaper internet bills.",
+      "Better graphics.",
+      "More storage space."
+    ]
+  },
+  {
+    "id": 278,
+    "text": "What is an IAM Role?",
+    "correct": "Grants permissions to entities (like EC2 instances) without long-term credentials.",
+    "current_options": [
+      "Grants permissions to entities (like EC2 instances) without long-term credentials.",
+      "A job title in a company.",
+      "A type of server.",
+      "A database table."
+    ]
+  },
+  {
+    "id": 279,
+    "text": "What is CloudFormation?",
+    "correct": "An IaC tool for automating AWS resource provisioning using templates.",
+    "current_options": [
+      "An IaC tool for automating AWS resource provisioning using templates.",
+      "A cloud formation in the sky.",
+      "A social network for developers.",
+      "A weather app."
+    ]
+  },
+  {
+    "id": 280,
+    "text": "What is Prometheus?",
+    "correct": "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
+    "current_options": [
+      "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
+      "A Greek god.",
+      "A firewall software.",
+      "A text editor."
+    ]
+  },
+  {
+    "id": 281,
+    "text": "How does Prometheus collect metrics?",
+    "correct": "It pulls (scrapes) metrics from target endpoints exposed via HTTP.",
+    "current_options": [
+      "It pulls (scrapes) metrics from target endpoints exposed via HTTP.",
+      "It waits for users to send emails.",
+      "It reads log files only.",
+      "It scans the hard drive."
+    ]
+  },
+  {
+    "id": 282,
+    "text": "What is PromQL?",
+    "correct": "The query language used to analyze metrics in Prometheus.",
+    "current_options": [
+      "The query language used to analyze metrics in Prometheus.",
+      "A database SQL dialect.",
+      "A programming language like Python.",
+      "A type of graph."
+    ]
+  },
+  {
+    "id": 283,
+    "text": "What are Prometheus Exporters?",
+    "correct": "Agents that collect and expose metrics from systems that don't output Prometheus metrics natively.",
+    "current_options": [
+      "Agents that collect and expose metrics from systems that don't output Prometheus metrics natively.",
+      "People who sell Prometheus.",
+      "Tools to delete metrics.",
+      "Files that export data to Excel."
+    ]
+  },
+  {
+    "id": 285,
+    "text": "What is Grafana mainly used for?",
+    "correct": "Visualizing time-series data from sources like Prometheus via interactive dashboards.",
+    "current_options": [
+      "Visualizing time-series data from sources like Prometheus via interactive dashboards.",
+      "Writing database queries.",
+      "Hosting websites.",
+      "Managing emails."
+    ]
+  },
+  {
+    "id": 286,
+    "text": "How do you connect Grafana to data?",
+    "correct": "By configuring a 'Data Source' (e.g., Prometheus) in the Configuration menu.",
+    "current_options": [
+      "By configuring a 'Data Source' (e.g., Prometheus) in the Configuration menu.",
+      "By plugging in a USB drive.",
+      "By writing a script.",
+      "It connects automatically to everything."
+    ]
+  },
+  {
+    "id": 287,
+    "text": "What are Grafana Panels?",
+    "correct": "Visual components (graphs, tables, gauges) used to display data on a dashboard.",
+    "current_options": [
+      "Visual components (graphs, tables, gauges) used to display data on a dashboard.",
+      "Solar panels.",
+      "Control panels for the server.",
+      "Admin user accounts."
+    ]
+  },
+  {
+    "id": 290,
+    "text": "What is the role of Elasticsearch?",
+    "correct": "NoSQL distributed search engine for storing and analyzing data.",
+    "current_options": [
+      "NoSQL distributed search engine for storing and analyzing data.",
+      "Visualizing data.",
+      "Collecting logs from servers.",
+      "A relational database."
+    ]
+  },
+  {
+    "id": 291,
+    "text": "What does Logstash do?",
+    "correct": "Processes logs via a pipeline: Input -> Filter -> Output.",
+    "current_options": [
+      "Processes logs via a pipeline: Input -> Filter -> Output.",
+      "Stores logs.",
+      "Visualizes logs.",
+      "Deletes logs."
+    ]
+  },
+  {
+    "id": 292,
+    "text": "What is Kibana used for?",
+    "correct": "Visualizing and exploring log data stored in Elasticsearch.",
+    "current_options": [
+      "Visualizing and exploring log data stored in Elasticsearch.",
+      "Storing logs.",
+      "Processing logs.",
+      "Monitoring CPU usage."
+    ]
+  },
+  {
+    "id": 293,
+    "text": "What is an Index in Elasticsearch?",
+    "correct": "A collection of documents, similar to a database table.",
+    "current_options": [
+      "A collection of documents, similar to a database table.",
+      "A table of contents.",
+      "A back of a book.",
+      "A search query."
+    ]
+  },
+  {
+    "id": 294,
+    "text": "How does Logstash send data to Elasticsearch?",
+    "correct": "Via the `elasticsearch` output plugin configuration.",
+    "current_options": [
+      "Via the `elasticsearch` output plugin configuration.",
+      "By email.",
+      "Via USB transfer.",
+      "It cannot communicate with Elasticsearch."
+    ]
+  },
+  {
+    "id": 296,
+    "text": "What is the purpose of 'Annotations' in Grafana?",
+    "correct": "To mark specific events (like deployments or outages) on graphs to correlate them with metric changes.",
+    "current_options": [
+      "To mark specific events (like deployments or outages) on graphs to correlate them with metric changes.",
+      "To write comments in the code.",
+      "To add subtitles to videos.",
+      "To label user accounts."
+    ]
+  },
+  {
+    "id": 297,
+    "text": "How can you support multi-tenancy in Grafana?",
+    "correct": "By using Organizations (Orgs) to isolate dashboards and data sources for different teams.",
+    "current_options": [
+      "By using Organizations (Orgs) to isolate dashboards and data sources for different teams.",
+      "By installing Grafana multiple times.",
+      "By using different browsers.",
+      "Grafana does not support multi-tenancy."
+    ]
+  },
+  {
+    "id": 300,
+    "text": "What is the Hot-Warm-Cold architecture in Elasticsearch?",
+    "correct": "A data tiering strategy to optimize cost and performance: Hot (frequent I/O), Warm (read-only), Cold (archival).",
+    "current_options": [
+      "A data tiering strategy to optimize cost and performance: Hot (frequent I/O), Warm (read-only), Cold (archival).",
+      "Temperature control for server rooms.",
+      "A backup strategy using tapes.",
+      "A way to restart servers."
+    ]
+  },
+  {
+    "id": 301,
+    "text": "How is backpressure managed in Logstash?",
+    "correct": "Using Persistent Queues (PQ) to buffer events on disk when outputs are overwhelmed.",
+    "current_options": [
+      "Using Persistent Queues (PQ) to buffer events on disk when outputs are overwhelmed.",
+      "By dropping packets immediately.",
+      "By crashing the server.",
+      "By sending emails to the admin."
+    ]
+  },
+  {
+    "id": 303,
+    "text": "How do you optimize Elasticsearch query performance?",
+    "correct": "Use 'filter' context (cached) instead of 'query' context where possible, and avoid leading wildcard searches.",
+    "current_options": [
+      "Use 'filter' context (cached) instead of 'query' context where possible, and avoid leading wildcard searches.",
+      "Index every single field.",
+      "Run queries on the master node.",
+      "Delete data every hour."
+    ]
+  },
+  {
+    "id": 305,
+    "text": "What is the primary definition of DevOps?",
+    "correct": "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
+    "current_options": [
+      "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
+      "A specific tool you buy.",
+      "A job title for a system administrator.",
+      "A programming language."
+    ]
+  },
+  {
+    "id": 308,
+    "text": "What does CD stand for (in the context of automated deployment)?",
+    "correct": "Continuous Deployment (or Continuous Delivery)",
+    "current_options": [
+      "Continuous Deployment (or Continuous Delivery)",
+      "Continuous Development",
+      "Central Database",
+      "Code Design"
+    ]
+  },
+  {
+    "id": 309,
+    "text": "What is Infrastructure as Code (IaC)?",
+    "correct": "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
+    "current_options": [
+      "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
+      "Writing code to build physical servers.",
+      "Using a GUI to click and create servers.",
+      "Writing documentation about servers."
+    ]
+  },
+  {
+    "id": 310,
+    "text": "Which of the following is a key component of a DevOps culture?",
+    "correct": "Shared responsibility",
+    "current_options": [
+      "Shared responsibility",
+      "Blaming other teams",
+      "Working in silos",
+      "Manual processes"
+    ]
+  },
+  {
+    "id": 311,
+    "text": "How does DevOps relate to Agile?",
+    "correct": "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
+    "current_options": [
+      "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
+      "DevOps replaces Agile.",
+      "Agile is for hardware, DevOps is for software.",
+      "They are unrelated."
+    ]
+  },
+  {
+    "id": 312,
+    "text": "What is 'Continuous Testing'?",
+    "correct": "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
+    "current_options": [
+      "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
+      "Testing once a year.",
+      "Testing only manually.",
+      "Testing only in production."
+    ]
+  },
+  {
+    "id": 313,
+    "text": "What is a 'Silo' in traditional IT?",
+    "correct": "An isolated team or department that does not share information or processes with others, hindering collaboration.",
+    "current_options": [
+      "An isolated team or department that does not share information or processes with others, hindering collaboration.",
+      "A storage unit for grain.",
+      "A type of server rack.",
+      "A backup tape."
+    ]
+  },
+  {
+    "id": 315,
+    "text": "What is Version Control?",
+    "correct": "A system that records changes to a file or set of files over time so that you can recall specific versions later.",
+    "current_options": [
+      "A system that records changes to a file or set of files over time so that you can recall specific versions later.",
+      "Controlling which version of Windows you use.",
+      "Managing software licenses.",
+      "Backing up databases."
+    ]
+  },
+  {
+    "id": 317,
+    "text": "What is the purpose of 'Monitoring' in DevOps?",
+    "correct": "To gather metrics and logs to understand system health, performance, and usage patterns.",
+    "current_options": [
+      "To gather metrics and logs to understand system health, performance, and usage patterns.",
+      "To spy on employees.",
+      "To record video of the server room.",
+      "To control internet access."
+    ]
+  },
+  {
+    "id": 318,
+    "text": "What is 'Shift Left' security?",
+    "correct": "Integrating security practices early in the development lifecycle (design/code) rather than waiting for the end.",
+    "current_options": [
+      "Integrating security practices early in the development lifecycle (design/code) rather than waiting for the end.",
+      "Moving servers to the left side of the room.",
+      "Ignoring security.",
+      "Hiring left-handed security guards."
+    ]
+  },
+  {
+    "id": 319,
+    "text": "What is 'Microservices Architecture'?",
+    "correct": "Structuring an application as a collection of loosely coupled, independently deployable services.",
+    "current_options": [
+      "Structuring an application as a collection of loosely coupled, independently deployable services.",
+      "Building a very small computer.",
+      "Writing very short code.",
+      "Using a single monolithic database."
+    ]
+  },
+  {
+    "id": 320,
+    "text": "What is a 'Monolith'?",
+    "correct": "An application built as a single, unified unit where all logic is tightly coupled.",
+    "current_options": [
+      "An application built as a single, unified unit where all logic is tightly coupled.",
+      "A large stone statue.",
+      "A multi-cloud strategy.",
+      "A dedicated server."
+    ]
+  },
+  {
+    "id": 321,
+    "text": "What is 'Containerization'?",
+    "correct": "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
+    "current_options": [
+      "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
+      "Shipping computers in containers.",
+      "Zip filing documents.",
+      "Virtualizing hardware."
+    ]
+  },
+  {
+    "id": 323,
+    "text": "What is a Build Agent?",
+    "correct": "A server or container that runs the tasks defined in your CI/CD pipeline.",
+    "current_options": [
+      "A server or container that runs the tasks defined in your CI/CD pipeline.",
+      "A secret agent.",
+      "A developer who writes code.",
+      "A project manager."
+    ]
+  },
+  {
+    "id": 324,
+    "text": "What is 'Configuration Management'?",
+    "correct": "The process of maintaining systems, servers, and software in a desired, consistent state.",
+    "current_options": [
+      "The process of maintaining systems, servers, and software in a desired, consistent state.",
+      "Arranging icons on the desktop.",
+      "Managing user passwords.",
+      "Configuring email signatures."
+    ]
+  },
+  {
+    "id": 326,
+    "text": "What is 'Orchestration' in DevOps?",
+    "correct": "Automated configuration, coordination, and management of computer systems and software.",
+    "current_options": [
+      "Automated configuration, coordination, and management of computer systems and software.",
+      "Playing music.",
+      "Organizing meetings.",
+      "Writing documentation."
+    ]
+  },
+  {
+    "id": 327,
+    "text": "What is 'Mean Time to Recovery' (MTTR)?",
+    "correct": "The average time it takes to recover from a product or system failure.",
+    "current_options": [
+      "The average time it takes to recover from a product or system failure.",
+      "The average time to run a mile.",
+      "The time to restart a computer.",
+      "The time to write a line of code."
+    ]
+  },
+  {
+    "id": 328,
+    "text": "What is 'Blue-Green Deployment'?",
+    "correct": "A technique that reduces downtime and risk by running two identical production environments called Blue and Green.",
+    "current_options": [
+      "A technique that reduces downtime and risk by running two identical production environments called Blue and Green.",
+      "Painting servers blue and green.",
+      "Deploying only on weekends.",
+      "Deploying to the ocean and the forest."
+    ]
+  },
+  {
+    "id": 329,
+    "text": "What is 'Canary Release'?",
+    "correct": "Rolling out a new feature to a small subset of users to test it before a full rollout.",
+    "current_options": [
+      "Rolling out a new feature to a small subset of users to test it before a full rollout.",
+      "Releasing birds.",
+      "A type of mining software.",
+      "A yellow colored app."
+    ]
+  },
+  {
+    "id": 330,
+    "text": "What is 'Dark Launching'?",
+    "correct": "Releasing code to production that is turned off by a feature toggle, invisible to users.",
+    "current_options": [
+      "Releasing code to production that is turned off by a feature toggle, invisible to users.",
+      "Launching a rocket at night.",
+      "Hackers attacking a site.",
+      "Using dark mode."
+    ]
+  },
+  {
+    "id": 331,
+    "text": "What is 'Feature Flag/Toggle'?",
+    "correct": "A technique that allows you to turn features on or off without deploying new code.",
+    "current_options": [
+      "A technique that allows you to turn features on or off without deploying new code.",
+      "A flag on the roof.",
+      "A competitive sport.",
+      "A type of bug."
+    ]
+  },
+  {
+    "id": 332,
+    "text": "What is 'GitOps'?",
+    "correct": "Using Git repositories as the source of truth for defining infrastructure and application state.",
+    "current_options": [
+      "Using Git repositories as the source of truth for defining infrastructure and application state.",
+      "Git for operations teams only.",
+      "A new version of Git.",
+      "Hosting Git on your own server."
+    ]
+  },
+  {
+    "id": 333,
+    "text": "What is 'ChatOps'?",
+    "correct": "Using chat clients (Slack, Teams) to execute commands and manage systems via bots.",
+    "current_options": [
+      "Using chat clients (Slack, Teams) to execute commands and manage systems via bots.",
+      "Talking to operations team.",
+      "Customer support chat.",
+      "Chatting about operations."
+    ]
+  },
+  {
+    "id": 334,
+    "text": "What is 'Autoscaling' in cloud environments?",
+    "correct": "Automatically adjusting the number of active servers or resources based on real-time demand/load.",
+    "current_options": [
+      "Automatically adjusting the number of active servers or resources based on real-time demand/load.",
+      "Automatically restarting servers every hour.",
+      "Scaling images to be larger.",
+      "Automatically buying new hardware."
+    ]
+  },
+  {
+    "id": 335,
+    "text": "What is the 'Twelve-Factor App' methodology?",
+    "correct": "A set of best practices for building scalable, portable, and resilient software-as-a-service apps (covering Config, Backing Services, Disposability, etc.).",
+    "current_options": [
+      "A set of best practices for building scalable, portable, and resilient software-as-a-service apps (covering Config, Backing Services, Disposability, etc.).",
+      "A rule that apps must have 12 lines of code.",
+      "A team structure with 12 developers.",
+      "A deployment strategy with 12 stages."
+    ]
+  },
+  {
+    "id": 352,
+    "text": "What is the role of the 'Kubelet'?",
+    "correct": "An agent running on each node that ensures containers are running in a Pod.",
+    "current_options": [
+      "An agent running on each node that ensures containers are running in a Pod.",
+      "The main database of Kubernetes.",
+      "A CLI tool for developers.",
+      "A load balancer."
+    ]
+  },
+  {
+    "id": 337,
+    "text": "What is a 'Sidecar' in Kubernetes?",
+    "correct": "A helper container running alongside the main application container in the same Pod to enhance functionality (e.g., logging proxy).",
+    "current_options": [
+      "A helper container running alongside the main application container in the same Pod to enhance functionality (e.g., logging proxy).",
+      "A separate vehicle.",
+      "A backup server.",
+      "A database replica."
+    ]
+  },
+  {
+    "id": 339,
+    "text": "What is 'Progressive Delivery'?",
+    "correct": "An advanced deployment strategy releasing changes incrementally (e.g., Canary, Feature Flags) to limit blast radius.",
+    "current_options": [
+      "An advanced deployment strategy releasing changes incrementally (e.g., Canary, Feature Flags) to limit blast radius.",
+      "Delivering code faster every day.",
+      "Using a progressive web app.",
+      "Delivering hardware by truck."
+    ]
+  },
+  {
+    "id": 340,
+    "text": "What function does a 'Service Mesh' (like Istio) perform?",
+    "correct": "Manages service-to-service communication with features like traffic control, mutual TLS security, and observability.",
+    "current_options": [
+      "Manages service-to-service communication with features like traffic control, mutual TLS security, and observability.",
+      "Connects the office wifi.",
+      "Cleans up mesh code.",
+      "Hosts the database."
+    ]
+  },
+  {
+    "id": 343,
+    "text": "What is 'Infrastructure Drift'?",
+    "correct": "When the actual state of infrastructure deviates from the configuration defined in IaC code.",
+    "current_options": [
+      "When the actual state of infrastructure deviates from the configuration defined in IaC code.",
+      "Moving servers to another room.",
+      "Slow internet connection.",
+      "Updates to the operating system."
+    ]
+  },
+  {
+    "id": 344,
+    "text": "What is 'FinOps'?",
+    "correct": "Financial Operations - practicing cloud financial management to optimize spend and get maximum value.",
+    "current_options": [
+      "Financial Operations - practicing cloud financial management to optimize spend and get maximum value.",
+      "Finishing Operations tasks.",
+      "A shark-themed DevOps tool.",
+      "Finalizing software release."
+    ]
+  },
+  {
+    "id": 346,
+    "text": "What is 'Policy-as-Code'?",
+    "correct": "Defining and enforcing security and compliance rules using code (e.g., Open Policy Agent).",
+    "current_options": [
+      "Defining and enforcing security and compliance rules using code (e.g., Open Policy Agent).",
+      "Writing terms of service in HTML.",
+      "Printing policies on paper.",
+      "Code that reads policies aloud."
+    ]
+  },
+  {
+    "id": 347,
+    "text": "What is a primary difference between Docker Swarm and Kubernetes?",
+    "correct": "Docker Swarm is lightweight and built-in to Docker, while Kubernetes is more complex, feature-rich, and requires external setup for things like Ingress.",
+    "current_options": [
+      "Docker Swarm is lightweight and built-in to Docker, while Kubernetes is more complex, feature-rich, and requires external setup for things like Ingress.",
+      "Docker Swarm is only for Windows.",
+      "Kubernetes cannot run Docker containers.",
+      "Swarm allows auto-scaling but Kubernetes does not."
+    ]
+  },
+  {
+    "id": 348,
+    "text": "Which command removes stopped containers, unused networks, and dangling images?",
+    "correct": "docker system prune -a",
+    "current_options": [
+      "docker system prune -a",
+      "docker clean all",
+      "docker delete unused",
+      "docker rm --force-all"
+    ]
+  },
+  {
+    "id": 349,
+    "text": "What is 'Docker BuildKit'?",
+    "correct": "A modern build subsystem in Docker that improves build speed, concurrency, and caching.",
+    "current_options": [
+      "A modern build subsystem in Docker that improves build speed, concurrency, and caching.",
+      "A kit for building physical servers.",
+      "A plugin for Jenkins.",
+      "A tool to zip Docker images."
+    ]
+  },
+  {
+    "id": 351,
+    "text": "How does Kubernetes achieve High Availability?",
+    "correct": "By using multiple master nodes (control plane) and replicating application pods across multiple worker nodes.",
+    "current_options": [
+      "By using multiple master nodes (control plane) and replicating application pods across multiple worker nodes.",
+      "By using a very expensive server.",
+      "By never turning off the computer.",
+      "By using a backup tape drive."
+    ]
+  },
+  {
+    "id": 354,
+    "text": "What are 'Labels' and 'Selectors' in Kubernetes?",
+    "correct": "Labels are key/value pairs attached to objects; Selectors allow you to filter/select objects based on their labels.",
+    "current_options": [
+      "Labels are key/value pairs attached to objects; Selectors allow you to filter/select objects based on their labels.",
+      "Labels are for pricing.",
+      "Selectors are for choosing colors.",
+      "They are deprecated features."
+    ]
+  },
+  {
+    "id": 355,
+    "text": "What is a Kubernetes 'Ingress'?",
+    "correct": "An API object that manages external access to services in a cluster, typically HTTP/HTTPS.",
+    "current_options": [
+      "An API object that manages external access to services in a cluster, typically HTTP/HTTPS.",
+      "A firewall rule.",
+      "A database connection.",
+      "A storage volume."
+    ]
+  },
+  {
+    "id": 356,
+    "text": "What is the difference between HPA and VPA?",
+    "correct": "HPA scales the number of pods (horizontal); VPA adjusts CPU/Memory requests of existing pods (vertical).",
+    "current_options": [
+      "HPA scales the number of pods (horizontal); VPA adjusts CPU/Memory requests of existing pods (vertical).",
+      "HPA is for HTTP; VPA is for Video.",
+      "HPA is for Hardware; VPA is for Virtual.",
+      "They are the same thing."
+    ]
+  },
+  {
+    "id": 357,
+    "text": "What is a 'Persistent Volume Claim' (PVC)?",
+    "correct": "A request for storage by a user, which consumes persistent volume (PV) resources.",
+    "current_options": [
+      "A request for storage by a user, which consumes persistent volume (PV) resources.",
+      "A backup file.",
+      "A claim for insurance.",
+      "A network drive."
+    ]
+  },
+  {
+    "id": 358,
+    "text": "Which command updates the image of a Deployment in Kubernetes?",
+    "correct": "kubectl set image deployment/name container=image:tag",
+    "current_options": [
+      "kubectl set image deployment/name container=image:tag",
+      "kubectl update image deployment/name",
+      "kubectl upgrade deployment/name",
+      "kubectl replace image deployment/name"
+    ]
+  },
+  {
+    "id": 359,
+    "text": "What is the difference between a Job and a CronJob in Kubernetes?",
+    "correct": "A Job runs tasks to completion once; a CronJob creates Jobs on a repeating schedule.",
+    "current_options": [
+      "A Job runs tasks to completion once; a CronJob creates Jobs on a repeating schedule.",
+      "A Job takes longer than a CronJob.",
+      "A CronJob is only for databases.",
+      "A Job keeps running forever."
+    ]
+  },
+  {
+    "id": 360,
+    "text": "What does 'CrashLoopBackOff' mean?",
+    "correct": "Ideally, a Pod is crashing repeatedly, and Kubernetes is backing off (waiting longer) before trying to restart it again.",
+    "current_options": [
+      "Ideally, a Pod is crashing repeatedly, and Kubernetes is backing off (waiting longer) before trying to restart it again.",
+      "The car crashed into a loop.",
+      "The server is turning off.",
+      "The network is slow."
+    ]
+  },
+  {
+    "id": 361,
+    "text": "What are Cgroups (Control Groups) used for?",
+    "correct": "To limit, account for, and isolate the resource usage (CPU, memory, I/O) of a collection of processes.",
+    "current_options": [
+      "To limit, account for, and isolate the resource usage (CPU, memory, I/O) of a collection of processes.",
+      "To group users together.",
+      "To control file permissions.",
+      "To manage network cables."
+    ]
+  },
+  {
+    "id": 362,
+    "text": "What distinguishes a Docker Volume from a Bind Mount?",
+    "correct": "Volumes are managed by Docker (in /var/lib/docker/volumes) and are safer; Bind Mounts map any host file/directory heavily dependent on the host's OS structure.",
+    "current_options": [
+      "Volumes are managed by Docker (in /var/lib/docker/volumes) and are safer; Bind Mounts map any host file/directory heavily dependent on the host's OS structure.",
+      "Bind Mounts are faster.",
+      "Volumes cannot persist data.",
+      "Bind Mounts are only for read-only data."
+    ]
+  },
+  {
+    "id": 363,
+    "text": "Why use multi-stage builds in Docker?",
+    "correct": "To reduce final image size by copying only necessary artifacts (e.g., compiled binary) from a build stage to a slim runtime stage.",
+    "current_options": [
+      "To reduce final image size by copying only necessary artifacts (e.g., compiled binary) from a build stage to a slim runtime stage.",
+      "To make the build take longer.",
+      "To use more disk space.",
+      "To run multiple apps in one container."
+    ]
+  },
+  {
+    "id": 364,
+    "text": "How do Immutable Infrastructure principles apply to containers?",
+    "correct": "Containers should never be patched or updated in place; replace them with a new image version instead.",
+    "current_options": [
+      "Containers should never be patched or updated in place; replace them with a new image version instead.",
+      "Containers should exist forever.",
+      "Containers cannot be deleted.",
+      "Infrastructure is set in stone."
+    ]
+  },
+  {
+    "id": 365,
+    "text": "What is Docker Content Trust?",
+    "correct": "A security feature that uses digital signatures to verify the integrity and publisher of Docker images.",
+    "current_options": [
+      "A security feature that uses digital signatures to verify the integrity and publisher of Docker images.",
+      "Trusting content on the internet.",
+      "A subscription service.",
+      "A backup tool."
+    ]
+  },
+  {
+    "id": 367,
+    "text": "What is 'Pipeline as Code'?",
+    "correct": "Defining the entire build, test, and deployment process in a version-controlled configuration file (like Jenkinsfile or .gitlab-ci.yml).",
+    "current_options": [
+      "Defining the entire build, test, and deployment process in a version-controlled configuration file (like Jenkinsfile or .gitlab-ci.yml).",
+      "Writing a pipeline in Python only.",
+      "A graphical drag-and-drop tool.",
+      "The physical cables in a server room."
+    ]
+  },
+  {
+    "id": 368,
+    "text": "What is an 'Ephemeral Build Environment'?",
+    "correct": "A temporary, isolated environment created solely for the purpose of a single build or test run and destroyed afterwards.",
+    "current_options": [
+      "A temporary, isolated environment created solely for the purpose of a single build or test run and destroyed afterwards.",
+      "A permanent server for testing.",
+      "A failed build.",
+      "A local developer environment."
+    ]
+  },
+  {
+    "id": 369,
+    "text": "Why is a 'Staging Environment' important?",
+    "correct": "It mimics the production environment as closely as possible to test changes before the final release, reducing the risk of failure.",
+    "current_options": [
+      "It mimics the production environment as closely as possible to test changes before the final release, reducing the risk of failure.",
+      "It allows developers to show off features.",
+      "It is cheaper than production.",
+      "It is used for public demos."
+    ]
+  },
+  {
+    "id": 370,
+    "text": "How do 'Monorepos' challenge CI/CD pipelines?",
+    "correct": "They require smart logic to build and test only the projects/services that were modified, rather than rebuilding the entire repository.",
+    "current_options": [
+      "They require smart logic to build and test only the projects/services that were modified, rather than rebuilding the entire repository.",
+      "They are too large to clone.",
+      "They cannot be version controlled.",
+      "They only work with Jenkins."
+    ]
+  },
+  {
+    "id": 371,
+    "text": "What is a 'Pipeline Trigger'?",
+    "correct": "An event that automatically starts a pipeline execution (e.g., code push, pull request, scheduled time).",
+    "current_options": [
+      "An event that automatically starts a pipeline execution (e.g., code push, pull request, scheduled time).",
+      "A button on the keyboard.",
+      "A syntax error.",
+      "A failed test."
+    ]
+  },
+  {
+    "id": 372,
+    "text": "Why is 'Artifact Versioning' crucial?",
+    "correct": "It provides traceability and allows you to deploy or rollback to a specific, immutable snapshot of your application.",
+    "current_options": [
+      "It provides traceability and allows you to deploy or rollback to a specific, immutable snapshot of your application.",
+      "It makes the filename look cooler.",
+      "It takes up less space.",
+      "It speeds up the build."
+    ]
+  },
+  {
+    "id": 373,
+    "text": "How should Environment Variables be handled in CI/CD?",
+    "correct": "They should be injected dynamically during the build/deploy process, keeping sensitive values separate from valid code.",
+    "current_options": [
+      "They should be injected dynamically during the build/deploy process, keeping sensitive values separate from valid code.",
+      "Hardcoded in the source code.",
+      "Written in a public text file.",
+      "Emailed to the server."
+    ]
+  },
+  {
+    "id": 374,
+    "text": "What is a 'Multi-Branch Pipeline'?",
+    "correct": "A pipeline configuration that automatically creates jobs for every branch in the repository.",
+    "current_options": [
+      "A pipeline configuration that automatically creates jobs for every branch in the repository.",
+      "A pipeline with many if-statements.",
+      "A pipeline that runs on multiple servers.",
+      "A pipeline for tree planting."
+    ]
+  },
+  {
+    "id": 375,
+    "text": "What is an 'Automated Rollback'?",
+    "correct": "The system automatically detecting a failure after deployment and reverting to the previous stable version without human intervention.",
+    "current_options": [
+      "The system automatically detecting a failure after deployment and reverting to the previous stable version without human intervention.",
+      "Manually copying old files back.",
+      "Restarting the computer.",
+      "Deleting the database."
+    ]
+  },
+  {
+    "id": 376,
+    "text": "How does TDD (Test-Driven Development) integrate with CI/CD?",
+    "correct": "It ensures high test coverage and reliable automated tests, which are the gatekeepers of any CI/CD pipeline.",
+    "current_options": [
+      "It ensures high test coverage and reliable automated tests, which are the gatekeepers of any CI/CD pipeline.",
+      "It slows down the pipeline.",
+      "It makes code harder to write.",
+      "It requires manual testing."
+    ]
+  },
+  {
+    "id": 378,
+    "text": "What does running CI/CD 'inside containers' achieve?",
+    "correct": "It guarantees that the build environment is consistent and isolated, avoiding 'it works on my machine' issues.",
+    "current_options": [
+      "It guarantees that the build environment is consistent and isolated, avoiding 'it works on my machine' issues.",
+      "It makes the build slower.",
+      "It requires a larger server.",
+      "It uses more electricity."
+    ]
+  },
+  {
+    "id": 380,
+    "text": "What is an 'Approval Stage'?",
+    "correct": "A pause in the pipeline that waits for manual user intervention/click before proceeding to a sensitive environment like Production.",
+    "current_options": [
+      "A pause in the pipeline that waits for manual user intervention/click before proceeding to a sensitive environment like Production.",
+      "A failed step.",
+      "A certification exam.",
+      "A code review."
+    ]
+  },
+  {
+    "id": 381,
+    "text": "What is a 'Self-Hosted Runner'?",
+    "correct": "A machine that you manage and maintain that executes CI/CD jobs, offering more control over hardware/software than cloud-hosted runners.",
+    "current_options": [
+      "A machine that you manage and maintain that executes CI/CD jobs, offering more control over hardware/software than cloud-hosted runners.",
+      "Running a marathon alone.",
+      "Hosting a website on your laptop.",
+      "An automated bot."
+    ]
+  },
+  {
+    "id": 382,
+    "text": "What is the difference between Static vs Dynamic Analysis (SAST vs DAST)?",
+    "correct": "Static (SAST) creates scans of source code at rest; Dynamic (DAST) scans the running application for vulnerabilities.",
+    "current_options": [
+      "Static (SAST) creates scans of source code at rest; Dynamic (DAST) scans the running application for vulnerabilities.",
+      "Static is manual, Dynamic is automated.",
+      "Static is faster, Dynamic is slower.",
+      "They are the same."
+    ]
+  },
+  {
+    "id": 383,
+    "text": "What is 'Parallel Execution' used for?",
+    "correct": "Running independent jobs (like unit tests and linting) simultaneously to reduce total pipeline duration.",
+    "current_options": [
+      "Running independent jobs (like unit tests and linting) simultaneously to reduce total pipeline duration.",
+      "Running the same job twice.",
+      "Executing code on parallel geometry.",
+      "Running jobs on two different clouds."
+    ]
+  },
+  {
+    "id": 384,
+    "text": "How does a 'Feature Flag' assist in CI/CD?",
+    "correct": "It decouples deployment from release, allowing you to merge code safely while keeping the new functionality hidden from users.",
+    "current_options": [
+      "It decouples deployment from release, allowing you to merge code safely while keeping the new functionality hidden from users.",
+      "It highlights new features in the UI.",
+      "It speeds up the build.",
+      "It acts as a git branch."
+    ]
+  },
+  {
+    "id": 387,
+    "text": "What is 'FinOps' in the context of cloud computing?",
+    "correct": "A cultural practice and set of tools for cloud financial management to enable teams to trade-off speed, cost, and quality.",
+    "current_options": [
+      "A cultural practice and set of tools for cloud financial management to enable teams to trade-off speed, cost, and quality.",
+      "A tool for managing fish.",
+      "Fine-tuning operations.",
+      "Finalizing options."
+    ]
+  },
+  {
+    "id": 388,
+    "text": "What is 'Policy-as-Code'?",
+    "correct": "Writing code to define and enforce policies (security, compliance) rather than configuring them manually in a GUI.",
+    "current_options": [
+      "Writing code to define and enforce policies (security, compliance) rather than configuring them manually in a GUI.",
+      "Writing laws in Python.",
+      "A code of conduct for developers.",
+      "Encrypting legal documents."
+    ]
+  },
+  {
+    "id": 390,
+    "text": "What is Site Reliability Engineering (SRE)?",
+    "correct": "A discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.",
+    "current_options": [
+      "A discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.",
+      "A website design job.",
+      "Reliable software testing.",
+      "Social engineering."
+    ]
+  },
+  {
+    "id": 391,
+    "text": "What does an SBOM (Software Bill of Materials) provide?",
+    "correct": "A formal, machine-readable inventory of software components and dependencies, used to track supply chain security.",
+    "current_options": [
+      "A formal, machine-readable inventory of software components and dependencies, used to track supply chain security.",
+      "A receipt for buying software.",
+      "A list of software bugs.",
+      "A bill for cloud usage."
+    ]
+  },
+  {
+    "id": 392,
+    "text": "How does 'Auto-Remediation' work?",
+    "correct": "Automatically executing a predefined action (like restarting a service) when a specific alert or failure is detected.",
+    "current_options": [
+      "Automatically executing a predefined action (like restarting a service) when a specific alert or failure is detected.",
+      "Automatically replying to emails.",
+      "Automatically writing code.",
+      "Automatically hiring new staff."
+    ]
+  },
+  {
+    "id": 393,
+    "text": "What is a 'Hybrid Cloud' environment?",
+    "correct": "A computing environment that combines a public cloud and a private cloud (on-premises) by allowing data and applications to be shared between them.",
+    "current_options": [
+      "A computing environment that combines a public cloud and a private cloud (on-premises) by allowing data and applications to be shared between them.",
+      "A cloud that rains and snows.",
+      "A mix of Mac and PC.",
+      "Using two public clouds."
+    ]
+  },
+  {
+    "id": 395,
+    "text": "What is the purpose of 'Pod Security Policies' (or Pod Security Admission) in Kubernetes?",
+    "correct": "To control security sensitive aspects of the pod specification, such as preventing privileged containers.",
+    "current_options": [
+      "To control security sensitive aspects of the pod specification, such as preventing privileged containers.",
+      "To password protect pods.",
+      "To encryption pod code.",
+      "To hide pods from view."
+    ]
+  },
+  {
+    "id": 396,
+    "text": "What is the main goal of DevOps Best Practices?",
+    "correct": "To improve collaboration, automation, and reliability in software delivery.",
+    "current_options": [
+      "To improve collaboration, automation, and reliability in software delivery.",
+      "To make development slower.",
+      "To increase manual work.",
+      "To separate teams."
+    ]
+  },
+  {
+    "id": 397,
+    "text": "Why is 'Shift-Left' testing important?",
+    "correct": "Testing early (often) makes it cheaper and easier to fix bugs than finding them in production.",
+    "current_options": [
+      "Testing early (often) makes it cheaper and easier to fix bugs than finding them in production.",
+      "It allows you to test only on the left monitor.",
+      "It is a political movement.",
+      "It delays testing until the end."
+    ]
+  },
+  {
+    "id": 398,
+    "text": "What is a 'Canary Deployment'?",
+    "correct": "Releasing a new version to a small subset of users first to verify stability.",
+    "current_options": [
+      "Releasing a new version to a small subset of users first to verify stability.",
+      "Releasing to everyone at once.",
+      "Releasing only to developers.",
+      "Releasing on a Friday."
+    ]
+  },
+  {
+    "id": 399,
+    "text": "What is 'Feature Flagging'?",
+    "correct": "A technique to toggle functionality on/off at runtime without deploying code.",
+    "current_options": [
+      "A technique to toggle functionality on/off at runtime without deploying code.",
+      "Marking code with flags.",
+      "Using flag emojis.",
+      "A type of error."
+    ]
+  },
+  {
+    "id": 400,
+    "text": "What is 'Immutable Infrastructure'?",
+    "correct": "Infrastructure that is never modified after deployment; if changes are needed, new infrastructure is built to replace the old.",
+    "current_options": [
+      "Infrastructure that is never modified after deployment; if changes are needed, new infrastructure is built to replace the old.",
+      "Infrastructure that cannot be deleted.",
+      "Infrastructure that is very old.",
+      "Infrastructure that is expensive."
+    ]
+  },
+  {
+    "id": 401,
+    "text": "What is 'Rolling Deployment'?",
+    "correct": "Replacing instances of the old version with the new version one by one (or in batches) to ensure zero downtime.",
+    "current_options": [
+      "Replacing instances of the old version with the new version one by one (or in batches) to ensure zero downtime.",
+      "Deploying while rolling on the floor.",
+      "Deploying everything instantly.",
+      "Deploying only to new users."
+    ]
+  },
+  {
+    "id": 402,
+    "text": "What is 'GitOps'?",
+    "correct": "Operational framework that takes DevOps best practices used for application development (version control, collaboration, compliance) and applies them to infrastructure automation.",
+    "current_options": [
+      "Operational framework that takes DevOps best practices used for application development (version control, collaboration, compliance) and applies them to infrastructure automation.",
+      "Using Git for everything.",
+      "A specific tool from GitHub.",
+      "Only for developers."
+    ]
+  },
+  {
+    "id": 403,
+    "text": "Why use 'Microservices'?",
+    "correct": "To decouple large applications into small, independent services that can be developed, deployed, and scaled individually.",
+    "current_options": [
+      "To decouple large applications into small, independent services that can be developed, deployed, and scaled individually.",
+      "To make the code smaller.",
+      "To use less memory.",
+      "To reduce the number of developers."
+    ]
+  },
+  {
+    "id": 404,
+    "text": "What is the purpose of an 'API Gateway'?",
+    "correct": "It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result.",
+    "current_options": [
+      "It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result.",
+      "It prevents APIs from working.",
+      "It is a literal gate.",
+      "It connects to the internet."
+    ]
+  },
+  {
+    "id": 405,
+    "text": "How do you secure secrets in DevOps?",
+    "correct": "Use a dedicated secrets manager (Vault, AWS Secrets Manager) and inject them at runtime; never commit to version control.",
+    "current_options": [
+      "Use a dedicated secrets manager (Vault, AWS Secrets Manager) and inject them at runtime; never commit to version control.",
+      "Encrypt them in a text file.",
+      "Memorize them.",
+      "Write them on a sticky note."
+    ]
+  },
+  {
+    "id": 406,
+    "text": "What is the 12-Factor App methodology used for?",
+    "correct": "Ideally suited for developing software-as-a-service apps, focusing on portability and automated deployment.",
+    "current_options": [
+      "Ideally suited for developing software-as-a-service apps, focusing on portability and automated deployment.",
+      "Mobile app development.",
+      "Desktop software.",
+      "Embedded systems."
+    ]
+  },
+  {
+    "id": 407,
+    "text": "What is 'Distributed Tracing'?",
+    "correct": "A method used to profile and monitor applications, especially those built using a microservices architecture.",
+    "current_options": [
+      "A method used to profile and monitor applications, especially those built using a microservices architecture.",
+      "Drawing lines on a map.",
+      "Tracking package delivery.",
+      "Scanning hard drives."
+    ]
+  },
+  {
+    "id": 408,
+    "text": "What is an 'SLA' (Service Level Agreement)?",
+    "correct": "A commitment between a service provider and a client. Particular aspects of the service \u2013 quality, availability, responsibilities \u2013 are agreed between the service provider and the service user.",
+    "current_options": [
+      "A commitment between a service provider and a client. Particular aspects of the service \u2013 quality, availability, responsibilities \u2013 are agreed between the service provider and the service user.",
+      "A type of software license.",
+      "A coding standard.",
+      "A security protocol."
+    ]
+  },
+  {
+    "id": 409,
+    "text": "What is an 'SLO' (Service Level Objective)?",
+    "correct": "A specific target level for the reliability of your service (e.g., 99.9% availability). It is a measurable goal inside the SLA.",
+    "current_options": [
+      "A specific target level for the reliability of your service (e.g., 99.9% availability). It is a measurable goal inside the SLA.",
+      "A slow operation.",
+      "A marketing term.",
+      "A user complaint."
+    ]
+  },
+  {
+    "id": 410,
+    "text": "What is an 'SLI' (Service Level Indicator)?",
+    "correct": "A quantitative measure of some aspect of the level of service that is provided (e.g., latency, error rate).",
+    "current_options": [
+      "A quantitative measure of some aspect of the level of service that is provided (e.g., latency, error rate).",
+      "A slide in a presentation.",
+      "A sliver of data.",
+      "A login interface."
+    ]
+  },
+  {
+    "id": 411,
+    "text": "What is 'Chaos Monkey'?",
+    "correct": "A tool invented by Netflix that randomly terminates instances in production to ensure that engineers implement their services to be resilient to instance failures.",
+    "current_options": [
+      "A tool invented by Netflix that randomly terminates instances in production to ensure that engineers implement their services to be resilient to instance failures.",
+      "A video game.",
+      "A virus.",
+      "A monitoring tool."
+    ]
+  },
+  {
+    "id": 412,
+    "text": "What is 'Dependency Hell'?",
+    "correct": "A situation where software packages have incompatible dependencies on other specific versions of software packages.",
+    "current_options": [
+      "A situation where software packages have incompatible dependencies on other specific versions of software packages.",
+      "A very hot server room.",
+      "Relying too much on one person.",
+      "A security vulnerability."
+    ]
+  },
+  {
+    "id": 413,
+    "text": "How do you reduce deployment downtime?",
+    "correct": "By using strategies like Blue-Green Deployments or Rolling Updates.",
+    "current_options": [
+      "By using strategies like Blue-Green Deployments or Rolling Updates.",
+      "By deploying at night.",
+      "By not testing.",
+      "By restarting the server manually."
+    ]
+  },
+  {
+    "id": 414,
+    "text": "How do you handle database migrations in CI/CD?",
+    "correct": "Automate them using tools like Flyway or Liquibase, ensuring they are backward compatible.",
+    "current_options": [
+      "Automate them using tools like Flyway or Liquibase, ensuring they are backward compatible.",
+      "Run SQL scripts manually.",
+      "Delete the database and recreate it.",
+      "Avoid changing the database."
+    ]
+  },
+  {
+    "id": 415,
+    "text": "What is 'Infrastructure Testing'?",
+    "correct": "Validating that your meaningful infrastructure code (IaC) creates the resources you expect, using tools like Terratest.",
+    "current_options": [
+      "Validating that your meaningful infrastructure code (IaC) creates the resources you expect, using tools like Terratest.",
+      "Testing the power supply.",
+      "Checking the network cables.",
+      "Testing the wifi speed."
+    ]
+  },
+  {
+    "id": 416,
+    "text": "How do you manage 'Multi-Cloud' deployments effectively?",
+    "correct": "By using cloud-agnostic tools like Terraform and Kubernetes that abstract away the underlying provider differences.",
+    "current_options": [
+      "By using cloud-agnostic tools like Terraform and Kubernetes that abstract away the underlying provider differences.",
+      "By hiring more people.",
+      "By writing separate code for every cloud.",
+      "By avoiding cloud altogether."
+    ]
+  },
+  {
+    "id": 417,
+    "text": "What is the best practice for Dockerfiles?",
+    "correct": "Use small base images, minimize layers, avoid secrets, and use multi-stage builds.",
+    "current_options": [
+      "Use small base images, minimize layers, avoid secrets, and use multi-stage builds.",
+      "Put everything in one layer.",
+      "Use the largest base image possible.",
+      "Hardcode passwords."
+    ]
+  },
+  {
+    "id": 418,
+    "text": "How do you handle 'Rollback' in Kubernetes?",
+    "correct": "kubectl rollout undo deployment <name>",
+    "current_options": [
+      "kubectl rollout undo deployment <name>",
+      "kubectl revert <name>",
+      "kubectl delete <name>",
+      "kubectl back <name>"
+    ]
+  },
+  {
+    "id": 425,
+    "text": "How do you enforce 'Least Privilege'?",
+    "correct": "Granting users and services only the minimum permissions necessary to perform their required tasks.",
+    "current_options": [
+      "Granting users and services only the minimum permissions necessary to perform their required tasks.",
+      "Giving everyone admin access.",
+      "Blocking all access.",
+      "Using a shared root password."
+    ]
+  },
+  {
+    "id": 426,
+    "text": "What is 'Secret Rotation'?",
+    "correct": "The practice of regularly changing secrets (passwords, keys) to minimize the risk of them being compromised.",
+    "current_options": [
+      "The practice of regularly changing secrets (passwords, keys) to minimize the risk of them being compromised.",
+      "Spinning a secret wheel.",
+      "Sharing secrets with everyone.",
+      "Using the same password forever."
+    ]
+  },
+  {
+    "id": 427,
+    "text": "What is the primary definition of DevOps?",
+    "correct": "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle.",
+    "current_options": [
+      "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle.",
+      "A software for editing videos.",
+      "A programming language.",
+      "A database management system."
+    ]
+  },
+  {
+    "id": 428,
+    "text": "Which phase is NOT typically part of the DevOps lifecycle?",
+    "correct": "Marketing",
+    "current_options": [
+      "Marketing",
+      "Plan",
+      "Build",
+      "Deploy"
+    ]
+  },
+  {
+    "id": 429,
+    "text": "What is 'Continuous Improvement'?",
+    "correct": "Ongoing effort to improve products, services, or processes by making small, incremental improvements.",
+    "current_options": [
+      "Ongoing effort to improve products, services, or processes by making small, incremental improvements.",
+      "Improving continuously without stopping to sleep.",
+      "A tool for improving code speed.",
+      "A certification."
+    ]
+  },
+  {
+    "id": 430,
+    "text": "What is 'Feedback Loop' in DevOps?",
+    "correct": "The process of getting feedback from operations/users back to development to improve future releases.",
+    "current_options": [
+      "The process of getting feedback from operations/users back to development to improve future releases.",
+      "A microphone echo.",
+      "A loop in code.",
+      "A failing test."
+    ]
+  },
+  {
+    "id": 431,
+    "text": "Which is a benefit of collaboration in DevOps?",
+    "correct": "Breaking down silos between teams, leading to faster problem solving and innovation.",
+    "current_options": [
+      "Breaking down silos between teams, leading to faster problem solving and innovation.",
+      "More meetings.",
+      "More arguments.",
+      "Slower work."
+    ]
+  },
+  {
+    "id": 432,
+    "text": "What is a 'Runbook'?",
+    "correct": "A compilation of routine procedures and operations that the system administrator or operator carries out.",
+    "current_options": [
+      "A compilation of routine procedures and operations that the system administrator or operator carries out.",
+      "A book about running.",
+      "A script that runs automatically.",
+      "A log file."
+    ]
+  },
+  {
+    "id": 433,
+    "text": "What is 'Uptime'?",
+    "correct": "The time during which a machine or system is in operation and available.",
+    "current_options": [
+      "The time during which a machine or system is in operation and available.",
+      "The time it takes to boot up.",
+      "The time of day.",
+      "The cost of the server."
+    ]
+  },
+  {
+    "id": 434,
+    "text": "What is 'Downtime'?",
+    "correct": "The time during which a machine or system is out of action or unavailable for use.",
+    "current_options": [
+      "The time during which a machine or system is out of action or unavailable for use.",
+      "Sleeping time.",
+      "Relaxing time.",
+      "The time to download a file."
+    ]
+  },
+  {
+    "id": 435,
+    "text": "What is 'Lead Time for Changes'?",
+    "correct": "The amount of time it takes a code commit to get into production.",
+    "current_options": [
+      "The amount of time it takes a code commit to get into production.",
+      "The time to lead a team.",
+      "The time to change a lightbulb.",
+      "The time to install Git."
+    ]
+  },
+  {
+    "id": 436,
+    "text": "What is 'Deployment Frequency'?",
+    "correct": "How often an organization successfully releases to production.",
+    "current_options": [
+      "How often an organization successfully releases to production.",
+      "How often the server crashes.",
+      "How often developers drink coffee.",
+      "How often you commit code."
+    ]
+  },
+  {
+    "id": 437,
+    "text": "What is 'Change Failure Rate'?",
+    "correct": "The percentage of deployments causing a failure in production.",
+    "current_options": [
+      "The percentage of deployments causing a failure in production.",
+      "The rate of changing jobs.",
+      "The rate of failing tests.",
+      "The cost of failure."
+    ]
+  },
+  {
+    "id": 438,
+    "text": "What does a 'Bottleneck' refer to?",
+    "correct": "A point of congestion in a system that slows down the overall process.",
+    "current_options": [
+      "A point of congestion in a system that slows down the overall process.",
+      "A narrow bottle.",
+      "A type of network cable.",
+      "A fast processor."
+    ]
+  },
+  {
+    "id": 439,
+    "text": "What is 'Cross-Functional Team'?",
+    "correct": "A group of people with different functional expertise working toward a common goal.",
+    "current_options": [
+      "A group of people with different functional expertise working toward a common goal.",
+      "A team that is angry.",
+      "A team that uses X-rays.",
+      "A sports team."
+    ]
+  },
+  {
+    "id": 440,
+    "text": "What is 'MVP' (Minimum Viable Product)?",
+    "correct": "A product with just enough features to satisfy early customers and provide feedback for future development.",
+    "current_options": [
+      "A product with just enough features to satisfy early customers and provide feedback for future development.",
+      "Most Valuable Player.",
+      "Maximum Viable Product.",
+      "Minimum Variable Product."
+    ]
+  },
+  {
+    "id": 441,
+    "text": "What is 'Scrum'?",
+    "correct": "An agile framework for managing knowledge work, with an emphasis on software development.",
+    "current_options": [
+      "An agile framework for managing knowledge work, with an emphasis on software development.",
+      "A rugby term.",
+      "A type of bug.",
+      "A database query."
+    ]
+  }
+]

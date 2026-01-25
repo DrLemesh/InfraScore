@@ -1,0 +1,703 @@
+[
+  {
+    "category": "Cloud Computing",
+    "type": "open_ended",
+    "difficulty": 3,
+    "question": "What is 'Block Storage' (like AWS EBS)?",
+    "correct_answer": "Storage that mimics a physical hard drive, where data is stored in fixed-sized blocks. It is mountable to VMs.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 4,
+    "question": "What is 'Spot Instance' in AWS?",
+    "correct_answer": "Unused EC2 capacity available at a significant discount, but can be interrupted with little notice.",
+    "options": [
+      "Unused EC2 capacity available at a significant discount, but can be interrupted with little notice.",
+      "A dedicated, always-on server.",
+      "An instance reserved for 3 years.",
+      "A server with a GPU for Spotify."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Costs"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is 'CloudWatch' in AWS?",
+    "correct_answer": "A monitoring and observability service.",
+    "options": [
+      "A monitoring and observability service.",
+      "A weather forecast service.",
+      "A time-keeping service.",
+      "A global lock management system."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "AWS",
+        "Monitoring"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is a Network?",
+    "correct_answer": "A group of interconnected devices that communicate to share resources and information.",
+    "options": [
+      "A group of interconnected devices that communicate to share resources and information.",
+      "A single computer connected to a printer.",
+      "The physical cables connecting servers.",
+      "The wifi password."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Basics"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "open_ended",
+    "difficulty": 1,
+    "question": "What is an IP address?",
+    "correct_answer": "A unique numerical identifier assigned to each device on a network to facilitate communication and location.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Basics"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is the primary difference between IPv4 and IPv6?",
+    "correct_answer": "IPv4 uses 32-bit addresses (approx 4.3 billion), while IPv6 uses 128-bit addresses (virtually infinite).",
+    "options": [
+      "IPv4 uses 32-bit addresses (approx 4.3 billion), while IPv6 uses 128-bit addresses (virtually infinite).",
+      "IPv4 is faster than IPv6.",
+      "IPv6 cannot be used on the internet.",
+      "IPv4 is more secure by default."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Protocols"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Which of the following is a Private IP address?",
+    "correct_answer": "192.168.1.1",
+    "options": [
+      "192.168.1.1",
+      "8.8.8.8",
+      "1.1.1.1",
+      "208.67.222.222"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "IP"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What function does a Subnet Mask perform?",
+    "correct_answer": "It determines which part of the IP address is the network portion and which is the host portion.",
+    "options": [
+      "It determines which part of the IP address is the network portion and which is the host portion.",
+      "It hides the IP address from hackers.",
+      "It encrypts the traffic.",
+      "It speeds up the connection."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Subnetting"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does DHCP do?",
+    "correct_answer": "Automatically assigns IP addresses and other network configuration to devices.",
+    "options": [
+      "Automatically assigns IP addresses and other network configuration to devices.",
+      "Filters malicious packets.",
+      "Translates domain names to IPs.",
+      "Encrypts wifi passwords."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Protocols"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multi_select",
+    "difficulty": 1,
+    "question": "What are the main benefits of DNS?",
+    "correct_answer": "Translates human-readable domain names to IP addresses, Enables easy access to websites",
+    "options": [
+      "Translates human-readable domain names to IP addresses",
+      "Enables easy access to websites",
+      "Encrypts user data",
+      "Prevents viruses",
+      "Speeds up CPU"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "DNS"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is NAT (Network Address Translation)?",
+    "correct_answer": "A method to map multiple private IP addresses to a single public IP address.",
+    "options": [
+      "A method to map multiple private IP addresses to a single public IP address.",
+      "A protocol to transfer files.",
+      "A type of firewall.",
+      "A way to encrypt passwords."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "NAT"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 2,
+    "question": "Which of these is NOT a type of firewall?",
+    "correct_answer": "Liquid Cooled Firewall",
+    "options": [
+      "Liquid Cooled Firewall",
+      "Packet Filtering Firewall",
+      "Stateful Inspection Firewall",
+      "Proxy Firewall"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What implies that 'SSH' is more secure than 'Telnet'?",
+    "correct_answer": "SSH encrypts all communication, while Telnet sends data (including passwords) in plain text.",
+    "options": [
+      "SSH encrypts all communication, while Telnet sends data (including passwords) in plain text.",
+      "SSH is faster.",
+      "Telnet is only for Windows.",
+      "SSH uses a GUI."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Protocols"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Which port uses HTTPS protocol?",
+    "correct_answer": "443",
+    "options": [
+      "443",
+      "80",
+      "8080",
+      "3306"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Ports"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is the primary role of an SSL/TLS certificate?",
+    "correct_answer": "To encrypt traffic between client and server and verify the server's identity.",
+    "options": [
+      "To encrypt traffic between client and server and verify the server's identity.",
+      "To speed up the website load time.",
+      "To improve SEO ranking.",
+      "To compress images."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Encryption"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 2,
+    "question": "At which OSI layer does a 'Layer 4 Load Balancer' operate?",
+    "correct_answer": "Transport Layer (TCP/UDP)",
+    "options": [
+      "Transport Layer (TCP/UDP)",
+      "Application Layer (HTTP)",
+      "Network Layer (IP)",
+      "Physical Layer"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "OSI"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 2,
+    "question": "What is a 'DMZ' in network security?",
+    "correct_answer": "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
+    "options": [
+      "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
+      "A highly secure internal zone where critical databases are stored offline.",
+      "A specific firewall rule that blocks all traffic from specific countries.",
+      "A software patch that removes vulnerabilities from the operating system kernel."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "open_ended",
+    "difficulty": 2,
+    "question": "Explain 'Port Forwarding'.",
+    "correct_answer": "A technique to redirect communication request from one address and port number combination to another while the packets are traversing a network gateway, such as a router or firewall.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Networking",
+        "Configuration"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 2,
+    "question": "What does ARP convert?",
+    "correct_answer": "IP addresses to MAC addresses.",
+    "options": [
+      "IP addresses to MAC addresses.",
+      "Domain names to IP addresses.",
+      "MAC addresses to IP addresses.",
+      "Encrypted text to plain text."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Protocols"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the difference between IDS and IPS?",
+    "correct_answer": "IDS detects potential threats and alerts; IPS detects threats and takes action to block them.",
+    "options": [
+      "IDS detects potential threats and alerts; IPS detects threats and takes action to block them.",
+      "IDS is for internal networks; IPS is for public networks.",
+      "IDS prevents attacks; IPS only logs them.",
+      "There is no difference."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Tools"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the core principle of 'Zero Trust Security'?",
+    "correct_answer": "Never trust, always verify.",
+    "options": [
+      "Never trust, always verify.",
+      "Trust internal users, verify external ones.",
+      "Trust but verify.",
+      "Verify once, trust forever."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Which encryption method is generally faster: Symmetric or Asymmetric?",
+    "correct_answer": "Symmetric Encryption",
+    "options": [
+      "Symmetric Encryption",
+      "Asymmetric Encryption",
+      "They are the same speed.",
+      "Hashing is faster than both."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Encryption"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "How does a CDN improve website performance?",
+    "correct_answer": "By caching content on edge servers geographically closer to the user.",
+    "options": [
+      "By caching content on edge servers geographically closer to the user.",
+      "By compressing the HTML code.",
+      "By upgrading the user's internet connection.",
+      "By removing all images from the site."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Performance"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Which protocol is best suited for video streaming or VoIP?",
+    "correct_answer": "UDP",
+    "options": [
+      "UDP",
+      "TCP",
+      "FTP",
+      "SMTP"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Protocols"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "open_ended",
+    "difficulty": 3,
+    "question": "How does a Reverse Proxy improve security?",
+    "correct_answer": "It hides the existence and characteristics of origin servers, protects them from direct attacks (like DDoS), enables SSL termination, and filters malicious requests.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Security",
+        "Architecture"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multi_select",
+    "difficulty": 3,
+    "question": "Select the security benefits of using MFA.",
+    "correct_answer": "Reduces risk of compromised passwords, Adds a layer of defense, Protects against automated attacks",
+    "options": [
+      "Reduces risk of compromised passwords",
+      "Adds a layer of defense",
+      "Protects against automated attacks",
+      "Makes login faster",
+      "Eliminates the need for passwords entirely"
+    ],
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Security",
+        "Authentication"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "How many layers are in the OSI Model?",
+    "correct_answer": "7",
+    "options": [
+      "7",
+      "4",
+      "5",
+      "6"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "OSI"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the primary function of a WAF?",
+    "correct_answer": "To protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet.",
+    "options": [
+      "To protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet.",
+      "To protect the internal network from viruses.",
+      "To encrypt database connections.",
+      "To manage user logins."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Web"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the purpose of a 'Honeypot'?",
+    "correct_answer": "A decoy system used to attract and trap attackers to study their behavior.",
+    "options": [
+      "A decoy system used to attract and trap attackers to study their behavior.",
+      "A secure storage for passwords.",
+      "A faster way to route traffic.",
+      "An automated patching system."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Tactics"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 4,
+    "question": "Which routing protocol is known as the 'Protocol of the Internet'?",
+    "correct_answer": "BGP",
+    "options": [
+      "BGP",
+      "OSPF",
+      "RIP",
+      "EIGRP"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Routing"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 4,
+    "question": "Which of these is a common mitigation strategy for DDoS using Cloud services?",
+    "correct_answer": "Using a CDN and Web Application Firewall (WAF) to absorb and filter traffic.",
+    "options": [
+      "Using a CDN and Web Application Firewall (WAF) to absorb and filter traffic.",
+      "Turning off the server.",
+      "Blocking all IP addresses.",
+      "Increasing the server RAM."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "DDoS"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What does the 'A' in the CIA Triad stand for?",
+    "correct_answer": "Availability",
+    "options": [
+      "Availability",
+      "Authorization",
+      "Authentication",
+      "Accounting"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the main advantage of SSO (Single Sign-On)?",
+    "correct_answer": "It improves user experience and productivity by requiring only one set of credentials for multiple apps.",
+    "options": [
+      "It improves user experience and productivity by requiring only one set of credentials for multiple apps.",
+      "It makes passwords shorter.",
+      "It removes the need for encryption.",
+      "It allows anyone to login without a password."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Authentication"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "How does an ACL (Access Control List) function?",
+    "correct_answer": "It is a list of rules that grants or denies access to specific digital environments.",
+    "options": [
+      "It is a list of rules that grants or denies access to specific digital environments.",
+      "It is a list of all users in the company.",
+      "It is a log of all past logins.",
+      "It is a list of approved websites."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Networking & Security",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Why is container security a concern regarding the Kernel?",
+    "correct_answer": "Containers share the host OS kernel, so a vulnerability in the kernel affects all containers.",
+    "options": [
+      "Containers share the host OS kernel, so a vulnerability in the kernel affects all containers.",
+      "Containers act as full VMs.",
+      "Containers run on Windows only.",
+      "Containers cannot run antivirus software."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Security",
+        "Containers"
+      ]
+    }
+  },
+  {
+    "category": "Best Practices",
+    "type": "multiple_choice",
+    "difficulty": 0,
+    "question": "Where can you find community support for this project?",
+    "correct_answer": "GitHub, Blog, and Telegram",
+    "options": [
+      "GitHub, Blog, and Telegram",
+      "Only via Fax",
+      "By mailing a letter",
+      "In the local newspaper"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Community"
+      ]
+    }
+  }
+]

@@ -1,0 +1,780 @@
+[
+  {
+    "category": "Cloud Computing",
+    "type": "open_ended",
+    "difficulty": 3,
+    "question": "What is 'Autoscaling'?",
+    "correct_answer": "Does not exist in source. Using placeholder: Autoscaling is a method used in cloud computing that dynamically adjusts the amount of computational resources in a server farm - typically measured by the number of active servers - automatically based on the load to the farm.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Cloud",
+        "Scaling"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "How do you handle authentication in a Python script?",
+    "correct_answer": "requests.get(\"https://example.com\", auth=(\"user\", \"pass\"))",
+    "options": [
+      "requests.get(\"https://example.com\", auth=(\"user\", \"pass\"))",
+      "Using `sudo` before python.",
+      "Hardcoding passwords in plain text.",
+      "Python scripts cannot handle authentication."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "Which tool is used to find and replace text in YAML files?",
+    "correct_answer": "yq",
+    "options": [
+      "yq",
+      "grep",
+      "awk",
+      "tar"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Tools"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "open_ended",
+    "difficulty": 5,
+    "question": "Define a multi-stage Jenkins pipeline structure in Groovy.",
+    "correct_answer": "pipeline {\n    agent any\n    stages {\n        stage('Build') { steps { echo \"Building...\" } }\n        stage('Test') { steps { echo \"Testing...\" } }\n    }\n}",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 3,
+      "tags": [
+        "Jenkins",
+        "Groovy"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "What is an inline script?",
+    "correct_answer": "Running a script directly inside a pipeline configuration (e.g., GitHub Actions run command).",
+    "options": [
+      "Running a script directly inside a pipeline configuration (e.g., GitHub Actions run command).",
+      "A script that is written on one line.",
+      "A script that has no comments.",
+      "A script that runs offline."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "CI/CD",
+        "Automation"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "open_ended",
+    "difficulty": 5,
+    "question": "How do you execute a script remotely via SSH in Bash?",
+    "correct_answer": "ssh user@server 'bash -s' < local_script.sh",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Scripting",
+        "Bash"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "How does Ansible ensure idempotency?",
+    "correct_answer": "Ansible modules check the current state and only apply changes if the state differs from the desired configuration.",
+    "options": [
+      "Ansible modules check the current state and only apply changes if the state differs from the desired configuration.",
+      "It deletes everything and starts over.",
+      "It asks the user for confirmation every time.",
+      "It relies on chance."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Ansible",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is cloud computing?",
+    "correct_answer": "The on-demand delivery of computing services over the internet with pay-as-you-go pricing.",
+    "options": [
+      "The on-demand delivery of computing services over the internet with pay-as-you-go pricing.",
+      "A network of satellites.",
+      "Weather forecasting software.",
+      "Personal hard drives."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multi_select",
+    "difficulty": 1,
+    "question": "What are the three main types of cloud computing?",
+    "correct_answer": "Public Cloud, Private Cloud, Hybrid Cloud",
+    "options": [
+      "Public Cloud",
+      "Private Cloud",
+      "Hybrid Cloud",
+      "Personal Cloud",
+      "Weather Cloud",
+      "Cumulus Cloud"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Types"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multi_select",
+    "difficulty": 1,
+    "question": "Select the key benefits of cloud computing.",
+    "correct_answer": "Scalability, Cost Efficiency, Flexibility, Disaster Recovery",
+    "options": [
+      "Scalability",
+      "Cost Efficiency",
+      "Flexibility",
+      "Disaster Recovery",
+      "Increased Hardware Costs",
+      "Slower Performance"
+    ],
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Cloud",
+        "Benefits"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does IaaS enable?",
+    "correct_answer": "Provides virtualized computing resources (e.g., VMs) over the internet.",
+    "options": [
+      "Provides virtualized computing resources (e.g., VMs) over the internet.",
+      "Provides email software.",
+      "Provides a development platform.",
+      "Provides office furniture."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Models"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What defines Serverless Computing?",
+    "correct_answer": "Running applications without managing the underlying infrastructure; resources are allocated dynamically.",
+    "options": [
+      "Running applications without managing the underlying infrastructure; resources are allocated dynamically.",
+      "Computing without electricity.",
+      "Storing data on tapes.",
+      "Using a single server for everything."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Serverless"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Virtualization?",
+    "correct_answer": "Creating virtual instances of servers, storage, or networks on a single physical server.",
+    "options": [
+      "Creating virtual instances of servers, storage, or networks on a single physical server.",
+      "Simulating a video game.",
+      "Connecting to the metaverse.",
+      "Browsing the web securely."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Multi-cloud?",
+    "correct_answer": "Using multiple cloud service providers (e.g., AWS, Azure) to avoid vendor lock-in.",
+    "options": [
+      "Using services from multiple cloud providers (e.g., AWS, Azure, GCP) for redundancy, cost optimization, and avoiding vendor lock-in.",
+      "Using multiple monitors.",
+      "Using multiple passwords.",
+      "Using multiple keyboards."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Strategy"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Vertical Scaling?",
+    "correct_answer": "Increasing resources (CPU, RAM) in an existing server.",
+    "options": [
+      "Increasing resources (CPU, RAM) in an existing server.",
+      "Adding more servers.",
+      "Moving the server to a higher shelf.",
+      "Buying a taller server case."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Scaling"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is an Availability Zone (AZ)?",
+    "correct_answer": "A physically separate data center within a cloud provider's region.",
+    "options": [
+      "A physically separate data center within a cloud provider's region.",
+      "A timezone setting.",
+      "A type of firewall.",
+      "A software license."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Infrastructure"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "In the Shared Responsibility Model, what is the customer responsible for?",
+    "correct_answer": "Securing applications, data, and user access.",
+    "options": [
+      "Securing applications, data, and user access.",
+      "Physical security of the data center.",
+      "Maintenance of the host hardware.",
+      "Cooling systems."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is a VPC?",
+    "correct_answer": "A virtual network dedicated to your AWS account.",
+    "options": [
+      "A virtual network dedicated to your AWS account.",
+      "A physical computer.",
+      "A type of hard drive.",
+      "A video processing card."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Networking"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is the function of an ELB?",
+    "correct_answer": "Distributes incoming application traffic across multiple targets, such as EC2 instances.",
+    "options": [
+      "Distributes incoming application traffic across multiple targets, such as EC2 instances.",
+      "Encrypts sensitive data.",
+      "Stores backups.",
+      "Generates reports."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Networking"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Object Storage?",
+    "correct_answer": "Storage architecture that manages data as objects, suitable for unstructured data like media.",
+    "options": [
+      "Storage architecture that manages data as objects, suitable for unstructured data like media.",
+      "Storage for databases only.",
+      "Storage for operating systems.",
+      "Storage for RAM."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Block Storage tailored for?",
+    "correct_answer": "Databases and virtual machines requiring low-latency access.",
+    "options": [
+      "Databases and virtual machines requiring low-latency access.",
+      "Storing photos.",
+      "Web hosting static files.",
+      "Email archiving."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What benefit does a CDN provide?",
+    "correct_answer": "Faster content delivery by caching data on servers close to the user.",
+    "options": [
+      "Faster content delivery by caching data on servers close to the user.",
+      "Cheaper internet bills.",
+      "Better graphics.",
+      "More storage space."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Performance"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is an IAM Role?",
+    "correct_answer": "Grants permissions to entities (like EC2 instances) without long-term credentials.",
+    "options": [
+      "Grants permissions to entities (like EC2 instances) without long-term credentials.",
+      "A job title in a company.",
+      "A type of server.",
+      "A database table."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is CloudFormation?",
+    "correct_answer": "An IaC tool for automating AWS resource provisioning using templates.",
+    "options": [
+      "An IaC tool for automating AWS resource provisioning using templates.",
+      "A cloud formation in the sky.",
+      "A social network for developers.",
+      "A weather app."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "AWS",
+        "IaC"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Prometheus?",
+    "correct_answer": "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
+    "options": [
+      "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
+      "A relational database management system designed for transactional workloads.",
+      "A proprietary visualization tool that requires a paid license for every user.",
+      "A CI/CD orchestrator widely used for managing Jenkins pipelines."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Prometheus"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "How does Prometheus collect metrics?",
+    "correct_answer": "It pulls (scrapes) metrics from target endpoints exposed via HTTP.",
+    "options": [
+      "It pulls (scrapes) metrics from target endpoints exposed via HTTP.",
+      "It waits for users to send emails.",
+      "It reads log files only.",
+      "It scans the hard drive."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Prometheus"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is PromQL?",
+    "correct_answer": "The query language used to analyze metrics in Prometheus.",
+    "options": [
+      "The query language used to analyze metrics in Prometheus.",
+      "A database SQL dialect.",
+      "A programming language like Python.",
+      "A type of graph."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Prometheus"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What are Prometheus Exporters?",
+    "correct_answer": "Agents that collect and expose metrics from systems that don't output Prometheus metrics natively.",
+    "options": [
+      "Agents that collect and expose metrics from systems that don't output Prometheus metrics natively.",
+      "People who sell Prometheus.",
+      "Tools to delete metrics.",
+      "Files that export data to Excel."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Prometheus"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "open_ended",
+    "difficulty": 1,
+    "question": "How do you set up an alert in Prometheus?",
+    "correct_answer": "Configure alert rules in `alerting_rules.yml` which are evaluated by the Alertmanager component.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Monitoring",
+        "Prometheus"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Grafana mainly used for?",
+    "correct_answer": "Visualizing time-series data from sources like Prometheus via interactive dashboards.",
+    "options": [
+      "Visualizing time-series data from sources like Prometheus via interactive dashboards.",
+      "Writing database queries.",
+      "Hosting websites.",
+      "Managing emails."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Grafana"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "How do you connect Grafana to data?",
+    "correct_answer": "By configuring a 'Data Source' (e.g., Prometheus) in the Configuration menu.",
+    "options": [
+      "By configuring a 'Data Source' (e.g., Prometheus) in the Configuration menu.",
+      "By plugging in a USB drive.",
+      "By writing a script.",
+      "It connects automatically to everything."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Grafana"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What are Grafana Panels?",
+    "correct_answer": "Visual components (graphs, tables, gauges) used to display data on a dashboard.",
+    "options": [
+      "Visual components (graphs, tables, gauges) used to display data on a dashboard.",
+      "Solar panels.",
+      "Control panels for the server.",
+      "Admin user accounts."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Grafana"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "open_ended",
+    "difficulty": 1,
+    "question": "How do you import a Grafana dashboard?",
+    "correct_answer": "Using a JSON file or a Dashboard ID from the official Grafana library.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Monitoring",
+        "Grafana"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What components make up the ELK Stack?",
+    "correct_answer": "Elasticsearch, Logstash, Kibana",
+    "options": [
+      "Elasticsearch, Logstash, Kibana",
+      "Elasticsearch, Linux, Kubernetes",
+      "Erlang, Lua, Kotlin",
+      "Excel, Lotus, Keynote"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "ELK"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is the role of Elasticsearch?",
+    "correct_answer": "NoSQL distributed search engine for storing and analyzing data.",
+    "options": [
+      "NoSQL distributed search engine for storing and analyzing data.",
+      "Visualizing data.",
+      "Collecting logs from servers.",
+      "A relational database."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "Elasticsearch"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does Logstash do?",
+    "correct_answer": "Processes logs via a pipeline: Input -> Filter -> Output.",
+    "options": [
+      "Processes logs via a pipeline: Input -> Filter -> Output.",
+      "Stores logs.",
+      "Visualizes logs.",
+      "Deletes logs."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "Logstash"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Kibana used for?",
+    "correct_answer": "Visualizing and exploring log data stored in Elasticsearch.",
+    "options": [
+      "Visualizing and exploring log data stored in Elasticsearch.",
+      "Storing logs.",
+      "Processing logs.",
+      "Monitoring CPU usage."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "Kibana"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is an Index in Elasticsearch?",
+    "correct_answer": "A collection of documents, similar to a database table.",
+    "options": [
+      "A collection of documents, similar to a database table.",
+      "A table of contents.",
+      "A back of a book.",
+      "A search query."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "Elasticsearch"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "How does Logstash send data to Elasticsearch?",
+    "correct_answer": "Via the `elasticsearch` output plugin configuration.",
+    "options": [
+      "Via the `elasticsearch` output plugin configuration.",
+      "By email.",
+      "Via USB transfer.",
+      "It cannot communicate with Elasticsearch."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Logging",
+        "Logstash"
+      ]
+    }
+  },
+  {
+    "category": "Monitoring & Logging",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Which visualization type shows distribution of data parts to a whole?",
+    "correct_answer": "Pie Chart",
+    "options": [
+      "Pie Chart",
+      "Line Chart",
+      "Bar Chart",
+      "Metric"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Visualization"
+      ]
+    }
+  }
+]

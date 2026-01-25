@@ -1,0 +1,786 @@
+[
+  {
+    "category": "Automation & Scripting",
+    "type": "open_ended",
+    "difficulty": 5,
+    "question": "How do you prevent a Bash script from continuing if a command fails?",
+    "correct_answer": "Add `set -e` at the beginning of the script. This instructs bash to exit immediately if any command executes with a non-zero status.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Bash",
+        "Error Handling"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "How do you perform an HTTP GET request in Python?",
+    "correct_answer": "import requests; response = requests.get('url')",
+    "options": [
+      "import requests; response = requests.get('url')",
+      "import http; http.get('url')",
+      "import url; url.open('url')",
+      "import web; web.fetch('url')"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Python"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "open_ended",
+    "difficulty": 5,
+    "question": "How do you handle authentication (e.g., Basic Auth) in a Python script using `requests`?",
+    "correct_answer": "Pass the `auth` parameter to the request method: `requests.get('url', auth=('username', 'password'))`.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Python",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "Which tool is commonly used to parse and edit YAML files from the command line?",
+    "correct_answer": "yq",
+    "options": [
+      "yq",
+      "jq",
+      "xq",
+      "yaml-lint"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Scripting",
+        "Tools"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "What is the structure of a multi-stage Jenkins pipeline?",
+    "correct_answer": "pipeline { stages { stage('Name') { steps { ... } } } }",
+    "options": [
+      "pipeline { stages { stage('Name') { steps { ... } } } }",
+      "jenkins { job { task { ... } } }",
+      "workflow { step { command { ... } } }",
+      "process { phase { action { ... } } }"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "CI/CD",
+        "Jenkins",
+        "Groovy"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "What is an 'inline script' in the context of CI/CD?",
+    "correct_answer": "A script written directly inside the pipeline configuration file (e.g., within `run:` key) rather than in a separate file.",
+    "options": [
+      "A script written directly inside the pipeline configuration file (e.g., within `run:` key) rather than in a separate file.",
+      "A script that runs in the background.",
+      "A script that connects to the internet.",
+      "A script that deletes files."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "CI/CD",
+        "Automation"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "open_ended",
+    "difficulty": 5,
+    "question": "How do you execute a local Bash script on a remote server via SSH?",
+    "correct_answer": "ssh user@host 'bash -s' < local_script.sh",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Scripting",
+        "Bash",
+        "Remote"
+      ]
+    }
+  },
+  {
+    "category": "Automation & Scripting",
+    "type": "multiple_choice",
+    "difficulty": 5,
+    "question": "How does Ansible ensure 'idempotency'?",
+    "correct_answer": "Modules check the current state of the system and only apply changes if the state does not match the desired configuration.",
+    "options": [
+      "Modules check the current state of the system and only apply changes if the state does not match the desired configuration.",
+      "It always overwrites files.",
+      "It runs scripts in a loop until they succeed.",
+      "It creates a backup of the system before every run."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Ansible",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is the primary definition of Cloud Computing?",
+    "correct_answer": "The on-demand delivery of computing services (servers, storage, etc.) over the internet with pay-as-you-go pricing.",
+    "options": [
+      "The on-demand delivery of computing services (servers, storage, etc.) over the internet with pay-as-you-go pricing.",
+      "Computing done only when it is cloudy.",
+      "Storing data on hard drives in your office.",
+      "Using supercomputers for weather forecasting."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Concepts"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multi_select",
+    "difficulty": 1,
+    "question": "What are the three main types of Cloud Computing?",
+    "correct_answer": "Public Cloud, Private Cloud, Hybrid Cloud",
+    "options": [
+      "Public Cloud",
+      "Private Cloud",
+      "Hybrid Cloud",
+      "Rain Cloud",
+      "Storm Cloud",
+      "Personal Cloud"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Types"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Which of the following is a key benefit of Cloud Computing?",
+    "correct_answer": "Scalability",
+    "options": [
+      "Scalability",
+      "Higher upfront cost",
+      "Need for more hardware",
+      "Slower deployment"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Benefits"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does IaaS stand for?",
+    "correct_answer": "Infrastructure as a Service",
+    "options": [
+      "Infrastructure as a Service",
+      "Internet as a Service",
+      "Information as a Source",
+      "Internal as a Server"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Models"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Example of a PaaS (Platform as a Service) offering?",
+    "correct_answer": "Google App Engine",
+    "options": [
+      "Google App Engine",
+      "Amazon EC2 (IaaS)",
+      "Gmail (SaaS)",
+      "Windows 10"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Services"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What describes 'Serverless Computing'?",
+    "correct_answer": "Developers run code without provisioning or managing servers; resources are allocated dynamically.",
+    "options": [
+      "Developers run code without provisioning or managing servers; resources are allocated dynamically.",
+      "Computing without any hardware.",
+      "Servers that never turn on.",
+      "Running code on your local laptop only."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Serverless"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is Virtualization?",
+    "correct_answer": "Creating virtual instances of computing resources (like VMs) on a single physical machine.",
+    "options": [
+      "Creating virtual instances of computing resources (like VMs) on a single physical machine.",
+      "Playing video games.",
+      "Simulating reality.",
+      "Browsing the internet."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Virtualization"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does a 'Multi-Cloud' strategy involve?",
+    "correct_answer": "Using services from multiple cloud providers (e.g., AWS + Azure) to avoid vendor lock-in.",
+    "options": [
+      "Using services from multiple cloud providers (e.g., AWS + Azure) to avoid vendor lock-in.",
+      "Using multiple computers.",
+      "Using multiple user accounts.",
+      "Using multiple wifi networks."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Strategy"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is 'Scaling Out' (Horizontal Scaling)?",
+    "correct_answer": "Adding more servers/instances to existing resource pool.",
+    "options": [
+      "Adding more servers/instances to existing resource pool.",
+      "Adding more CPU/RAM to a single server.",
+      "Making the server physically larger.",
+      "Moving data to a bigger hard drive."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Scaling"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is an Availability Zone (AZ)?",
+    "correct_answer": "A physically separate data center within a cloud region, designed for fault tolerance.",
+    "options": [
+      "A physically separate data center within a cloud region, designed for fault tolerance.",
+      "A time zone.",
+      "A zone where internet is free.",
+      "A parking zone."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Infrastructure"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "In the Shared Responsibility Model, what is the Cloud Provider responsible for?",
+    "correct_answer": "Security of the Cloud (hardware, physical network, facilities).",
+    "options": [
+      "Security of the Cloud (hardware, physical network, facilities).",
+      "Customer data.",
+      "User password strength.",
+      "Application code security.",
+      "Security of the Cloud (hardware, physical network, facilities)."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is a VPC?",
+    "correct_answer": "Virtual Private Cloud - an isolated cloud network environment.",
+    "options": [
+      "Virtual Private Cloud - an isolated cloud network environment.",
+      "Very Personal Computer.",
+      "Virtual Public Connection.",
+      "Visual Processing Center."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Networking"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What does an Elastic Load Balancer (ELB) do?",
+    "correct_answer": "Distributes incoming traffic across multiple targets to improve availability.",
+    "options": [
+      "Distributes incoming traffic across multiple targets to improve availability.",
+      "Encrypts data.",
+      "Stores backups.",
+      "Generates logs."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Networking"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Object Storage (like S3) is best for:",
+    "correct_answer": "Storing unstructured data like photos, videos, and backups.",
+    "options": [
+      "Storing unstructured data like photos, videos, and backups.",
+      "Running an operating system.",
+      "Hosting a high-speed database.",
+      "Caching memory."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "Block Storage (like EBS) is best for:",
+    "correct_answer": "Attaching to virtual machines for OS and database storage.",
+    "options": [
+      "Attaching to virtual machines for OS and database storage.",
+      "Storing public website assets.",
+      "Long-term archival.",
+      "Global content delivery."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is a Content Delivery Network (CDN)?",
+    "correct_answer": "A distributed network of servers that caches content close to users for faster delivery.",
+    "options": [
+      "A distributed network of servers that caches content close to users for faster delivery.",
+      "A central main server.",
+      "A database replication service.",
+      "A VPN service."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Performance"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is an IAM Role?",
+    "correct_answer": "An identity that you can assume to gain temporary access permissions.",
+    "options": [
+      "An identity that you can assume to gain temporary access permissions.",
+      "A permanent user account.",
+      "A password policy.",
+      "A firewall rule."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Security"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 1,
+    "question": "What is CloudFormation?",
+    "correct_answer": "An AWS service for defining infrastructure as code using templates.",
+    "options": [
+      "An AWS service for defining infrastructure as code using templates.",
+      "A cloud weather service.",
+      "A tool to format hard drives.",
+      "A cloud migration tool."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "AWS",
+        "IaC"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is 'Autoscaling'?",
+    "correct_answer": "Automatically adjusting the number of computing resources based on load.",
+    "options": [
+      "Automatically adjusting the number of computing resources based on load.",
+      "Manually adding servers.",
+      "Buying more computers.",
+      "Measuring weight of servers."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Scaling"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Which of these is a Platform as a Service (PaaS)?",
+    "correct_answer": "AWS Elastic Beanstalk",
+    "options": [
+      "AWS Elastic Beanstalk",
+      "AWS EC2",
+      "AWS VPC",
+      "AWS S3"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Services"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What defines a 'Region' in cloud computing?",
+    "correct_answer": "A distinct geographical area with multiple availability zones.",
+    "options": [
+      "A distinct geographical area with multiple availability zones.",
+      "A single data center.",
+      "A country.",
+      "A city."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Infrastructure"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is the main benefit of 'Serverless' architectures like AWS Lambda?",
+    "correct_answer": "Pay only for compute time used, no idle cost, and no server management.",
+    "options": [
+      "Pay only for compute time used, no idle cost, and no server management.",
+      "It is faster than EC2.",
+      "It allows you to SSH into the server.",
+      "It supports all programming languages natively."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Serverless"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is Kubernetes (K8s)?",
+    "correct_answer": "An open-source system for automating deployment, scaling, and management of containerized applications.",
+    "options": [
+      "An open-source system for automating deployment, scaling, and management of containerized applications.",
+      "A virtualization software.",
+      "A cloud provider.",
+      "A programming language."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Containers",
+        "Kubernetes"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is a 'node' in a Kubernetes cluster?",
+    "correct_answer": "A worker machine (virtual or physical) that runs containerized applications.",
+    "options": [
+      "A worker machine (virtual or physical) that runs containerized applications.",
+      "The master control plane.",
+      "A database entry.",
+      "A networking cable."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Kubernetes",
+        "Architecture"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multi_select",
+    "difficulty": 3,
+    "question": "Which of the following are major Cloud Service Providers?",
+    "correct_answer": "AWS, Microsoft Azure, Google Cloud Platform (GCP)",
+    "options": [
+      "AWS",
+      "Microsoft Azure",
+      "Google Cloud Platform (GCP)",
+      "Linux",
+      "Python",
+      "Facebook"
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "General"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "open_ended",
+    "difficulty": 3,
+    "question": "Explain 'High Availability' in the context of cloud infrastructure.",
+    "correct_answer": "Designing systems to be operational and accessible for a very high percentage of time (e.g., 99.99%) by eliminating single points of failure (redundancy).",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Cloud",
+        "Reliability"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "open_ended",
+    "difficulty": 3,
+    "question": "What is 'Disaster Recovery'?",
+    "correct_answer": "Strategies and procedures to recover data and system functionality after a disruptive event (natural disaster, cyber attack, etc.), often involving backups in different regions.",
+    "options": null,
+    "metadata": {
+      "estimated_minutes": 2,
+      "tags": [
+        "Cloud",
+        "Reliability"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is 'Latency'?",
+    "correct_answer": "The delay before a transfer of data begins following an instruction for its transfer.",
+    "options": [
+      "The delay before a transfer of data begins following an instruction for its transfer.",
+      "The speed of download.",
+      "The size of the hard drive.",
+      "The cost of the server."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Networking",
+        "Performance"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Who manages the Operating System in an IaaS model?",
+    "correct_answer": "The Customer.",
+    "options": [
+      "The Customer.",
+      "The Cloud Provider.",
+      "The ISP.",
+      "Nobody."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Models"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "Who manages the Runtime/Middleware in a PaaS model?",
+    "correct_answer": "The Cloud Provider.",
+    "options": [
+      "The Cloud Provider.",
+      "The Customer.",
+      "The Hardware Manufacturer.",
+      "The Developer only."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Models"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 3,
+    "question": "What is a 'Snapshot' in cloud storage?",
+    "correct_answer": "A point-in-time copy of a storage volume (like a backup).",
+    "options": [
+      "A point-in-time copy of a storage volume (like a backup).",
+      "A screenshot of the console.",
+      "A short log file.",
+      "A quick server restart."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Storage"
+      ]
+    }
+  },
+  {
+    "category": "Cloud Computing",
+    "type": "multiple_choice",
+    "difficulty": 4,
+    "question": "What is 'Edge Computing'?",
+    "correct_answer": "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
+    "options": [
+      "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
+      "Centralizing all data processing in a single massive supercomputer to maximize raw performance.",
+      "Running all computations on the user's web browser to offload work from the server completely.",
+      "Using cutting-edge experimental hardware that has not yet been released to the general public."
+    ],
+    "metadata": {
+      "estimated_minutes": 1,
+      "tags": [
+        "Cloud",
+        "Architecture"
+      ]
+    }
+  }
+]

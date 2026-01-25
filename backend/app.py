@@ -261,6 +261,11 @@ def generate_quiz():
                 'reference_answer': row[7],
                 'estimated_minutes': row[8]
             })
+
+            # Randomize options order
+            import random
+            if questions[-1].get('options') and isinstance(questions[-1]['options'], list):
+                random.shuffle(questions[-1]['options'])
         
         # Store quiz in session
         session['quiz_questions'] = questions

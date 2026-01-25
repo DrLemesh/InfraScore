@@ -2696,9 +2696,9 @@
     "correct_answer": "You Aren't Gonna Need It - a principle of extreme programming that states a programmer should not add functionality until deemed necessary.",
     "options": [
       "You Aren't Gonna Need It - a principle of extreme programming that states a programmer should not add functionality until deemed necessary.",
-      "Yet Another Graphic Network Interface.",
-      "Your App Goes Nowhere Instantly.",
-      "Yield All Generated New Instances."
+      "Yet Another Graphical Interface - a design pattern prioritizing visual aesthetics over functionality.",
+      "Your Application Goes Nowhere Instantly - a warning about poor performance in infinite loops.",
+      "Yield All Generated New Instances - a memory management technique for garbage collection."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -2929,9 +2929,9 @@
     "correct_answer": "Code changes are automatically built, tested, and prepared for a release to production, but the final deployment is manual.",
     "options": [
       "Code changes are automatically built, tested, and prepared for a release to production, but the final deployment is manual.",
-      "The same as Continuous Deployment.",
-      "Delivering hardware to data centers.",
-      "Writing documentation."
+      "A process where every change is deployed to production immediately without any manual approval.",
+      "A logistics term referring to the uninterrupted shipping of physical hardware components.",
+      "writing code continuously without stopping for breaks to ensure maximum productivity."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -2992,9 +2992,9 @@
     "correct_answer": "A plugin that allows Terraform to interact with cloud providers, SaaS providers, and other APIs (e.g., AWS, Azure).",
     "options": [
       "A plugin that allows Terraform to interact with cloud providers, SaaS providers, and other APIs (e.g., AWS, Azure).",
-      "The company hosting the server.",
-      "The person writing the code.",
-      "A type of resource."
+      "The internet service provider (ISP) that gives the server connectivity to the web.",
+      "The developer who is responsible for providing the code for a specific module.",
+      "A specific type of text file that lists the variables used in the configuration."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -3393,9 +3393,9 @@
     "correct_answer": "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
     "options": [
       "A subnetwork that exposes external-facing services to an untrusted network (internet) while isolating the internal network.",
-      "A blocked zone where no traffic passes.",
-      "A dedicated connection to the cloud.",
-      "The admin's personal computer."
+      "A highly secure internal zone where critical databases are stored offline.",
+      "A specific firewall rule that blocks all traffic from specific countries.",
+      "A software patch that removes vulnerabilities from the operating system kernel."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -3840,9 +3840,9 @@
     "correct_answer": "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
     "options": [
       "A method linking a user's identity across multiple distinct security domains (e.g., using Google to log into other apps).",
-      "A government ID card.",
-      "A single password used everywhere.",
-      "An anonymous login method."
+      "A centralized database that stores every user's password in a single plaintext file.",
+      "A requirement for all users to have a government-issued ID card to access the system.",
+      "A feature that forces users to change their username every 30 days for security."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -5244,9 +5244,9 @@
     "correct_answer": "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
     "options": [
       "Processing data closer to the source (IoT devices, local servers) rather than sending everything to a central cloud, reducing latency.",
-      "Computing on the newest servers.",
-      "Computing using Microsoft Edge browser.",
-      "Computing at the speed of light."
+      "Centralizing all data processing in a single massive supercomputer to maximize raw performance.",
+      "Running all computations on the user's web browser to offload work from the server completely.",
+      "Using cutting-edge experimental hardware that has not yet been released to the general public."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -5758,9 +5758,9 @@
     "correct_answer": "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
     "options": [
       "An open-source monitoring and alerting system known for its pull-based model and time-series database.",
-      "A Greek god.",
-      "A firewall software.",
-      "A text editor."
+      "A relational database management system designed for transactional workloads.",
+      "A proprietary visualization tool that requires a paid license for every user.",
+      "A CI/CD orchestrator widely used for managing Jenkins pipelines."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6262,9 +6262,9 @@
     "correct_answer": "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
     "options": [
       "A cultural and professional movement that stresses communication, collaboration, and integration between software developers and IT operations professionals.",
-      "A specific tool you buy.",
-      "A job title for a system administrator.",
-      "A programming language."
+      "A specific set of software tools including Jenkins and Docker used to automate deployment pipelines.",
+      "A job title for engineers who are responsible for maintaining physical server hardware and cabling.",
+      "A strict project management methodology that replaces Agile with a linear Waterfall approach."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6348,9 +6348,9 @@
     "correct_answer": "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
     "options": [
       "Managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration.",
-      "Writing code to build physical servers.",
-      "Using a GUI to click and create servers.",
-      "Writing documentation about servers."
+      "Writing comprehensive text documentation to describe how to manually configure servers.",
+      "Using physical hardware switches to route network traffic instead of software-defined networking.",
+      "Developing software applications that manage their own memory allocation directly."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6390,9 +6390,9 @@
     "correct_answer": "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
     "options": [
       "DevOps complements Agile by extending agile principles (like iteration and continuous feedback) beyond development into operations.",
-      "DevOps replaces Agile.",
-      "Agile is for hardware, DevOps is for software.",
-      "They are unrelated."
+      "DevOps is a replacement for Agile, arguing that speed is more important than iteration.",
+      "Agile focuses on hardware development, while DevOps focuses exclusively on software.",
+      "They are competing methodologies that cannot be used together in the same organization."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6411,9 +6411,9 @@
     "correct_answer": "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
     "options": [
       "Executing automated tests as part of the software delivery pipeline to obtain immediate feedback on business risks.",
-      "Testing once a year.",
-      "Testing only manually.",
-      "Testing only in production."
+      "A manual testing phase that occurs once at the end of the project before the final release.",
+      "Running the application in a loop to see if it crashes after 24 hours of uptime.",
+      "Asking beta testers to use the app continuously and report valid bugs via email."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6595,9 +6595,9 @@
     "correct_answer": "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
     "options": [
       "Packaging software code with just the OS libraries and dependencies required to run the code to create a single lightweight executable.",
-      "Shipping computers in containers.",
-      "Zip filing documents.",
-      "Virtualizing hardware."
+      "Virtualizing the entire hardware stack to run multiple operating systems on a single physical server.",
+      "Compressing large files into smaller archives to save disk space during network transfers.",
+      "Encrypting application data to ensure it remains secure while stored in public cloud buckets."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6889,9 +6889,9 @@
     "correct_answer": "A set of best practices for building scalable, portable, and resilient software-as-a-service apps (covering Config, Backing Services, Disposability, etc.).",
     "options": [
       "A set of best practices for building scalable, portable, and resilient software-as-a-service apps (covering Config, Backing Services, Disposability, etc.).",
-      "A rule that apps must have 12 lines of code.",
-      "A team structure with 12 developers.",
-      "A deployment strategy with 12 stages."
+      "A strict agile framework that requires teams to have exactly twelve members for optimal efficiency.",
+      "A coding standard that limits functions to twelve lines of code to ensure readability and maintainability.",
+      "A security protocol that mandates twelve distinct layers of encryption for user data protection."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6933,9 +6933,9 @@
     "correct_answer": "A helper container running alongside the main application container in the same Pod to enhance functionality (e.g., logging proxy).",
     "options": [
       "A helper container running alongside the main application container in the same Pod to enhance functionality (e.g., logging proxy).",
-      "A separate vehicle.",
-      "A backup server.",
-      "A database replica."
+      "A redundant replica of the main Pod that automatically takes over if the primary container crashes.",
+      "A storage volume that is shared between all Pods on a specific Node for temporary file exchange.",
+      "A network policy that restricts traffic flow between different Namespaces within the cluster."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6976,9 +6976,9 @@
     "correct_answer": "An advanced deployment strategy releasing changes incrementally (e.g., Canary, Feature Flags) to limit blast radius.",
     "options": [
       "An advanced deployment strategy releasing changes incrementally (e.g., Canary, Feature Flags) to limit blast radius.",
-      "Delivering code faster every day.",
-      "Using a progressive web app.",
-      "Delivering hardware by truck."
+      "Delivering the software on a physical disk to the customer via courier.",
+      "Focusing on delivering the most complex features first before the basics.",
+      "Ignoring backward compatibility to force users to upgrade immediately."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -6997,9 +6997,9 @@
     "correct_answer": "Manages service-to-service communication with features like traffic control, mutual TLS security, and observability.",
     "options": [
       "Manages service-to-service communication with features like traffic control, mutual TLS security, and observability.",
-      "Connects the office wifi.",
-      "Cleans up mesh code.",
-      "Hosts the database."
+      "It acts as a distributed database for storing user session data across multiple regions.",
+      "It compiles microservices into a single monolithic binary for easier deployment.",
+      "It automatically rewrites application code to be more efficient and performant."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7136,9 +7136,9 @@
     "correct_answer": "Docker Swarm is lightweight and built-in to Docker, while Kubernetes is more complex, feature-rich, and requires external setup for things like Ingress.",
     "options": [
       "Docker Swarm is lightweight and built-in to Docker, while Kubernetes is more complex, feature-rich, and requires external setup for things like Ingress.",
-      "Docker Swarm is only for Windows.",
-      "Kubernetes cannot run Docker containers.",
-      "Swarm allows auto-scaling but Kubernetes does not."
+      "Docker Swarm is designed for stateful applications, while Kubernetes can only handle stateless microservices.",
+      "Kubernetes is a single-node tool for local development, while Swarm is for multi-region clusters.",
+      "Docker Swarm uses a declarative YAML syntax, whereas Kubernetes relies entirely on imperative CLI commands."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7451,9 +7451,9 @@
     "correct_answer": "Volumes are managed by Docker (in /var/lib/docker/volumes) and are safer; Bind Mounts map any host file/directory heavily dependent on the host's OS structure.",
     "options": [
       "Volumes are managed by Docker (in /var/lib/docker/volumes) and are safer; Bind Mounts map any host file/directory heavily dependent on the host's OS structure.",
-      "Bind Mounts are faster.",
-      "Volumes cannot persist data.",
-      "Bind Mounts are only for read-only data."
+      "Volumes are strictly read-only and immutable, while Bind Mounts allow for read-write access to host files.",
+      "Bind Mounts offer higher I/O performance than Volumes because they bypass the Docker storage driver completely.",
+      "Volumes are only supported on Linux hosts, whereas Bind Mounts are the only option for Windows containers."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7472,9 +7472,9 @@
     "correct_answer": "To reduce final image size by copying only necessary artifacts (e.g., compiled binary) from a build stage to a slim runtime stage.",
     "options": [
       "To reduce final image size by copying only necessary artifacts (e.g., compiled binary) from a build stage to a slim runtime stage.",
-      "To make the build take longer.",
-      "To use more disk space.",
-      "To run multiple apps in one container."
+      "To allow a single container to run multiple different operating systems simultaneously.",
+      "To increase the build speed by downloading all dependencies from a local cache server.",
+      "To enable the Docker container to access the host machine's full filesystem directly."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7551,9 +7551,9 @@
     "correct_answer": "Defining the entire build, test, and deployment process in a version-controlled configuration file (like Jenkinsfile or .gitlab-ci.yml).",
     "options": [
       "Defining the entire build, test, and deployment process in a version-controlled configuration file (like Jenkinsfile or .gitlab-ci.yml).",
-      "Writing a pipeline in Python only.",
-      "A graphical drag-and-drop tool.",
-      "The physical cables in a server room."
+      "Writing the application source code entirely within the CI/CD configuration tool's web editor.",
+      "A graphical drag-and-drop interface for building deployment workflows without writing scripts.",
+      "Compiling the pipeline configuration into a binary executable for faster execution speed."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7572,9 +7572,9 @@
     "correct_answer": "A temporary, isolated environment created solely for the purpose of a single build or test run and destroyed afterwards.",
     "options": [
       "A temporary, isolated environment created solely for the purpose of a single build or test run and destroyed afterwards.",
-      "A permanent server for testing.",
-      "A failed build.",
-      "A local developer environment."
+      "A dedicated physical server that is kept running 24/7 to ensure build consistency.",
+      "A developer's local laptop that is used to run production builds for the final release.",
+      "A shared staging environment where all developers deploy their changes manually."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7593,9 +7593,9 @@
     "correct_answer": "It mimics the production environment as closely as possible to test changes before the final release, reducing the risk of failure.",
     "options": [
       "It mimics the production environment as closely as possible to test changes before the final release, reducing the risk of failure.",
-      "It allows developers to show off features.",
-      "It is cheaper than production.",
-      "It is used for public demos."
+      "It provides a place for developers to test disruptive experimental features directly on live user data.",
+      "It serves as a permanent backup of the production environment in case of catastrophic failure.",
+      "It is used to demo the product to potential investors who need to see a perfect version."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7614,9 +7614,9 @@
     "correct_answer": "They require smart logic to build and test only the projects/services that were modified, rather than rebuilding the entire repository.",
     "options": [
       "They require smart logic to build and test only the projects/services that were modified, rather than rebuilding the entire repository.",
-      "They are too large to clone.",
-      "They cannot be version controlled.",
-      "They only work with Jenkins."
+      "They force developers to use a single programming language for all projects in the repository.",
+      "They make it impossible to use version control systems like Git due to file size limits.",
+      "They require manual deployment of every service whenever a single line of code is changed anywhere."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7656,9 +7656,9 @@
     "correct_answer": "It provides traceability and allows you to deploy or rollback to a specific, immutable snapshot of your application.",
     "options": [
       "It provides traceability and allows you to deploy or rollback to a specific, immutable snapshot of your application.",
-      "It makes the filename look cooler.",
-      "It takes up less space.",
-      "It speeds up the build."
+      "It ensures that filenames are unique so that they don't overwrite each other on the desktop.",
+      "It allows marketing to give cool names like 'Tiger' or 'Lion' to software releases.",
+      "It is a legal requirement for copyrighting the software code."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7677,9 +7677,9 @@
     "correct_answer": "They should be injected dynamically during the build/deploy process, keeping sensitive values separate from valid code.",
     "options": [
       "They should be injected dynamically during the build/deploy process, keeping sensitive values separate from valid code.",
-      "Hardcoded in the source code.",
-      "Written in a public text file.",
-      "Emailed to the server."
+      "They should be committed directly to the Git repository in a cleartext config file for easy access.",
+      "They should be hardcoded into the application binary to prevent them from being changed accidentally.",
+      "They should be emailed to the system administrator who manually types them in during deployment."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7719,9 +7719,9 @@
     "correct_answer": "The system automatically detecting a failure after deployment and reverting to the previous stable version without human intervention.",
     "options": [
       "The system automatically detecting a failure after deployment and reverting to the previous stable version without human intervention.",
-      "Manually copying old files back.",
-      "Restarting the computer.",
-      "Deleting the database."
+      "A database backup process that runs every night to ensure data is preserved in case of corruption.",
+      "A manual procedure where an admin logs in to restart servers when performance degrades.",
+      "A feature that prevents developers from merging broken code into the main repository branch."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7777,9 +7777,9 @@
     "correct_answer": "It guarantees that the build environment is consistent and isolated, avoiding 'it works on my machine' issues.",
     "options": [
       "It guarantees that the build environment is consistent and isolated, avoiding 'it works on my machine' issues.",
-      "It makes the build slower.",
-      "It requires a larger server.",
-      "It uses more electricity."
+      "It allows the build to run faster by using the host machine's full resources.",
+      "It prevents the build process from accessing the internet for security reasons.",
+      "It ensures the build runs on a physical server rather than a virtual one."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7821,9 +7821,9 @@
     "correct_answer": "A pause in the pipeline that waits for manual user intervention/click before proceeding to a sensitive environment like Production.",
     "options": [
       "A pause in the pipeline that waits for manual user intervention/click before proceeding to a sensitive environment like Production.",
-      "A failed step.",
-      "A certification exam.",
-      "A code review."
+      "A fully automated testing phase that runs a suite of unit tests before merging code to the main branch.",
+      "A code review process where developers must get signs-off from three peers before committing changes.",
+      "A security scan that checks for vulnerabilities in third-party libraries and dependencies automatically."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7842,9 +7842,9 @@
     "correct_answer": "A machine that you manage and maintain that executes CI/CD jobs, offering more control over hardware/software than cloud-hosted runners.",
     "options": [
       "A machine that you manage and maintain that executes CI/CD jobs, offering more control over hardware/software than cloud-hosted runners.",
-      "Running a marathon alone.",
-      "Hosting a website on your laptop.",
-      "An automated bot."
+      "A cloud-based virtual machine automatically provisioned by GitHub to run your actions workflows.",
+      "A containerized agent that runs exclusively on the developer's local laptop for debugging purposes.",
+      "A deprecated CI/CD component that has been replaced by serverless lambda functions in modern pipelines."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7905,9 +7905,9 @@
     "correct_answer": "It decouples deployment from release, allowing you to merge code safely while keeping the new functionality hidden from users.",
     "options": [
       "It decouples deployment from release, allowing you to merge code safely while keeping the new functionality hidden from users.",
-      "It highlights new features in the UI.",
-      "It speeds up the build.",
-      "It acts as a git branch."
+      "It flags code that contains potential bugs so the compiler knows to skip it during the build.",
+      "It marks a specific commit as a 'feature' so it can be tracked in the release notes automatically.",
+      "It prevents developers from pushing code to the repository if it hasn't been reviewed yet."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -7958,9 +7958,9 @@
     "correct_answer": "A cultural practice and set of tools for cloud financial management to enable teams to trade-off speed, cost, and quality.",
     "options": [
       "A cultural practice and set of tools for cloud financial management to enable teams to trade-off speed, cost, and quality.",
-      "A tool for managing fish.",
-      "Fine-tuning operations.",
-      "Finalizing options."
+      "A technical role focused solely on optimizing the memory usage of Java applications to save RAM.",
+      "A rigorous security auditing process to ensure financial data is encrypted at rest.",
+      "A deployment strategy that prioritizes finishing operations quickly regardless of resource cost."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8023,9 +8023,9 @@
     "correct_answer": "A discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.",
     "options": [
       "A discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.",
-      "A website design job.",
-      "Reliable software testing.",
-      "Social engineering."
+      "A traditional help-desk role focused on resolving user password resets and hardware issues.",
+      "A software development methodology that ignores operational concerns to maximize feature velocity.",
+      "A pure hardware engineering discipline focused on designing more efficient server racks and cooling."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8044,9 +8044,9 @@
     "correct_answer": "A formal, machine-readable inventory of software components and dependencies, used to track supply chain security.",
     "options": [
       "A formal, machine-readable inventory of software components and dependencies, used to track supply chain security.",
-      "A receipt for buying software.",
-      "A list of software bugs.",
-      "A bill for cloud usage."
+      "A financial invoice detailing the cost of all software licenses purchased.",
+      "A list of all developers who contributed code to the project.",
+      "A marketing checklist of all the features included in the release."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8065,9 +8065,9 @@
     "correct_answer": "Automatically executing a predefined action (like restarting a service) when a specific alert or failure is detected.",
     "options": [
       "Automatically executing a predefined action (like restarting a service) when a specific alert or failure is detected.",
-      "Automatically replying to emails.",
-      "Automatically writing code.",
-      "Automatically hiring new staff."
+      "It uses AI to automatically write code fixes for bugs found during testing.",
+      "It automatically emails the developer who broke the build to tell them to fix it.",
+      "It shuts down the entire system to prevent damage whenever an error occurs."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8086,9 +8086,9 @@
     "correct_answer": "A computing environment that combines a public cloud and a private cloud (on-premises) by allowing data and applications to be shared between them.",
     "options": [
       "A computing environment that combines a public cloud and a private cloud (on-premises) by allowing data and applications to be shared between them.",
-      "A cloud that rains and snows.",
-      "A mix of Mac and PC.",
-      "Using two public clouds."
+      "A network architecture that uses both IPv4 and IPv6 protocols simultaneously for internet connectivity.",
+      "A system that runs on both Windows and Linux servers within the same physical data center.",
+      "A storage solution that combines solid-state drives (SSD) with traditional hard disk drives (HDD) for speed."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8298,9 +8298,9 @@
     "correct_answer": "To decouple large applications into small, independent services that can be developed, deployed, and scaled individually.",
     "options": [
       "To decouple large applications into small, independent services that can be developed, deployed, and scaled individually.",
-      "To make the code smaller.",
-      "To use less memory.",
-      "To reduce the number of developers."
+      "To consolidate all code into a single massive file for easier searching and editing.",
+      "To ensure that all components of the application rely on the exact same database schema.",
+      "To simplify the deployment process by having only one artifact to manage and monitor."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8319,9 +8319,9 @@
     "correct_answer": "It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result.",
     "options": [
       "It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result.",
-      "It prevents APIs from working.",
-      "It is a literal gate.",
-      "It connects to the internet."
+      "It serves as a firewall that blocks all incoming traffic unless it originates from a trusted IP address.",
+      "It is a database caching layer that stores frequently accessed records to reduce query load on the backend.",
+      "It is a dedicated server that encrypts all user passwords before they are stored in the primary database."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8340,9 +8340,9 @@
     "correct_answer": "Use a dedicated secrets manager (Vault, AWS Secrets Manager) and inject them at runtime; never commit to version control.",
     "options": [
       "Use a dedicated secrets manager (Vault, AWS Secrets Manager) and inject them at runtime; never commit to version control.",
-      "Encrypt them in a text file.",
-      "Memorize them.",
-      "Write them on a sticky note."
+      "Hardcode them in the source code but use complex variable names to hide them from search.",
+      "Store them in a shared Google Doc accessible only to the development team members.",
+      "Encrypt them locally and email the decryption keys to the operations team before deployment."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8382,9 +8382,9 @@
     "correct_answer": "A method used to profile and monitor applications, especially those built using a microservices architecture.",
     "options": [
       "A method used to profile and monitor applications, especially those built using a microservices architecture.",
-      "Drawing lines on a map.",
-      "Tracking package delivery.",
-      "Scanning hard drives."
+      "A technique for physically locating the servers in a datacenter using GPS.",
+      "A security audit that traces the IP address of hackers back to their source.",
+      "A method of backing up data to multiple hard drives in different locations."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8403,9 +8403,9 @@
     "correct_answer": "A commitment between a service provider and a client. Particular aspects of the service \u2013 quality, availability, responsibilities \u2013 are agreed between the service provider and the service user.",
     "options": [
       "A commitment between a service provider and a client. Particular aspects of the service \u2013 quality, availability, responsibilities \u2013 are agreed between the service provider and the service user.",
-      "A type of software license.",
-      "A coding standard.",
-      "A security protocol."
+      "A formal specification defining the API endpoints and data formats for a microservice.",
+      "A strict security protocol that governs how data is encrypted in transit and at rest.",
+      "A marketing document that outlining the theoretical maximum performance of a product."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8424,9 +8424,9 @@
     "correct_answer": "A specific target level for the reliability of your service (e.g., 99.9% availability). It is a measurable goal inside the SLA.",
     "options": [
       "A specific target level for the reliability of your service (e.g., 99.9% availability). It is a measurable goal inside the SLA.",
-      "A slow operation.",
-      "A marketing term.",
-      "A user complaint."
+      "A legally binding contract that specifies financial penalties if the service availability drops below 100%.",
+      "A subjective measure of user satisfaction gathered through quarterly surveys and feedback forms.",
+      "A technical document describing the architecture and design patterns used in the microservice."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8466,9 +8466,9 @@
     "correct_answer": "A tool invented by Netflix that randomly terminates instances in production to ensure that engineers implement their services to be resilient to instance failures.",
     "options": [
       "A tool invented by Netflix that randomly terminates instances in production to ensure that engineers implement their services to be resilient to instance failures.",
-      "A video game.",
-      "A virus.",
-      "A monitoring tool."
+      "A specialized fuzzer that injects random operational codes into running binaries to find overflow bugs.",
+      "A load testing script that generates unpredictable traffic spikes to stress test auto-scaling groups.",
+      "A monitoring agent that randomly polls services to check for intermittent network latency issues."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8487,9 +8487,9 @@
     "correct_answer": "A situation where software packages have incompatible dependencies on other specific versions of software packages.",
     "options": [
       "A situation where software packages have incompatible dependencies on other specific versions of software packages.",
-      "A very hot server room.",
-      "Relying too much on one person.",
-      "A security vulnerability."
+      "A situation where developers rely too much on StackOverflow for answers.",
+      "A strict manager who forces developers to work dependent on their approval.",
+      "A database schema that has too many foreign key constraints."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8550,9 +8550,9 @@
     "correct_answer": "Validating that your meaningful infrastructure code (IaC) creates the resources you expect, using tools like Terratest.",
     "options": [
       "Validating that your meaningful infrastructure code (IaC) creates the resources you expect, using tools like Terratest.",
-      "Testing the power supply.",
-      "Checking the network cables.",
-      "Testing the wifi speed."
+      "Manually logging into every server to check if the operating system is up to date.",
+      "Running stress tests on the physical hardware to ensure the CPUs do not overheat.",
+      "Checking if the office Wi-Fi is fast enough to support the development team's needs."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8777,9 +8777,9 @@
     "correct_answer": "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle.",
     "options": [
       "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle.",
-      "A software for editing videos.",
-      "A programming language.",
-      "A database management system."
+      "A specific set of software tools including Jenkins and Docker used to automate deployment pipelines.",
+      "A job title for engineers who are responsible for maintaining physical server hardware and cabling.",
+      "A strict project management methodology that replaces Agile with a linear Waterfall approach."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -8840,9 +8840,9 @@
     "correct_answer": "The process of getting feedback from operations/users back to development to improve future releases.",
     "options": [
       "The process of getting feedback from operations/users back to development to improve future releases.",
-      "A microphone echo.",
-      "A loop in code.",
-      "A failing test."
+      "A coding error where a function calls itself infinitely until it crashes.",
+      "A hardware issue where microphone audio is played back through the speakers.",
+      "A weekly meeting where managers give feedback to their subordinates."
     ],
     "metadata": {
       "estimated_minutes": 1,
@@ -9050,9 +9050,9 @@
     "correct_answer": "A product with just enough features to satisfy early customers and provide feedback for future development.",
     "options": [
       "A product with just enough features to satisfy early customers and provide feedback for future development.",
-      "Most Valuable Player.",
-      "Maximum Viable Product.",
-      "Minimum Variable Product."
+      "The most valuable player on the development team who writes the most code.",
+      "The maximum feature set that can possibly be built within the budget.",
+      "A fully polished product with no bugs, ready for mass market adoption."
     ],
     "metadata": {
       "estimated_minutes": 1,
