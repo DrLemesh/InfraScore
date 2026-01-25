@@ -2,6 +2,7 @@ import psycopg2
 import psycopg2.extras
 from flask import Flask, jsonify, render_template, request, session, redirect, url_for
 from flask_bcrypt import Bcrypt
+from flask_session import Session
 import os
 import secrets
 import json
@@ -14,9 +15,10 @@ app = Flask(__name__, template_folder=template_dir)
 
 # Configure session
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(32))
-app.config['SESSION_COOKIE_SECURE'] = False  # Set to True in production with HTTPS
-app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+Session(app)
 
 # Initialize Bcrypt
 bcrypt = Bcrypt(app)
@@ -255,7 +257,7 @@ def generate_quiz():
                 'question_text': row[1],
                 'question_type': row[2],
                 'options': row[3],
-                'correct_answer': row[4],
+                'correct_answer': parse_multi_select_answer(row[4]) if row[2] == 'multi_select' else row[4],
                 'difficulty_level': row[5],
                 'category': row[6],
                 'reference_answer': row[7],
@@ -284,6 +286,19 @@ def generate_quiz():
     except Exception as e:
         print(f"Quiz generation error: {e}")
         return jsonify({'error': 'Failed to generate quiz'}), 500
+
+def parse_multi_select_answer(answer_raw):
+    """Helper to parse multi-select answer from DB which might be JSON or CSV string."""
+    if not answer_raw:
+        return []
+    if isinstance(answer_raw, list):
+        return answer_raw
+    try:
+        # Try JSON first
+        return json.loads(answer_raw)
+    except json.JSONDecodeError:
+        # Fallback to comma-separated
+        return [x.strip() for x in answer_raw.split(',')]
 
 @app.route('/api/quiz/current-question', methods=['GET'])
 def get_current_question():
@@ -389,6 +404,23 @@ def get_quiz_results():
                 # For multi-select, compare as sets
                 if user_answer and correct_answer:
                     is_correct = set(user_answer) == set(correct_answer)
+            elif question['question_type'] == 'open_ended':
+                # AI Grading for open-ended questions
+                try:
+                    from ai_grader import evaluate_answer
+                    ai_result = evaluate_answer(
+                        question['question_text'], 
+                        user_answer or "", 
+                        question['reference_answer'] or question['correct_answer']
+                    )
+                    is_correct = ai_result['is_correct']
+                    
+                    # Store AI feedback to pass to frontend
+                    question['ai_score'] = ai_result['score']
+                    question['ai_feedback'] = ai_result['feedback']
+                except Exception as grader_err:
+                    print(f"AI grader failed: {grader_err}")
+                    is_correct = False
             else:
                 # For single answer questions
                 is_correct = user_answer == correct_answer
@@ -396,7 +428,8 @@ def get_quiz_results():
             if is_correct:
                 correct_count += 1
             
-            results_breakdown.append({
+            # Build result object
+            result_item = {
                 'question_number': i + 1,
                 'question_text': question['question_text'],
                 'user_answer': user_answer,
@@ -404,7 +437,14 @@ def get_quiz_results():
                 'is_correct': is_correct,
                 'category': question.get('category'),
                 'reference_answer': question.get('reference_answer')
-            })
+            }
+            
+            # Attach AI data if available
+            if 'ai_score' in question:
+                result_item['ai_score'] = question['ai_score']
+                result_item['ai_feedback'] = question['ai_feedback']
+            
+            results_breakdown.append(result_item)
         
         total_questions = len(questions)
         percentage = (correct_count / total_questions * 100) if total_questions > 0 else 0

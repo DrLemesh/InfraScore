@@ -77,7 +77,7 @@
                         <span class="material-symbols-outlined text-primary">terminal</span>
                     </div>
                     <div class="flex flex-col">
-                        <h1 class="text-white text-lg font-bold leading-tight tracking-wide">InfraScore</h1>
+                        <h1 class="text-white text-xl font-bold tracking-widest uppercase italic">InfraScore</h1>
                         <p class="text-[#90c6cb] text-xs font-normal">v2.4.0-stable</p>
                     </div>
                 </div>
@@ -554,12 +554,23 @@
                                         <div class="flex-1">
                                             <p class="font-semibold mb-1 text-white">Q${index + 1}: ${q.question_text}</p>
                                             <p class="text-sm text-white/60">Your answer: <span class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${formatAnswer(q.user_answer)}</span></p>
-                                            ${!isCorrect ? `<p class="text-sm text-emerald-400 mt-1">Correct answer: ${formatAnswer(q.correct_answer)}</p>` : ''}
-                                            ${q.reference_answer ? `
+                                            ${!isCorrect && q.correct_answer !== 'Open evaluation' && !q.ai_score ? `<p class="text-sm text-emerald-400 mt-1">Correct answer: ${formatAnswer(q.correct_answer)}</p>` : ''}
+                                            ${q.reference_answer && !q.ai_score ? `
                                             <div class="mt-2 pt-2 border-t border-white/5">
                                                 <p class="text-[10px] text-[#90c6cb] uppercase font-bold mb-1">Explanation</p>
                                                 <p class="text-xs text-slate-300">${q.reference_answer}</p>
                                             </div>` : ''}
+                                            
+                                            ${q.ai_feedback ? `
+                                            <div class="mt-3 p-3 rounded bg-primary/5 border border-primary/20">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span class="material-symbols-outlined text-primary text-sm">psychology</span>
+                                                    <span class="text-xs font-bold text-primary uppercase">AI Evaluation</span>
+                                                    <span class="text-xs font-bold text-white bg-white/10 px-2 rounded-full">${q.ai_score || 0}/10</span>
+                                                </div>
+                                                <p class="text-xs text-white/80 italic">"${q.ai_feedback}"</p>
+                                            </div>
+                                            ` : ''}
                                         </div>
                                     </div>
                                 </div>

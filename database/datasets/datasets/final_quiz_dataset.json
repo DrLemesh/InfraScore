@@ -3986,7 +3986,7 @@
     "type": "open_ended",
     "difficulty": 1,
     "question": "Write a basic 'Hello World' Bash script.",
-    "correct_answer": "#!/bin/bash\necho \"Hello, DevOps!\"",
+    "correct_answer": "#!/bin/bash\necho \"Hello World\"",
     "options": null,
     "metadata": {
       "estimated_minutes": 1,
