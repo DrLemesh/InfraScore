@@ -76,6 +76,16 @@ def create_tables():
             completed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
         );
     """)
+
+    # Schema Migration: Add missing columns if they don't exist
+    try:
+        cur.execute("ALTER TABLE test_results ADD COLUMN IF NOT EXISTS difficulty_level INTEGER DEFAULT 1;")
+        cur.execute("ALTER TABLE test_results ADD COLUMN IF NOT EXISTS results_data TEXT;")
+        conn.commit()
+        print("Schema migration (add columns) successful.")
+    except Exception as e:
+        conn.rollback() # Important to rollback if failed
+        print(f"Schema migration skipped/failed: {e}")
     
     conn.commit()
     cur.close()
@@ -92,6 +102,47 @@ def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('login'))
     return render_template('dashboard.html')
+
+@app.route('/exam-history')
+def exam_history_page():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template('exam-history.html')
+
+@app.route('/api/history/all', methods=['GET'])
+def get_all_history():
+    """Fetch all exam history for the user"""
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+        
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("""
+            SELECT id, score, total_questions, difficulty_level, completed_at 
+            FROM test_results 
+            WHERE user_id = %s 
+            ORDER BY completed_at DESC
+        """, (session['user_id'],))
+        rows = cur.fetchall()
+        cur.close()
+        conn.close()
+        
+        history = []
+        for r in rows:
+            history.append({
+                'id': r['id'],
+                'score': r['score'],
+                'total': r['total_questions'],
+                'difficulty': r.get('difficulty_level', 1) or 1,
+                'date': r['completed_at'].strftime('%Y-%m-%d %H:%M'),
+                'percentage': round((r['score'] / r['total_questions'] * 100), 1)
+            })
+            
+        return jsonify({'history': history})
+    except Exception as e:
+        print(f"Error fetching history: {e}")
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/signup')
 def signup_page():

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>InfraScore - Exam History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ddff2",
+                        "background-dark": "#102123",
+                        "surface-dark": "#162a2d"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(22, 42, 45, 0.6) 0%, rgba(16, 33, 35, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(144, 198, 203, 0.1);
+        }
+
+        .tech-grid-bg {
+            background-image: linear-gradient(rgba(13, 223, 242, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(13, 223, 242, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-[#102123] text-white font-display min-h-screen flex flex-col relative tech-grid-bg">
+
+    <!-- Header -->
+    <header class="border-b border-primary/20 px-6 py-4 bg-[#102123]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2 rounded bg-primary/10 border border-primary/20">
+                    <span class="material-symbols-outlined text-primary">history_edu</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-widest uppercase italic text-white">InfraScore</h1>
+                    <p class="text-xs text-primary/60">Exam Log</p>
+                </div>
+            </div>
+            <a href="/dashboard"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors text-sm font-medium text-white/80 hover:text-white">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                <span>Back to Dashboard</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 w-full max-w-7xl mx-auto p-6">
+        <div class="glass-panel rounded-xl overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Full Exam History</h2>
+                    <p class="text-white/60 text-sm">Comprehensive log of all your deployment challenges and quizzes.
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <div
+                        class="px-4 py-2 rounded bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center">
+                        <span class="text-xs text-emerald-400 uppercase tracking-wider">Total Exams</span>
+                        <span class="text-xl font-bold text-white" id="total-count">-</span>
+                    </div>
+                    <div class="px-4 py-2 rounded bg-primary/10 border border-primary/20 flex flex-col items-center">
+                        <span class="text-xs text-primary uppercase tracking-wider">Avg Score</span>
+                        <span class="text-xl font-bold text-white" id="avg-score">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-black/20 text-white/50 text-xs uppercase tracking-wider">
+                        <tr>
+                            <th class="p-4 font-medium border-b border-white/10">Date</th>
+                            <th class="p-4 font-medium border-b border-white/10">Difficulty</th>
+                            <th class="p-4 font-medium border-b border-white/10 text-center">Score</th>
+                            <th class="p-4 font-medium border-b border-white/10">Status</th>
+                            <th class="p-4 font-medium border-b border-white/10 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-list" class="divide-y divide-white/5 text-sm">
+                        <!-- Items injected here -->
+                        <tr>
+                            <td colspan="5" class="p-8 text-center text-white/40 italic">Loading history...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal"
+        class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-2xl max-h-[85vh] flex flex-col rounded-xl animate-fade-in">
+            <div class="p-4 border-b border-white/10 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-white">Exam Details</h3>
+                <button onclick="closeModal()" class="text-white/50 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto flex-1 space-y-4" id="modal-content">
+                <!-- Details injected -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadHistory);
+
+        async function loadHistory() {
+            try {
+                const response = await fetch('/api/history/all');
+                if (!response.ok) throw new Error('Failed to load history');
+                const data = await response.json();
+
+                renderTable(data.history);
+                updateStats(data.history);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('history-list').innerHTML = `
+                    <tr><td colspan="5" class="p-8 text-center text-red-400">Failed to load history data.</td></tr>
+                `;
+            }
+        }
+
+        function renderTable(history) {
+            const tbody = document.getElementById('history-list');
+            if (history.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="p-8 text-center text-white/40">No exams taken yet.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = history.map(exam => `
+                <tr class="hover:bg-white/5 transition-colors group">
+                    <td class="p-4 text-white/80">${exam.date}</td>
+                    <td class="p-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold border ${getDifficultyColor(exam.difficulty)}">
+                            Level ${exam.difficulty}
+                        </span>
+                    </td>
+                    <td class="p-4 text-center">
+                        <span class="text-base font-bold text-white">${exam.score}/${exam.total}</span>
+                        <span class="text-xs text-white/40 ml-1">(${exam.percentage}%)</span>
+                    </td>
+                    <td class="p-4">
+                         <span class="px-2 py-1 rounded-full text-xs font-medium ${exam.percentage >= 70 ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'}">
+                            ${exam.percentage >= 70 ? 'PASSED' : 'FAILED'}
+                        </span>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button onclick="viewDetails(${exam.id})" class="text-primary hover:text-white transition-colors text-sm font-medium flex items-center justify-end gap-1 ml-auto">
+                            Details <span class="material-symbols-outlined text-[16px]">visibility</span>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function getDifficultyColor(level) {
+            if (level <= 2) return 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400';
+            if (level <= 4) return 'bg-amber-500/10 border-amber-500/30 text-amber-400';
+            return 'bg-red-500/10 border-red-500/30 text-red-400';
+        }
+
+        function updateStats(history) {
+            document.getElementById('total-count').textContent = history.length;
+            const avg = history.reduce((acc, curr) => acc + curr.percentage, 0) / history.length;
+            document.getElementById('avg-score').textContent = Math.round(avg || 0) + '%';
+        }
+
+        async function viewDetails(id) {
+            // Implementation for fetching details via existing API
+            document.getElementById('detail-modal').classList.remove('hidden');
+            document.getElementById('modal-content').innerHTML = '<p class="text-center text-white/50">Loading details...</p>';
+
+            try {
+                const res = await fetch(`/api/quiz/history/${id}`);
+                const data = await res.json();
+                if (data.success) {
+                    const result = data.result;
+                    // Try to parse existing JSON result data if available, else show basic info
+                    let breakdownHtml = '';
+                    if (result.breakdown) {
+                        const breakdown = typeof result.breakdown === 'string' ? JSON.parse(result.breakdown) : result.breakdown;
+                        breakdownHtml = breakdown.map((q, i) => `
+                            <div class="p-4 rounded bg-white/5 border border-white/10 mb-2">
+                                <p class="text-sm font-bold text-white mb-1">Q${i + 1}: ${q.question_text}</p>
+                                <p class="text-xs text-white/60 mb-1">Answer: ${q.user_answer || 'None'}</p>
+                                <p class="text-xs ${q.is_correct ? 'text-emerald-400' : 'text-red-400'} font-bold">
+                                    ${q.is_correct ? 'Correct' : 'Incorrect'}
+                                </p>
+                                ${q.ai_feedback ? `<p class="mt-2 text-xs italic text-primary/80 border-t border-white/5 pt-2">AI: ${q.ai_feedback}</p>` : ''}
+                            </div>
+                         `).join('');
+                    } else {
+                        breakdownHtml = '<p class="text-white/40 italic">Detailed breakdown not available for this legacy record.</p>';
+                    }
+
+                    document.getElementById('modal-content').innerHTML = `
+                         <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="p-3 bg-white/5 rounded border border-white/10 text-center">
+                                <span class="block text-xs text-white/50">Score</span>
+                                <span class="block text-xl font-bold text-primary">${result.score}/${result.total_questions}</span>
+                            </div>
+                             <div class="p-3 bg-white/5 rounded border border-white/10 text-center">
+                                <span class="block text-xs text-white/50">Difficulty</span>
+                                <span class="block text-xl font-bold text-white">Level ${result.difficulty || '?'}</span>
+                            </div>
+                        </div>
+                        <h4 class="text-sm font-bold text-white/80 uppercase tracking-widest mb-2 border-b border-white/10 pb-1">Question Breakdown</h4>
+                        ${breakdownHtml}
+                    `;
+                }
+            } catch (e) {
+                document.getElementById('modal-content').innerHTML = '<p class="text-red-400">Error loading details.</p>';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
