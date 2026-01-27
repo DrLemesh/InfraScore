@@ -1,0 +1,32 @@
+# kubernetes/backend-chart/values.yaml
+
+image:
+  repository: drlemesh/infrascore-backend 
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80 # port inside the cluster
+
+# env variables for connecting to the DB
+env:
+  FLASK_ENV: "production"
+  DB_HOST: "infrascore-db" # Connects to the manual database chart service
+  DB_PORT: "5432"
+  DB_NAME: "quiz_project"
+  DB_USER: "admin"
+  DB_PASSWORD: "pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt"
+  SECRET_KEY: "dev_secret_key_123"
+
+# postgresql settings
+postgresql:
+  enabled: true
+  auth:
+    username: "admin"
+    password: "pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt"
+    postgresPassword: "pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt"
+    database: "quiz_project"
+  primary:
+    persistence:
+      enabled: false

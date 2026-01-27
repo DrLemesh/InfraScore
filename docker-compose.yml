@@ -45,5 +45,18 @@ services:
       - ./backend:/app/backend
       - ./frontend:/app/frontend
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: devops_quiz_frontend
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      API_URL: http://flask-app:5000
+    depends_on:
+      - flask-app
+
 volumes:
   postgres_data:
