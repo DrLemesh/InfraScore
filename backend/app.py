@@ -16,29 +16,20 @@ static_dir = os.path.join(base_dir, 'frontend', 'static')
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # Construct the URI from the same env vars used by psycopg2
-db_user = os.environ.get('DB_USER', 'admin')
-db_password = os.environ.get('DB_PASSWORD', 'password123')
-db_host = os.environ.get('DB_HOST', 'localhost')
-db_name = os.environ.get('DB_NAME', 'quiz_project')
+db_user = os.environ.get('DB_USER', 'infrascore_user')
+db_pass = os.environ.get('DB_PASSWORD') # נמשך מה-Secret שיצרת
+db_host = os.environ.get('DB_HOST', 'infrascore-db')
+db_name = os.environ.get('DB_NAME', 'infrascore_db')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', 
-    f'postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}'
+    'DATABASE_URL',
+    f'postgresql://{db_user}:{db_pass}@{db_host}:5432/{db_name}'
 )
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# יצירת אובייקט ה-Database
 db = SQLAlchemy(app)
 
-# הגדרת מחלקה (Class) שמייצגת טבלה בשם 'user' בדאטהבייס
 class User(db.Model):
-    # עמודה למספר מזהה ייחודי (Primary Key) שגדל אוטומטית
     id = db.Column(db.Integer, primary_key=True)
-    
-    # עמודה לשם משתמש - חייבת להיות ייחודית ולא ריקה
     username = db.Column(db.String(80), unique=True, nullable=False)
-    
-    # עמודה לאימייל
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     # פונקציה שעוזרת לנו להדפיס את האובייקט בצורה קריאה בלוגים

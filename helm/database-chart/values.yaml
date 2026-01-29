@@ -159,3 +159,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secrets:
+  db_password: ""

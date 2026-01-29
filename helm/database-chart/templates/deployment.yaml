@@ -19,7 +19,10 @@ spec:
             - name: POSTGRES_USER
               value: "admin"
             - name: POSTGRES_PASSWORD
-              value: "pqg3wjaLDIrrTVsC5KQ28W__YUghyNgt"
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
             - name: POSTGRES_DB
               value: "quiz_project"
           ports:
