@@ -1,27 +1,36 @@
-name: Build and Push Backend to Docker Hub # שם התהליך
+name: Build and Push to Docker Hub
 
 on:
   push:
-    branches: [ "main", "github-actions" ] # יופעל בכל push לענף הראשי
+    branches: [ "main", "github-actions" ]
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest # השרת שעליו גיטהאב יריץ את הפעולות
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # מושך את הקוד שלך לשרת הבנייה
+        uses: actions/checkout@v3 #pulls to the server
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2 # מתחבר ל-Docker Hub עם הסודות שהגדרנו
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Backend
-        uses: docker/build-push-action@v4 # בונה ודוחף את האימג'
+        uses: docker/build-push-action@v4 # builds and pushes the image
         with:
           context: .
           file: ./backend/Dockerfile
           push: True
-          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-backend:latest # שם האימג'
+          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-backend:latest # the name of the image
+      
+      ### Frontend ###
+      - name: Build and push Frontend
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-frontend:latest
