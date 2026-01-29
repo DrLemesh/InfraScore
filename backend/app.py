@@ -742,3 +742,5 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Error creating tables: {e}")
     app.run(debug=True, host='0.0.0.0')
+
+# Test comment for GitHub Actions
