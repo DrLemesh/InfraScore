@@ -2,7 +2,7 @@ name: Build and Push Backend to Docker Hub # שם התהליך
 
 on:
   push:
-    branches: [ "main" ] # יופעל בכל push לענף הראשי
+    branches: [ "github-actions" ] # יופעל בכל push לענף הראשי
 
 jobs:
   build-and-push:
