@@ -16,29 +16,20 @@ static_dir = os.path.join(base_dir, 'frontend', 'static')
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # Construct the URI from the same env vars used by psycopg2
-db_user = os.environ.get('DB_USER', 'admin')
-db_password = os.environ.get('DB_PASSWORD', 'password123')
-db_host = os.environ.get('DB_HOST', 'localhost')
-db_name = os.environ.get('DB_NAME', 'quiz_project')
+db_user = os.environ.get('DB_USER', 'infrascore_user')
+db_pass = os.environ.get('DB_PASSWORD') # נמשך מה-Secret שיצרת
+db_host = os.environ.get('DB_HOST', 'infrascore-db')
+db_name = os.environ.get('DB_NAME', 'infrascore_db')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', 
-    f'postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}'
+    'DATABASE_URL',
+    f'postgresql://{db_user}:{db_pass}@{db_host}:5432/{db_name}'
 )
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# יצירת אובייקט ה-Database
 db = SQLAlchemy(app)
 
-# הגדרת מחלקה (Class) שמייצגת טבלה בשם 'user' בדאטהבייס
 class User(db.Model):
-    # עמודה למספר מזהה ייחודי (Primary Key) שגדל אוטומטית
     id = db.Column(db.Integer, primary_key=True)
-    
-    # עמודה לשם משתמש - חייבת להיות ייחודית ולא ריקה
     username = db.Column(db.String(80), unique=True, nullable=False)
-    
-    # עמודה לאימייל
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     # פונקציה שעוזרת לנו להדפיס את האובייקט בצורה קריאה בלוגים
@@ -113,6 +104,13 @@ def create_tables():
     try:
         cur.execute("ALTER TABLE test_results ADD COLUMN IF NOT EXISTS difficulty_level INTEGER DEFAULT 1;")
         cur.execute("ALTER TABLE test_results ADD COLUMN IF NOT EXISTS results_data TEXT;")
+        
+        # User profile columns
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS fullname VARCHAR(100);")
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(50);")
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS status VARCHAR(50);")
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS experience VARCHAR(50);")
+            
         conn.commit()
         print("Schema migration (add columns) successful.")
     except Exception as e:
@@ -184,6 +182,16 @@ def signup_page():
 def login_page():
     return render_template('login.html')
 
+def get_user_by_username(username):
+    """Retrieve a user by username."""
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cur.execute("SELECT * FROM users WHERE username = %s", (username,))
+    user = cur.fetchone()
+    cur.close()
+    conn.close()
+    return user
+
 @app.route('/api/register', methods=['POST'])
 def register():
     try:
@@ -195,24 +203,45 @@ def register():
             if not data.get(field):
                 return jsonify({'error': f'Missing required field: {field}'}), 400
         
-        # Check if user already exists
-        existing_user = get_user_by_email(data['email'])
-        if existing_user:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        # Check if email checks
+        cur.execute("SELECT * FROM users WHERE email = %s", (data['email'],))
+        if cur.fetchone():
+            cur.close()
+            conn.close()
             return jsonify({'error': 'An account with this email already exists'}), 400
+
+        # Check if username exists
+        cur.execute("SELECT * FROM users WHERE username = %s", (data['username'],))
+        if cur.fetchone():
+            cur.close()
+            conn.close()
+            return jsonify({'error': 'Username is already taken'}), 400
         
         # Hash the password
         password_hash = hash_password(data['password'])
         
         # Insert user into database
-        conn = get_db_connection()
-        cur = conn.cursor()
+        cur.close() # close read cursor
+        cur = conn.cursor() # open write cursor
+        
         cur.execute(
             """
-            INSERT INTO users (username, email, password_hash, created_at)
-            VALUES (%s, %s, %s, CURRENT_TIMESTAMP)
+            INSERT INTO users (username, email, password_hash, fullname, role, status, experience, created_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, CURRENT_TIMESTAMP)
             RETURNING id
             """,
-            (data['username'], data['email'], password_hash)
+            (
+                data['username'], 
+                data['email'], 
+                password_hash,
+                data['fullname'],
+                data['role'],
+                data['status'],
+                data['experience']
+            )
         )
         user_id = cur.fetchone()[0]
         conn.commit()

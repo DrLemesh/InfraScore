@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: dpage/pgadmin4
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Environment variables for pgAdmin
+env:
+  PGADMIN_DEFAULT_EMAIL: "admin@infrascore.com" # Default, will be overridden by secrets
+  PGADMIN_DEFAULT_PASSWORD: "admin" # Default, will be overridden by secrets
+
+secrets:
+  pgadmin_email: ""
+  pgadmin_password: ""

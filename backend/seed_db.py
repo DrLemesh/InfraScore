@@ -37,9 +37,21 @@ def seed_database():
         cur.execute("TRUNCATE TABLE quiz_questions RESTART IDENTITY;")
         
         questions = []
-        json_file_path = '/app/final_quiz_dataset.json'
+        questions = []
+        # Potential paths for the dataset (Container vs Local)
+        potential_paths = [
+            '/app/final_quiz_dataset.json',
+            os.path.join(os.path.dirname(__file__), '../database/datasets/datasets/final_quiz_dataset.json'),
+            'database/datasets/datasets/final_quiz_dataset.json'
+        ]
         
-        if os.path.exists(json_file_path):
+        json_file_path = None
+        for path in potential_paths:
+            if os.path.exists(path):
+                json_file_path = path
+                break
+        
+        if json_file_path:
             print(f"Found dataset file: {json_file_path}")
             try:
                 with open(json_file_path, 'r') as f:
@@ -78,15 +90,14 @@ def seed_database():
             except Exception as json_err:
                 print(f"Error reading JSON dataset: {json_err}. Falling back to hardcoded list.")
                 # Fallback logic would go here, but for now we append nothing if failed
+            except Exception as json_err:
+                print(f"Error reading JSON dataset: {json_err}")
+                raise json_err
         else:
-            print("Dataset file not found. Using hardcoded seed data...")
-            # Hardcoded Sample questions - Comprehensive Set
-            questions = [
-                # LEVEL 1
-                { "question_text": "Which command lists all running Docker containers?", "question_type": "multiple_choice", "options": ["docker ps", "docker list", "docker run", "docker images"], "correct_answer": "docker ps", "difficulty_level": 1, "category": "Docker", "reference_answer": "docker ps lists running containers." },
-                # ... (We could keep the old list here as fallback, but for brevity I'll truncate it in this replacement to avoid huge file)
-                { "question_text": "What does CI/CD stand for?", "question_type": "multiple_choice", "options": ["Continuous Integration/Continuous Deployment", "Code Integration/Code Deployment", "Cloud Integration/Cloud Deployment"], "correct_answer": "Continuous Integration/Continuous Deployment", "difficulty_level": 1, "category": "DevOps Concepts", "reference_answer": "CI/CD = Continuous Integration and Continuous Deployment." }
-            ]
+            print("Dataset file NOT found in any of the expected paths:")
+            for p in potential_paths:
+                print(f" - {p}")
+            raise FileNotFoundError("Could not find final_quiz_dataset.json")
 
         print(f"Seeding {len(questions)} questions...")
         
