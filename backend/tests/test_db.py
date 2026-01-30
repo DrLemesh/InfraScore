@@ -5,9 +5,10 @@ from app import db, app
 def test_db_connection(client):
     """Test that the app can connect to the database."""
     try:
-        # Simple query to check connection
-        result = db.session.execute(text("SELECT 1"))
-        assert result.scalar() == 1
+        with app.app_context():
+            # Simple query to check connection
+            result = db.session.execute(text("SELECT 1"))
+            assert result.scalar() == 1
     except Exception as e:
         pytest.fail(f"Database connection failed: {e}")
 
