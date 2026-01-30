@@ -5,23 +5,66 @@ on:
     branches: [ "main", "github-actions" ] # יופעל בכל push לענף הראשי
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest # השרת שעליו גיטהאב יריץ את הפעולות
+  test-and-build:
+    runs-on: ubuntu-latest
     
+    # 1. Service Container for Database Tests
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        # Health check to ensure DB is ready before tests run
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # מושך את הקוד שלך לשרת הבנייה
+        uses: actions/checkout@v3
 
+      # 2. Set up Python for Testing
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install pytest
+
+      # 3. Run Tests
+      - name: Run Tests with Pytest
+        env:
+          # Point the app to the service container
+          DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+          FLASK_ENV: testing
+        run: |
+          cd backend
+          # Run tests and output details
+          pytest tests/ -v
+
+      # 4. Login & Build (Only if tests pass)
       - name: Login to Docker Hub
-        uses: docker/login-action@v2 # מתחבר ל-Docker Hub עם הסודות שהגדרנו
+        if: success() # Only run if previous steps passed
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Backend
-        uses: docker/build-push-action@v4 # בונה ודוחף את האימג'
+        if: success()
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./backend/Dockerfile
           push: True
-          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-backend:latest # שם האימג'
+          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-backend:latest
