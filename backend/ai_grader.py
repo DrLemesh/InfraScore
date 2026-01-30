@@ -27,7 +27,7 @@ def evaluate_answer(question_text, user_answer, reference_answer):
 
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-2.0-flash-lite-preview-02-05')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         
         prompt = f"""
         You are an expert DevOps instructor grading a student's answer.
