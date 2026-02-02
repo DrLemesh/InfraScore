@@ -2,7 +2,7 @@ name: Build and Push Backend to Docker Hub # שם התהליך
 
 on:
   push:
-    branches: [ "main", "github-actions" ] # יופעל בכל push לענף הראשי
+    branches: [ "main", "github-actions", terraform ] # יופעל בכל push לענף הראשי
 
 jobs:
   test-and-build:
@@ -53,18 +53,24 @@ jobs:
           pytest tests/ -v
 
       # 4. Login & Build (Only if tests pass)
-      - name: Login to Docker Hub
-        if: success() # Only run if previous steps passed
-        uses: docker/login-action@v2
+      # 4. Login to AWS ECR
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Build and push Backend
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and push Backend to ECR
         if: success()
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./backend/Dockerfile
-          push: True
-          tags: ${{ secrets.DOCKER_USERNAME }}/infrascore-backend:latest
+          push: true
+          tags: ${{ steps.login-ecr.outputs.registry }}/infrascore-backend:latest
+
