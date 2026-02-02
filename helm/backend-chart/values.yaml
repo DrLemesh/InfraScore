@@ -43,5 +43,21 @@ postgresql:
   primary:
     persistence:
       enabled: true
-      size: 1Gi
       storageClass: "" # database-chart default, can be overridden
+      
+# Volume Mounts for Development
+volumes:
+  - name: backend-code
+    hostPath:
+      path: /Users/lemesh/Documents/InfraScore/backend
+      type: Directory
+  - name: frontend-code
+    hostPath:
+      path: /Users/lemesh/Documents/InfraScore/frontend
+      type: Directory
+
+volumeMounts:
+  - name: backend-code
+    mountPath: /app/backend
+  - name: frontend-code
+    mountPath: /app/frontend

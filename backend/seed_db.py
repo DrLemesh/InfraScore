@@ -41,6 +41,7 @@ def seed_database():
         # Potential paths for the dataset (Container vs Local)
         potential_paths = [
             '/app/final_quiz_dataset.json',
+            os.path.join(os.path.dirname(__file__), 'final_quiz_dataset.json'),
             os.path.join(os.path.dirname(__file__), '../database/datasets/datasets/final_quiz_dataset.json'),
             'database/datasets/datasets/final_quiz_dataset.json'
         ]

@@ -6,6 +6,7 @@ from flask_session import Session
 import os
 import secrets
 import json
+from datetime import datetime, timedelta, date
 from flask_sqlalchemy import SQLAlchemy
 
 # Get absolute path to the frontend/templates directory
@@ -39,7 +40,8 @@ class User(db.Model):
 # Configure session
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(32))
 app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_PERMANENT'] = True
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
 app.config['SESSION_USE_SIGNER'] = True
 Session(app)
 
@@ -73,11 +75,54 @@ def get_user_by_email(email):
     conn.close()
     return user
 
+def update_user_activity(user_id):
+    """Update user activity date and streak."""
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        
+        cur.execute("SELECT last_activity_date, streak_count FROM users WHERE id = %s", (user_id,))
+        user = cur.fetchone()
+        
+        if not user:
+            cur.close()
+            conn.close()
+            return
+
+        today = datetime.now().date()
+        last_date = user['last_activity_date']
+        streak = user.get('streak_count') or 0
+        
+        new_streak = streak
+        
+        # Convert date object if needed (psycopg2 returns datetime.date)
+        # If last_date is None, this is first activity
+        if last_date is None:
+            new_streak = 1
+            cur.execute("UPDATE users SET last_activity_date = %s, streak_count = %s WHERE id = %s", (today, new_streak, user_id))
+            conn.commit()
+        elif last_date != today:
+            # If active yesterday, increment. Else reset.
+            if last_date == today - timedelta(days=1):
+                new_streak += 1
+            else:
+                new_streak = 1
+                
+            cur.execute("UPDATE users SET last_activity_date = %s, streak_count = %s WHERE id = %s", (today, new_streak, user_id))
+            conn.commit()
+            
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error updating activity: {e}")
+
 def create_tables():
     """Initialize the database with required tables."""
     conn = get_db_connection()
     cur = conn.cursor()
     
+
+
     # Create Users Table
     cur.execute("""
         CREATE TABLE IF NOT EXISTS users (
@@ -110,6 +155,10 @@ def create_tables():
         cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(50);")
         cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS status VARCHAR(50);")
         cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS experience VARCHAR(50);")
+        
+        # Streak columns
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS last_activity_date DATE;")
+        cur.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS streak_count INTEGER DEFAULT 0;")
             
         conn.commit()
         print("Schema migration (add columns) successful.")
@@ -130,13 +179,13 @@ def landing():
 def dashboard():
     # Check if user is logged in
     if 'user_id' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('login_page'))
     return render_template('dashboard.html')
 
 @app.route('/exam-history')
 def exam_history_page():
     if 'user_id' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('login_page'))
     return render_template('exam-history.html')
 
 @app.route('/api/history/all', methods=['GET'])
@@ -254,6 +303,9 @@ def register():
         session['username'] = data['username']
         session['fullname'] = data['fullname']
         
+        # Initialize activity
+        update_user_activity(user_id)
+        
         return jsonify({'success': True, 'message': 'Account created successfully'}), 201
         
     except Exception as e:
@@ -284,7 +336,13 @@ def login():
         # Create session
         session['user_id'] = user['id']
         session['email'] = user['email']
+        # Create session
+        session['user_id'] = user['id']
+        session['email'] = user['email']
         session['username'] = user['username']
+        
+        # Update activity
+        update_user_activity(user['id'])
         
         return jsonify({'success': True, 'message': 'Login successful'}), 200
         
@@ -300,6 +358,9 @@ def logout():
 @app.route('/api/current-user')
 def current_user():
     if 'user_id' in session:
+        # Update activity on heartbeat
+        update_user_activity(session['user_id'])
+        
         return jsonify({
             'logged_in': True,
             'user_id': session['user_id'],
@@ -312,7 +373,7 @@ def current_user():
 def quiz_menu():
     # Check if user is logged in
     if 'user_id' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('login_page'))
     return render_template('quiz-menu.html')
 
 @app.route('/quiz')
@@ -693,6 +754,12 @@ def get_dashboard_stats():
         
         # 2. Calculate stats
         total_quizzes = len(recent_results)
+        
+        # Fetch current streak
+        cur.execute("SELECT streak_count FROM users WHERE id = %s", (user_id,))
+        streak_row = cur.fetchone()
+        current_streak = streak_row['streak_count'] if streak_row and streak_row['streak_count'] else 0
+        
         if total_quizzes > 0:
             total_score_sum = sum([r['score'] for r in recent_results])
             total_max_sum = sum([r['total_questions'] for r in recent_results])
@@ -755,6 +822,7 @@ def get_dashboard_stats():
             'stats': {
                 'quizzes_taken': total_quizzes,
                 'average_score': round(average_percentage, 1),
+                'current_streak': current_streak,
                 'history': history
             },
             'analysis': analysis
