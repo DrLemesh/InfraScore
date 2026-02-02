@@ -14,31 +14,42 @@ else
     exit 1
 fi
 
+# 1.5. Ingress Controller (System)
+echo "🚦 Upgrading Ingress Controller..."
+helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+    -n infrascore --create-namespace \
+    --wait
+
+
 # 2. Database
 echo "🗄️  Upgrading Database..."
 helm upgrade --install infrascore-db ./helm/database-chart \
     -f ./helm/secrets.yaml \
+    -n infrascore --create-namespace \
     --wait
 
 # 3. Backend
 echo "⚙️  Upgrading Backend..."
 helm upgrade --install infrascore-backend ./helm/backend-chart \
     -f ./helm/secrets.yaml \
+    -n infrascore --create-namespace \
     --wait
 
 # 4. Frontend
 echo "💻 Upgrading Frontend..."
 helm upgrade --install infrascore-frontend ./helm/frontend-chart \
+    -n infrascore --create-namespace \
     --wait
 
 # 5. pgAdmin
 echo "🐘 Upgrading pgAdmin..."
 helm upgrade --install infrascore-pgadmin ./helm/pgadmin-chart \
     -f ./helm/secrets.yaml \
+    -n infrascore --create-namespace \
     --wait
 
 # 6. Ingress
 echo "🌐 Applying Ingress Configuration..."
-kubectl apply -f ./helm/ingress.yaml
+kubectl apply -f ./helm/ingress.yaml -n infrascore
 
 echo "✨ All upgrades completed successfully! Access your app at http://localhost"
