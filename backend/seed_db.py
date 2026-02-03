@@ -6,11 +6,11 @@ import json
 def seed_database():
     try:
         conn = psycopg2.connect(
-            dbname=os.environ.get('POSTGRES_DB', 'quiz_project'),
-            user=os.environ.get('POSTGRES_USER', 'admin'),
-            password=os.environ.get('POSTGRES_PASSWORD', 'password123'),
-            host=os.environ.get('POSTGRES_HOST', 'db'),
-            port=os.environ.get('POSTGRES_PORT', '5432')
+            dbname=os.environ.get('DB_NAME', os.environ.get('POSTGRES_DB', 'quiz_project')),
+            user=os.environ.get('DB_USER', os.environ.get('POSTGRES_USER', 'admin')),
+            password=os.environ.get('DB_PASSWORD', os.environ.get('POSTGRES_PASSWORD', 'password123')),
+            host=os.environ.get('DB_HOST', os.environ.get('POSTGRES_HOST', 'db')),
+            port=os.environ.get('DB_PORT', os.environ.get('POSTGRES_PORT', '5432'))
         )
         cur = conn.cursor()
         
@@ -119,18 +119,10 @@ def seed_database():
                 json.dumps(q.get('tags', []))
             ))
 
-        conn.commit()
-        print("Database seeded successfully!")
-        
-        cur.close()
-        conn.close()
+
 
         
-        conn.commit()
-        print("Database seeded successfully!")
-        
-        cur.close()
-        conn.close()
+
         
     except Exception as e:
         print(f"Error seeding database: {e}")
