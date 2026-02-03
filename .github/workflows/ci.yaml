@@ -112,32 +112,5 @@ jobs:
           docker tag dpage/pgadmin4:latest $REGISTRY/infrascore-pgadmin:latest
           docker push $REGISTRY/infrascore-pgadmin:latest
 
-  mirror-images:
-    runs-on: ubuntu-latest
-    needs: test-and-build
-    steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Mirror Database Image
-        run: |
-          docker pull postgres:15-alpine
-          REGISTRY=${{ steps.login-ecr.outputs.registry }}
-          docker tag postgres:15-alpine $REGISTRY/infrascore-db:15-alpine
-          docker push $REGISTRY/infrascore-db:15-alpine
-
-      - name: Mirror pgAdmin Image
-        run: |
-          docker pull dpage/pgadmin4:latest
-          REGISTRY=${{ steps.login-ecr.outputs.registry }}
-          docker tag dpage/pgadmin4:latest $REGISTRY/infrascore-pgadmin:latest
-          docker push $REGISTRY/infrascore-pgadmin:latest
 
