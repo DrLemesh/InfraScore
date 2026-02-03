@@ -74,3 +74,12 @@ jobs:
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/infrascore-backend:latest
 
+      - name: Build and push Frontend to ECR
+        if: success()
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: ${{ steps.login-ecr.outputs.registry }}/infrascore-frontend:latest
+
