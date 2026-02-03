@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: dpage/pgadmin4
+  repository: 941464113257.dkr.ecr.us-east-1.amazonaws.com/infrascore-pgadmin
   pullPolicy: IfNotPresent
   tag: "latest"
 
