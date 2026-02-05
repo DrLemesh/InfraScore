@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "backend-chart.fullname" . }}-db-backup
+  labels:
+    {{- include "backend-chart.labels" . | nindent 4 }}
+spec:
+  # Runs every 30 minutes
+  schedule: "*/30 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .Values.database.serviceAccountName | default "infrascore-db-sa" }}
+          containers:
+          - name: backup
+            image: postgres:15-alpine
+            env:
+            - name: BUCKET_NAME
+              value: {{ .Values.database.backupBucket | default "infrascore-db-backup-prod" }}
+            - name: DB_HOST
+              value: {{ .Values.database.host | default "infrascore-db" }}
+            - name: DB_NAME
+              value: {{ .Values.database.name | default "quiz_project" }}
+            - name: DB_USER
+              value: {{ .Values.database.user | default "admin" }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
+            command:
+            - /bin/sh
+            - -c
+            - |
+              # Install AWS CLI
+              apk add --no-cache aws-cli
+              
+              echo "Starting backup at $(date)..."
+              PGPASSWORD=$POSTGRES_PASSWORD pg_dump -h $DB_HOST -U $DB_USER $DB_NAME > backup.sql
+              
+              echo "Uploading to S3..."
+              aws s3 cp backup.sql s3://$BUCKET_NAME/latest_backup.sql
+              
+              echo "Backup complete at $(date)!"
+          restartPolicy: OnFailure
