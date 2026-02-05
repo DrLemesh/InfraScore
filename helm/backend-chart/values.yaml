@@ -61,3 +61,11 @@ volumeMounts:
     mountPath: /app/backend
   - name: frontend-code
     mountPath: /app/frontend
+
+# Database configuration for backup CronJob
+database:
+  serviceAccountName: "infrascore-db-sa"
+  backupBucket: "infrascore-db-backup-prod"
+  host: "infrascore-db"
+  name: "quiz_project"
+  user: "admin"

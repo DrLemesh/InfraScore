@@ -72,7 +72,9 @@ jobs:
           context: .
           file: ./backend/Dockerfile
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/infrascore-backend:latest
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/infrascore-backend:latest
+            ${{ steps.login-ecr.outputs.registry }}/infrascore-backend:${{ github.sha }}
 
       - name: Build and push Frontend to ECR
         if: success()
@@ -81,7 +83,9 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/infrascore-frontend:latest
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/infrascore-frontend:latest
+            ${{ steps.login-ecr.outputs.registry }}/infrascore-frontend:${{ github.sha }}
 
   mirror-images:
     runs-on: ubuntu-latest
@@ -111,6 +115,42 @@ jobs:
           REGISTRY=${{ steps.login-ecr.outputs.registry }}
           docker tag dpage/pgadmin4:latest $REGISTRY/infrascore-pgadmin:latest
           docker push $REGISTRY/infrascore-pgadmin:latest
+deploy-to-eks:
+    runs-on: ubuntu-latest
+    needs: mirror-images
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Update KubeConfig
+        run: aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+
+      - name: Deploy Database Chart
+        run: |
+          helm upgrade --install database ./helm/database-chart \
+            --set serviceAccount.roleArn=${{ secrets.S3_BACKUP_ROLE_ARN }} \
+            --set database.backupBucket=${{ secrets.S3_BUCKET_NAME }} \
+            --wait
+
+      - name: Deploy App Charts
+        run: |
+          helm upgrade --install backend ./helm/backend-chart \
+            --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-backend \
+            --set image.tag=${{ github.sha }} \
+            --wait
+          
+          helm upgrade --install frontend ./helm/frontend-chart \
+            --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-frontend \
+            --set image.tag=${{ github.sha }} \
+            --wait
 

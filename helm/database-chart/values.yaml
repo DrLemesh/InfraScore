@@ -15,7 +15,7 @@ postgresql:
   persistence:
     enabled: true
     size: 1Gi
-    storageClass: "" # standard, default, or a specific class name
+    storageClass: "gp3" # AWS General Purpose SSD v3 (faster and cheaper than gp2)
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -166,3 +166,16 @@ affinity: {}
 
 secrets:
   db_password: ""
+
+# Service Account for IRSA (IAM Roles for Service Accounts)
+serviceAccount:
+  name: "infrascore-db-sa"
+  roleArn: ""  # Set this to your IAM role ARN from Terraform output
+
+# Database Configuration
+database:
+  backupBucket: "infrascore-db-backup-prod"
+  storage:
+    size: "1Gi"
+    class: "gp3"
+
