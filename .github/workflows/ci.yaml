@@ -2,8 +2,9 @@ name: Build and Push InfraScore to AWS ECR
 
 on:
   push:
-    branches: [ "main", "github-actions", terraform ] # יופעל בכל push לענף הראשי
-
+    branches: [ "main", "github-actions", terraform, db-data-injection ] # יופעל בכל push לענף הראשי
+  pull_request:
+    branches: [ "main", "github-actions", terraform, db-data-injection ] # יופעל בכל pull request לענף הראשי
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
@@ -119,6 +120,8 @@ jobs:
   deploy-to-eks:
     runs-on: ubuntu-latest
     needs: mirror-images
+    # Only run if EKS_CLUSTER_NAME secret is set (cluster exists)
+    if: ${{ secrets.EKS_CLUSTER_NAME != '' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
