@@ -166,6 +166,7 @@ jobs:
           helm upgrade --install pgadmin ./helm/pgadmin-chart \
             --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-pgadmin \
             --set image.tag=latest \
-            --set env.PGADMIN_DEFAULT_PASSWORD=${{ secrets.PGADMIN_PASSWORD }} \
+            --set secrets.pgadmin_password=${{ secrets.PGADMIN_PASSWORD }} \
+            --set secrets.pgadmin_email=${{ secrets.PGADMIN_EMAIL }} \
             --wait
 
