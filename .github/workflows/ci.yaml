@@ -2,7 +2,7 @@ name: Build and Push InfraScore to AWS ECR
 
 on:
   push:
-    branches: [ "main", "github-actions", terraform ] # יופעל בכל push לענף הראשי
+    branches: [ "main", "github-actions", terraform, helm ] # יופעל בכל push לענף הראשי
 
 jobs:
   test-and-build:
