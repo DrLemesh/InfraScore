@@ -9,7 +9,7 @@ replicaCount: 1
 image:
   repository: drlemesh/infrascore-frontend
   # This sets the pull policy for images.
-  pullPolicy: Never # Use local image
+  pullPolicy: Always # Use local image
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
