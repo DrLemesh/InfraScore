@@ -141,6 +141,7 @@ jobs:
           helm upgrade --install database ./helm/database-chart \
             --set serviceAccount.roleArn=${{ secrets.S3_BACKUP_ROLE_ARN }} \
             --set database.backupBucket=${{ secrets.S3_BUCKET_NAME }} \
+            --set secrets.db_password=${{ secrets.DB_PASSWORD }} \
             --wait
 
       - name: Deploy App Charts
@@ -148,10 +149,19 @@ jobs:
           helm upgrade --install backend ./helm/backend-chart \
             --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-backend \
             --set image.tag=${{ github.sha }} \
+            --set secrets.gemini_api_key=${{ secrets.GEMINI_API_KEY }} \
+            --set secrets.secret_key=${{ secrets.SECRET_KEY }} \
+            --set secrets.db_password=${{ secrets.DB_PASSWORD }} \
             --wait
           
           helm upgrade --install frontend ./helm/frontend-chart \
             --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-frontend \
             --set image.tag=${{ github.sha }} \
+            --wait
+
+          helm upgrade --install pgadmin ./helm/pgadmin-chart \
+            --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-pgadmin \
+            --set image.tag=latest \
+            --set env.PGADMIN_DEFAULT_PASSWORD=${{ secrets.PGADMIN_PASSWORD }} \
             --wait
 
