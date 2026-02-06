@@ -147,16 +147,17 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes:
-  - name: code-volume
-    hostPath:
-      path: /Users/lemesh/Documents/InfraScore/frontend
-      type: Directory
+# Additional volumes on the output Deployment definition.
+volumes: []
+#   - name: code-volume
+#     hostPath:
+#       path: /Users/lemesh/Documents/InfraScore/frontend
+#       type: Directory
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-  - name: code-volume
-    mountPath: /usr/share/nginx/html
+volumeMounts: []
+#   - name: code-volume
+#     mountPath: /usr/share/nginx/html
 
 
 nodeSelector: {}

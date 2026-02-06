@@ -21,8 +21,8 @@ env:
   # SECRET_KEY: ""
 
 secrets:
-  db_password: ""
-  secret_key: ""
+  db_password: "CHANGEME" # Overridden by --set secrets.db_password
+  secret_key: "CHANGEME"   # Overridden by --set secrets.secret_key
   gemini_api_key: ""
 
 # postgresql settings
@@ -46,21 +46,22 @@ postgresql:
       storageClass: "" # database-chart default, can be overridden
       
 # Volume Mounts for Development
-volumes:
-  - name: backend-code
-    hostPath:
-      path: /Users/lemesh/Documents/InfraScore/backend
-      type: Directory
-  - name: frontend-code
-    hostPath:
-      path: /Users/lemesh/Documents/InfraScore/frontend
-      type: Directory
+# Volume Mounts for Development (DISABLED for EKS)
+volumes: []
+#   - name: backend-code
+#     hostPath:
+#       path: /Users/lemesh/Documents/InfraScore/backend
+#       type: Directory
+#   - name: frontend-code
+#     hostPath:
+#       path: /Users/lemesh/Documents/InfraScore/frontend
+#       type: Directory
 
-volumeMounts:
-  - name: backend-code
-    mountPath: /app/backend
-  - name: frontend-code
-    mountPath: /app/frontend
+volumeMounts: []
+#   - name: backend-code
+#     mountPath: /app/backend
+#   - name: frontend-code
+#     mountPath: /app/frontend
 
 # Database configuration for backup CronJob
 database:
