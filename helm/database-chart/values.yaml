@@ -8,7 +8,7 @@ replicaCount: 1
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
   repository: 941464113257.dkr.ecr.us-east-1.amazonaws.com/infrascore-db
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "15-alpine"
 
 postgresql:
