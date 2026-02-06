@@ -118,6 +118,12 @@ def seed_database():
                 q.get('estimated_minutes', 2), 
                 json.dumps(q.get('tags', []))
             ))
+        
+        conn.commit()
+        print("Database transaction committed.")
+        
+        cur.close()
+        conn.close()
 
 
 
