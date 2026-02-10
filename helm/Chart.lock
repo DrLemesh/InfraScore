@@ -1,0 +1,15 @@
+dependencies:
+- name: backend-chart
+  repository: file://./backend-chart
+  version: 0.1.0
+- name: database-chart
+  repository: file://./database-chart
+  version: 0.1.0
+- name: frontend-chart
+  repository: file://./frontend-chart
+  version: 0.1.0
+- name: pgadmin-chart
+  repository: file://./pgadmin-chart
+  version: 0.1.0
+digest: sha256:5f9374443f07418a586fcb95efadbfc1fe7bc86c269d3603b6be68ac9a616638
+generated: "2026-02-11T00:37:22.734645+02:00"

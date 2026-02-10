@@ -25,6 +25,12 @@ spec:
           
           # --- כאן הקסם קורה: טעינת המשתנים מ-values.yaml ---
           env:
+            {{- if and .Values.global .Values.global.env }}
+            {{- range $key, $value := .Values.global.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+            {{- end }}
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
               value: {{ $value | quote }}
