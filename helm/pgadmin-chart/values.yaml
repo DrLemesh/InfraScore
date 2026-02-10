@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 941464113257.dkr.ecr.us-east-1.amazonaws.com/infrascore-pgadmin
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "latest"
 
 service:

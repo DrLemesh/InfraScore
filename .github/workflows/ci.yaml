@@ -2,7 +2,7 @@ name: Build and Push InfraScore to AWS ECR
 
 on:
   push:
-    branches: [ "main", "github-actions", terraform ] # יופעל בכל push לענף הראשי
+    branches: [ "main", "github-actions", terraform, helm ] # יופעל בכל push לענף הראשי
 
 jobs:
   test-and-build:
@@ -130,6 +130,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
       - name: Update KubeConfig
         run: aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
@@ -162,6 +166,7 @@ jobs:
           helm upgrade --install pgadmin ./helm/pgadmin-chart \
             --set image.repository=${{ steps.login-ecr.outputs.registry }}/infrascore-pgadmin \
             --set image.tag=latest \
-            --set env.PGADMIN_DEFAULT_PASSWORD=${{ secrets.PGADMIN_PASSWORD }} \
+            --set secrets.pgadmin_password=${{ secrets.PGADMIN_PASSWORD }} \
+            --set secrets.pgadmin_email=${{ secrets.PGADMIN_EMAIL }} \
             --wait
 

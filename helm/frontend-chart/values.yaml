@@ -9,13 +9,13 @@ replicaCount: 1
 image:
   repository: drlemesh/infrascore-frontend
   # This sets the pull policy for images.
-  pullPolicy: Never # Use local image
+  pullPolicy: Always # Use local image
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
 # Environment variables
 env:
-  API_URL: "http://infrascore-backend-backend-chart:80"
+  API_URL: "http://backend-backend-chart:80"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -147,16 +147,17 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes:
-  - name: code-volume
-    hostPath:
-      path: /Users/lemesh/Documents/InfraScore/frontend
-      type: Directory
+# Additional volumes on the output Deployment definition.
+volumes: []
+#   - name: code-volume
+#     hostPath:
+#       path: /Users/lemesh/Documents/InfraScore/frontend
+#       type: Directory
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-  - name: code-volume
-    mountPath: /usr/share/nginx/html
+volumeMounts: []
+#   - name: code-volume
+#     mountPath: /usr/share/nginx/html
 
 
 nodeSelector: {}

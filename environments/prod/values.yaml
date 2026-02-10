@@ -1,0 +1,27 @@
+global:
+  env:
+    ENVIRONMENT: "production"
+    LOG_LEVEL: "info"
+
+backend-chart:
+  image:
+    repository: "941464113257.dkr.ecr.us-east-1.amazonaws.com/infrascore-backend"
+    tag: "latest"
+  # Ensure resources don't conflict, usually defined here overrides chart defaults
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+database-chart:
+  serviceAccount:
+    create: true
+    name: "infrascore-db-sa"
+    roleArn: "arn:aws:iam::941464113257:role/infrascore-s3-backup-role"
+  database:
+    storage:
+      size: "20Gi"
+      class: "gp3"
