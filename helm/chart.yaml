@@ -1,0 +1,19 @@
+apiVersion: v2
+name: infrascore-umbrella
+description: A main chart to group all InfraScore services
+version: 1.0.0
+type: application
+
+dependencies:
+  - name: backend-chart
+    version: 0.1.0
+    repository: "file://./backend-chart"
+  - name: database-chart
+    version: 0.1.0
+    repository: "file://./database-chart"
+  - name: frontend-chart
+    version: 0.1.0
+    repository: "file://./frontend-chart"
+  - name: pgadmin-chart
+    version: 0.1.0
+    repository: "file://./pgadmin-chart"
