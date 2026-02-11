@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "database-chart.fullname" . }}-backup
+  labels:
+    {{- include "database-chart.labels" . | nindent 4 }}
+spec:
+  schedule: "*/30 * * * *"  # Every 30 minutes
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: postgres-backup
+        spec:
+          serviceAccountName: {{ .Values.serviceAccount.name }}
+          restartPolicy: OnFailure
+          containers:
+            - name: backup
+              image: postgres:15-alpine
+              command:
+                - "/bin/sh"
+                - "-c"
+                - |
+                  set -e
+                  echo "Starting database backup at $(date)"
+                  
+                  # Set PostgreSQL password from secret
+                  export PGPASSWORD="${DB_PASSWORD}"
+                  
+                  # Create backup with pg_dump
+                  pg_dump -h {{ .Values.database.host }} \
+                          -U {{ .Values.database.user }} \
+                          -d {{ .Values.database.name }} \
+                          --no-owner \
+                          --no-acl \
+                          -F p \
+                          > /tmp/backup.sql
+                  
+                  echo "Backup created successfully. Size: $(du -h /tmp/backup.sql | cut -f1)"
+                  
+                  # Install AWS CLI
+                  apk add --no-cache aws-cli
+                  
+                  # Upload to S3
+                  aws s3 cp /tmp/backup.sql s3://{{ .Values.database.backupBucket }}/latest_backup.sql
+                  
+                  echo "Backup uploaded to S3 successfully at $(date)"
+                  
+                  # Clean up
+                  rm /tmp/backup.sql
+              env:
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ include "database-chart.fullname" . }}-secret
+                      key: db_password
